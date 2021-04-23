@@ -6,52 +6,56 @@ using TMPro;
 
 public class MainPlayerController : MonoBehaviour
 {
-  public float speed = 0;
-  private int spacebarPresses = 0;
+    public float speed = 10;
+    public float jumpingForce = 9.0f;
 
-  public Vector3 jump;
-  public float jumpingForce = 9.0f;
-
-  public bool isGrounded = true;
-  private int maxJump = 2;
-
-
-  private Rigidbody rb;
-  private float movementX;
-  private float movementY;
-  // Start is called before the first frame update
-  void Start()
-  {
+    private bool isGrounded = true;
+    private Rigidbody rb;
+    private float movementX;
+    private float movementY;
+    // Start is called before the first frame update
+    void Start()
+    {
         rb = GetComponent<Rigidbody>();
-  }
-
-  void OnMove(InputValue movementValue)
-  {
-      Vector2 movementVector = movementValue.Get<Vector2>();
-
-      movementX = movementVector.x;
-      movementY = movementVector.y;
-  }
-  void Update()
-  {
-    if(!Keyboard.current.spaceKey.wasPressedThisFrame)
-    {
-      rb.velocity = Vector3.zero;
     }
-    if(Keyboard.current.spaceKey.wasPressedThisFrame)
-    {
-      spacebarPresses++;
-      if(isGrounded || maxJump > spacebarPresses)
-      {
-          rb.AddForce(Vector3.up * jumpingForce, ForceMode.Impulse);
-          isGrounded = false;
-      }
-    }
-  }
 
-  void FixedUpdate()
-  {
-      Vector3 movement = new Vector3(movementX, 0.0f, movementY);
-      rb.AddForce(movement * speed);
-  }
+    void OnMove(InputValue movementValue)
+    {
+        Vector2 movementVector = movementValue.Get<Vector2>();
+
+        movementX = movementVector.x;
+        movementY = movementVector.y;
+    }
+
+    void Update()
+    {
+        if (Keyboard.current.spaceKey.wasPressedThisFrame)
+        {
+            Debug.Log("space");
+            if (isGrounded)
+            {
+                rb.AddForce(Vector3.up * jumpingForce, ForceMode.Impulse);
+                isGrounded = false;
+            }
+        }
+        /*else if (!isGrounded)
+		{   TODO: fix fall speed 
+            rb.AddForce(Vector3.down * jumpingForce/5, ForceMode.Impulse);
+        }*/
+        else if (!Keyboard.current.anyKey.wasPressedThisFrame)
+        {
+            rb.velocity = Vector3.zero;
+        }
+    }
+
+    void FixedUpdate()
+    {
+        Vector3 movement = new Vector3(movementX, 0.0f, movementY);
+        rb.AddForce(movement * speed);
+    }
+    void OnCollisionStay()
+    {
+        isGrounded = true;
+    }
+
 }
