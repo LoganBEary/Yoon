@@ -8,15 +8,24 @@ public class MainPlayerController : MonoBehaviour
 {
     public float speed = 10;
     public float jumpingForce = 9.0f;
+    public TextMeshProUGUI countText;
 
     private bool isGrounded = true;
     private Rigidbody rb;
     private float movementX;
     private float movementY;
+    private int CoinCount;
+
+    void SetCountText()
+	{
+            countText.text = "Yoodles: " + CoinCount.ToString();
+    }
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        CoinCount = 0;
+        SetCountText();
     }
 
     void OnMove(InputValue movementValue)
@@ -59,8 +68,8 @@ public class MainPlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Coin"))
         {
             other.gameObject.SetActive(false);
-            //count += 1;
-            //SetCountText();
+            CoinCount += 1;
+            SetCountText();
         }
     }
 
