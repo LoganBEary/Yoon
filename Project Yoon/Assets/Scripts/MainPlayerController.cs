@@ -53,6 +53,17 @@ public class MainPlayerController : MonoBehaviour
         Vector3 movement = new Vector3(movementX, 0.0f, movementY);
         rb.AddForce(movement * speed);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Coin"))
+        {
+            other.gameObject.SetActive(false);
+            //count += 1;
+            //SetCountText();
+        }
+    }
+
     void OnCollisionStay()
     {
         isGrounded = true;
