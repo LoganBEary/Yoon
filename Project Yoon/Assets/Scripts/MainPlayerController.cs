@@ -6,15 +6,23 @@ using TMPro;
 
 public class MainPlayerController : MonoBehaviour
 {
-    public float speed = 10;
-    public float jumpingForce = 9.0f;
+
     public TextMeshProUGUI countText;
 
-    private bool isGrounded = true;
+    private CharacterController controller;
+    private Vector3 playerVelocity;
+    private bool groundedPlayer;
+    //[SerializedField]
+    private float speed = 10f;
+    //[SerializedField]
+    private float jumpingHeight = 9.0f;
+   // [SerializedField]
+    private float gravityVal = -9.81f;
     private Rigidbody rb;
     private float movementX;
     private float movementY;
     private int CoinCount;
+    private InputManager inputManager;
 
     void SetCountText()
 	{
@@ -23,44 +31,38 @@ public class MainPlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        controller = GetComponent<CharacterController>();
+        inputManager = InputManager.Instance;
         CoinCount = 0;
         SetCountText();
     }
 
-    void OnMove(InputValue movementValue)
-    {
-        Vector2 movementVector = movementValue.Get<Vector2>();
-
-        movementX = movementVector.x;
-        movementY = movementVector.y;
-    }
 
     void Update()
     {
-        if (Keyboard.current.spaceKey.wasPressedThisFrame)
+        groundedPlayer = controller.isGrounded;
+        if (groundedPlayer && playerVelocity.y < 0)
         {
-            Debug.Log("space");
-            if (isGrounded)
-            {
-                rb.AddForce(Vector3.up * jumpingForce, ForceMode.Impulse);
-                isGrounded = false;
-            }
+            playerVelocity.y = 0f;
         }
-        /*else if (!isGrounded)
-		{   TODO: fix fall speed 
-            rb.AddForce(Vector3.down * jumpingForce/5, ForceMode.Impulse);
-        }*/
-        else if (!Keyboard.current.anyKey.wasPressedThisFrame)
-        {
-            rb.velocity = Vector3.zero;
-        }
-    }
 
-    void FixedUpdate()
-    {
-        Vector3 movement = new Vector3(movementX, 0.0f, movementY);
-        rb.AddForce(movement * speed);
+        Vector2 movement = inputManager.GetPlayerMovement();
+        Vector3 move = new Vector3(movement.x, 0.0f, movement.y);
+        controller.Move(move * Time.deltaTime * speed);
+
+        if (move != Vector3.zero)
+        {
+            gameObject.transform.forward = move;
+        }
+
+        // Changes the height position of the player..
+        if (inputManager.PlayerJumpedThisFrame() && groundedPlayer)
+        {
+            playerVelocity.y += Mathf.Sqrt(jumpingHeight * -3.0f * gravityVal);
+        }
+
+        playerVelocity.y += gravityVal * Time.deltaTime;
+        controller.Move(playerVelocity * Time.deltaTime);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -72,10 +74,4 @@ public class MainPlayerController : MonoBehaviour
             SetCountText();
         }
     }
-
-    void OnCollisionStay()
-    {
-        isGrounded = true;
-    }
-
 }
