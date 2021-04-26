@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2205,7 +2205,7 @@ GameObject:
   - component: {fileID: 1180106060}
   - component: {fileID: 1180106059}
   - component: {fileID: 1180106058}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Character
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3377,6 +3377,34 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8114710449003336926, guid: fb791fc68fafeb24590e6d1409029208, type: 3}
   m_PrefabInstance: {fileID: 8114710449370059174}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1612291409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1612291408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ee37d9ab46cecc4e829f579f7fd5af2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  p_layerMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  health: 0
+  damage: 0
+  attackCooldown: 0
+  sightRange: 3
+  attackRange: 0.5
+  navMeshAgent: {fileID: 1612291410}
+  roamRange: 5
+  maxTimeBetweenRoam: 5
+--- !u!195 &1612291410 stripped
+NavMeshAgent:
+  m_CorrespondingSourceObject: {fileID: 8114710449003336920, guid: fb791fc68fafeb24590e6d1409029208, type: 3}
+  m_PrefabInstance: {fileID: 8114710449370059174}
+  m_PrefabAsset: {fileID: 0}
 --- !u!136 &1612291415
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -4229,7 +4257,7 @@ GameObject:
   - component: {fileID: 2076336004}
   - component: {fileID: 2076336003}
   - component: {fileID: 2076336006}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -4654,5 +4682,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: EvilWizard
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8114710449003336923, guid: fb791fc68fafeb24590e6d1409029208, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fb791fc68fafeb24590e6d1409029208, type: 3}
