@@ -12,7 +12,7 @@ public class MainPlayerController : MonoBehaviour
     private Vector3 playerVelocity;
     private bool groundedPlayer;
     //[SerializedField]
-    private float speed = 10f;
+    public float speed = 10f;
     //[SerializedField]
     private float jumpingHeight = 9.0f;
    // [SerializedField]
