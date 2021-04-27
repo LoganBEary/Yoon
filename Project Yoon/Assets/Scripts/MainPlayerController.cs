@@ -11,11 +11,14 @@ public class MainPlayerController : MonoBehaviour
     private CharacterController controller;
     private Vector3 playerVelocity;
     private bool groundedPlayer;
-    //[SerializedField]
+    
+    [SerializeField]
     public float speed = 10f;
-    //[SerializedField]
-    private float jumpingHeight = 9.0f;
-   // [SerializedField]
+
+    [SerializeField]
+    private float jumpingHeight = 3.0f;
+
+    [SerializeField]
     private float gravityVal = -9.81f;
     public float Health = 100f;
     private Rigidbody rb;
