@@ -8,7 +8,6 @@ public class MainPlayerController : MonoBehaviour
 {
 
     public TextMeshProUGUI countText;
-
     private CharacterController controller;
     private Vector3 playerVelocity;
     private bool groundedPlayer;
@@ -18,6 +17,7 @@ public class MainPlayerController : MonoBehaviour
     private float jumpingHeight = 9.0f;
    // [SerializedField]
     private float gravityVal = -9.81f;
+    public float Health = 100f;
     private Rigidbody rb;
     private float movementX;
     private float movementY;
