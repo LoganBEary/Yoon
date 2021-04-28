@@ -15,15 +15,31 @@ public class PauseManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+    }
+
+    public void OnPause()
+    {
+        togglePause();
+    }
+
+    private void togglePause()
+    {
         if (paused)
-        {
-            Time.timeScale = 0;
-            pauseMenuUI.SetActive(true);
-        }
-        else
         {
             Time.timeScale = 1;
             pauseMenuUI.SetActive(false);
+            paused = false;
         }
+        else
+        {
+            resume();
+        }
+    }
+
+    public void resume()
+    {
+        Time.timeScale = 0;
+        pauseMenuUI.SetActive(true);
+        paused = true;
     }
 }
