@@ -19,9 +19,11 @@ public class NPC_Script : MonoBehaviour
     {
 
         // Set displayTextCanvas to active
-
+        displayTextCanvas.SetActive(true);
         yield return new WaitForSeconds(5f);
 
         // Set displayTextCanvas to inactive
+        displayTextCanvas.SetActive(false);
+        yield return new WaitForSeconds(5f);
     }
 }
