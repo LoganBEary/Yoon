@@ -58,6 +58,11 @@ public class EnemyController : MonoBehaviour
         {
             roam();
         }
+
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void resetAttack()
@@ -128,5 +133,10 @@ public class EnemyController : MonoBehaviour
                 
             }
         }
+    }
+
+    public void takeDamage(float damage)
+    {
+        health -= damage;
     }
 }
