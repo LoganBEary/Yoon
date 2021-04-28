@@ -18,6 +18,7 @@ public class EnemyController : MonoBehaviour
     public float damage;
     private bool hasAttacked;
     public float attackCooldown;
+    public Transform fireball;
 
     // Used to determine enemy action state
     [Header("Enemy Aggro Settings")]
@@ -69,8 +70,9 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    private void resetAttack()
+    private IEnumerator resetAttack()
     {
+        yield return new WaitForSeconds(attackCooldown);
         hasAttacked = false;
     }
 
@@ -80,9 +82,11 @@ public class EnemyController : MonoBehaviour
 
         if (!hasAttacked)
         {
-            player.Health -= 0.05f;
+            Transform f = Instantiate(fireball, transform.position, transform.rotation);
+            f.GetComponent<Rigidbody>().velocity = (player.transform.position - transform.position);
+            player.Health -= damage;
             hasAttacked = true;
-            Invoke("resetAttack", attackCooldown); // From unity api website: "For better performance and maintability, use Coroutines instead" 
+            StartCoroutine(resetAttack());
         }
         return;
     }
