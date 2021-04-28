@@ -26,20 +26,20 @@ public class PauseManager : MonoBehaviour
     {
         if (paused)
         {
-            Time.timeScale = 1;
-            pauseMenuUI.SetActive(false);
-            paused = false;
+            resume();
         }
         else
         {
-            resume();
+            Time.timeScale = 0;
+            pauseMenuUI.SetActive(true);
+            paused = true;
         }
     }
 
     public void resume()
     {
-        Time.timeScale = 0;
-        pauseMenuUI.SetActive(true);
-        paused = true;
+        Time.timeScale = 1;
+        pauseMenuUI.SetActive(false);
+        paused = false;
     }
 }

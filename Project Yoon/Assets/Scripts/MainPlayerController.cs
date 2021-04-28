@@ -29,6 +29,8 @@ public class MainPlayerController : MonoBehaviour
     private Transform cameraTransform;
     private EnemyController enemyClose;
 
+    public PauseManager pauseManager;
+
     void SetCountText()
 	{
             countText.text = "Yoodles: " + CoinCount.ToString();
@@ -67,6 +69,16 @@ public class MainPlayerController : MonoBehaviour
         controller.Move(playerVelocity * Time.deltaTime);
     }
 
+    public void OnFire()
+    {
+        if (!pauseManager.paused)
+        {
+            Debug.Log("Attack!");
+            Attack();
+        }
+
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Coin"))
@@ -83,5 +95,19 @@ public class MainPlayerController : MonoBehaviour
         // Not final design - Work in progress for POC
         //if(enemyClose.canAttackplayer)
         //    enemyClose.takeDamage(20f);
+
+        // Maybe have an attack cooldown so the player can only attack <X> times per second?
+        // If canAttack:
+
+        // Figure out if looking at enemey:
+        // Probably use physics raycast directly foward from player to find enemy. Similar to one of the scripts in haunted jaunt game
+
+        // If raycast found an enemy, damage the enemy:
+        // Something along these lines:
+        // enemy.getComponent<EnemyController>().takeDamage(20f);
+        
+        // Reset attack cooldown
+        // canAttack = false;
+        // StartCoroutine(resetAttack());
     }
 }

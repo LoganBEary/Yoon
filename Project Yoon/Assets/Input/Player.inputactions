@@ -758,6 +758,60 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "PauseMenu",
+            "id": "5d9f5772-6dc6-451a-bd73-38d523c944b3",
+            "actions": [
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "82b0a735-8b4b-452f-9236-82fc9f858c66",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "dba3a3fe-ef77-4993-a4d6-782aeb025c95",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "NPC",
+            "id": "e426a829-c5d6-4be2-afcd-0ea9253ee1d1",
+            "actions": [
+                {
+                    "name": "PlayerInteract",
+                    "type": "Button",
+                    "id": "43954714-222b-49e1-b652-e7a118b88b42",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "56ceded9-aaa5-400b-a96f-8a2d622edcaf",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PlayerInteract",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

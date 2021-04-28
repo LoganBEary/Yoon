@@ -1817,7 +1817,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 1b29f70dc3b51054bb9f27516d98724b, type: 3}
+  m_Actions: {fileID: -944628639613478452, guid: 53c8a757b6f6ebc419240f814091b35d, type: 3}
   m_NotificationBehavior: 0
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
@@ -1832,7 +1832,7 @@ MonoBehaviour:
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: Player
+  m_DefaultActionMap: PauseMenu
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!1001 &535229958
@@ -2332,7 +2332,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.3469388, y: 1}
+    m_SensorSize: {x: 1.3333334, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -3774,6 +3774,7 @@ MonoBehaviour:
   jumpingHeight: 3
   gravityVal: -9.81
   Health: 100
+  pauseManager: {fileID: 532801224}
 --- !u!136 &1180106059
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3827,11 +3828,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 1180106054}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cb38ad2aef8f684caed4f94d97691be, type: 3}
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameCam: {fileID: 2076336004}
-  enemy: {fileID: 1305428298}
+  m_Actions: {fileID: -944628639613478452, guid: 53c8a757b6f6ebc419240f814091b35d, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &1184215856
 GameObject:
   m_ObjectHideFlags: 0
@@ -3899,8 +3916,8 @@ MonoBehaviour:
   m_MoveRepeatDelay: 0.5
   m_MoveRepeatRate: 0.1
   m_ActionsAsset: {fileID: -944628639613478452, guid: 53c8a757b6f6ebc419240f814091b35d, type: 3}
-  m_PointAction: {fileID: -6672945254138248047, guid: 53c8a757b6f6ebc419240f814091b35d, type: 3}
-  m_MoveAction: {fileID: -4655916944153610417, guid: 53c8a757b6f6ebc419240f814091b35d, type: 3}
+  m_PointAction: {fileID: 2424484305279731441, guid: 53c8a757b6f6ebc419240f814091b35d, type: 3}
+  m_MoveAction: {fileID: 4250602491933904894, guid: 53c8a757b6f6ebc419240f814091b35d, type: 3}
   m_SubmitAction: {fileID: 3986133723995794541, guid: 53c8a757b6f6ebc419240f814091b35d, type: 3}
   m_CancelAction: {fileID: 7762250861407315122, guid: 53c8a757b6f6ebc419240f814091b35d, type: 3}
   m_LeftClickAction: {fileID: 4288899813334371788, guid: 53c8a757b6f6ebc419240f814091b35d, type: 3}
@@ -4407,17 +4424,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1305428298 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1612291409, guid: fb791fc68fafeb24590e6d1409029208, type: 3}
-  m_PrefabInstance: {fileID: 8114710449370059174}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ee37d9ab46cecc4e829f579f7fd5af2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1312243565
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5702,7 +5708,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: d7ff1235830f95947b37fccb909759c7, type: 3}
+  m_Actions: {fileID: -944628639613478452, guid: 53c8a757b6f6ebc419240f814091b35d, type: 3}
   m_NotificationBehavior: 0
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
@@ -5717,7 +5723,7 @@ MonoBehaviour:
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: Player
+  m_DefaultActionMap: e426a829-c5d6-4be2-afcd-0ea9253ee1d1
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!114 &1667963167
