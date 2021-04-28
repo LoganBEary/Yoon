@@ -26,8 +26,8 @@ public class MainPlayerController : MonoBehaviour
     private float movementY;
     private int CoinCount;
     private InputManager inputManager;
-
     private Transform cameraTransform;
+    private EnemyController enemyClose;
 
     void SetCountText()
 	{
@@ -36,6 +36,7 @@ public class MainPlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        enemyClose = GetComponent<EnemyController>();
         controller = GetComponent<CharacterController>();
         inputManager = InputManager.Instance;
         cameraTransform = Camera.main.transform;
@@ -74,5 +75,13 @@ public class MainPlayerController : MonoBehaviour
             CoinCount += 1;
             SetCountText();
         }
+    }
+
+    public void Attack()
+    {
+        //enemyClose = GetComponent<EnemyController>();
+        // Not final design - Work in progress for POC
+        //if(enemyClose.canAttackplayer)
+        //    enemyClose.takeDamage(20f);
     }
 }

@@ -13,7 +13,7 @@ public class EnemyController : MonoBehaviour
     // Attack/Damage system variables
     [Header("Combat Settings")]
     [Tooltip("Health value greater than zero")]
-    public float health;
+    public float health = 100f;
     [Tooltip("Number of hitpoints of damage the enemy will do to the player")]
     public float damage;
     private bool hasAttacked;
@@ -23,7 +23,7 @@ public class EnemyController : MonoBehaviour
     [Header("Enemy Aggro Settings")]
     public float sightRange;
     public float attackRange;
-    private bool canSeePlayer, canAttackplayer;
+    public bool canSeePlayer, canAttackplayer;
 
     // Variables used for enemy roam behavior
     [Header("Enemy Movement Settings")]
@@ -38,6 +38,8 @@ public class EnemyController : MonoBehaviour
     {
         p_transform = GameObject.Find("Character").transform;
         timeUntilNextRoam = Random.Range(0, maxTimeBetweenRoam);
+        canAttackplayer = false;
+        canSeePlayer = false;
     }
 
     // Update is called once per frame
