@@ -32,12 +32,14 @@ public class EnemyController : MonoBehaviour
     public float maxTimeBetweenRoam;
     private float m_timer, timeUntilNextRoam;
     private bool isWalking;
+    private MainPlayerController player;
 
     // Start is called before the first frame update
     void Start()
     {
         p_transform = GameObject.Find("Character").transform;
         timeUntilNextRoam = Random.Range(0, maxTimeBetweenRoam);
+        player = FindObjectOfType<MainPlayerController>();
         canAttackplayer = false;
         canSeePlayer = false;
     }
@@ -78,8 +80,7 @@ public class EnemyController : MonoBehaviour
 
         if (!hasAttacked)
         {
-            // Attack code
-
+            player.Health -= 0.05f;
             hasAttacked = true;
             Invoke("resetAttack", attackCooldown); // From unity api website: "For better performance and maintability, use Coroutines instead" 
         }
