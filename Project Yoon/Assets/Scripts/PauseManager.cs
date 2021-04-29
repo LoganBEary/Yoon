@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseManager : MonoBehaviour
 {
     public GameObject pauseMenuUI;
+    public GameObject settingsMenuUI;
     public bool paused;
     // Start is called before the first frame update
     void Start()
@@ -47,5 +49,24 @@ public class PauseManager : MonoBehaviour
         Time.timeScale = 1;
         pauseMenuUI.SetActive(false);
         paused = false;
+    }
+
+    public void gotoSettingsButton()
+    {
+        pauseMenuUI.SetActive(false);
+        settingsMenuUI.SetActive(true);
+    }
+
+    public void settingsBackButton()
+    {
+        settingsMenuUI.SetActive(false);
+        pauseMenuUI.SetActive(true);
+        
+    }
+
+    public void loadMainMenu()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(0);
     }
 }
