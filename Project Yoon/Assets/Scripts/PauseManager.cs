@@ -9,7 +9,9 @@ public class PauseManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     // Update is called once per frame
@@ -30,6 +32,8 @@ public class PauseManager : MonoBehaviour
         }
         else
         {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
             Time.timeScale = 0;
             pauseMenuUI.SetActive(true);
             paused = true;
@@ -38,6 +42,8 @@ public class PauseManager : MonoBehaviour
 
     public void resume()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         Time.timeScale = 1;
         pauseMenuUI.SetActive(false);
         paused = false;

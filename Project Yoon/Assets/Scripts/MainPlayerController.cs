@@ -29,6 +29,8 @@ public class MainPlayerController : MonoBehaviour
     private Transform cameraTransform;
     private EnemyController enemyClose;
 
+    private GameObject weapon;
+    private Animation weaponAnimation;
     public PauseManager pauseManager;
 
     void SetCountText()
@@ -38,6 +40,8 @@ public class MainPlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        weapon = GameObject.FindGameObjectWithTag("WeaponEquiped");
+        weaponAnimation = weapon.GetComponent<Animation>();
         enemyClose = GetComponent<EnemyController>();
         controller = GetComponent<CharacterController>();
         inputManager = InputManager.Instance;
@@ -49,6 +53,13 @@ public class MainPlayerController : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(Health);
+        if(Health <= 0)
+        {
+            Time.timeScale = 0;
+            Application.Quit();
+        }
+
         groundedPlayer = controller.isGrounded;
         if (groundedPlayer && playerVelocity.y < 0)
         {
@@ -91,11 +102,17 @@ public class MainPlayerController : MonoBehaviour
 
     public void Attack()
     {
-        //enemyClose = GetComponent<EnemyController>();
+        Debug.Log("In Attack");
+        enemyClose = FindObjectOfType<EnemyController>();
         // Not final design - Work in progress for POC
-        //if(enemyClose.canAttackplayer)
-        //    enemyClose.takeDamage(20f);
-
+        if(enemyClose)
+            if(enemyClose.canAttackplayer)
+            {
+                enemyClose.takeDamage(20f);
+                weaponAnimation.Play("Sword02");
+            }
+        else
+            weaponAnimation.Play("Sword02");
         // Maybe have an attack cooldown so the player can only attack <X> times per second?
         // If canAttack:
 

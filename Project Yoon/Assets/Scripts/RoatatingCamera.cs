@@ -19,6 +19,9 @@ public class RoatatingCamera : MonoBehaviour
     // Place the script in the Camera-Control group in the component menu
     [AddComponentMenu("Camera-Control/Smooth Follow")]
 
+    void Start(){
+        Cursor.lockState = CursorLockMode.Confined;
+    }
     void LateUpdate()
     {
         // Early out if we don't have a target

@@ -20,5 +20,7 @@ public class HealthBar : MonoBehaviour
     {
         CurrentHealth = Player.Health;
         TheHealthBar.fillAmount = CurrentHealth/100;
+        if(CurrentHealth <= 0)
+            Application.Quit();
     }
 }
