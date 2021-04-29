@@ -16,11 +16,9 @@ public class HealthBar : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         CurrentHealth = Player.Health;
         TheHealthBar.fillAmount = CurrentHealth/100;
-        if(CurrentHealth <= 0)
-            Application.Quit();
     }
 }

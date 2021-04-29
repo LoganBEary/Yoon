@@ -66,6 +66,7 @@ public class EnemyController : MonoBehaviour
 
         if (health <= 0)
         {
+            Debug.Log("Ded");
             Destroy(gameObject);
         }
     }

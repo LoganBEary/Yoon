@@ -6,7 +6,6 @@ using TMPro;
 
 public class MainPlayerController : MonoBehaviour
 {
-
     public TextMeshProUGUI countText;
     private CharacterController controller;
     private Vector3 playerVelocity;
@@ -28,11 +27,10 @@ public class MainPlayerController : MonoBehaviour
     private InputManager inputManager;
     private Transform cameraTransform;
     private EnemyController enemyClose;
-
     private GameObject weapon;
     private Animation weaponAnimation;
     public PauseManager pauseManager;
-
+    private EnemyHealth goblinHealth;
     void SetCountText()
 	{
             countText.text = "Yoodles: " + CoinCount.ToString();
@@ -53,7 +51,7 @@ public class MainPlayerController : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(Health);
+        //Debug.Log(Health);
         if(Health <= 0)
         {
             Time.timeScale = 0;
@@ -80,11 +78,19 @@ public class MainPlayerController : MonoBehaviour
         controller.Move(playerVelocity * Time.deltaTime);
     }
 
+    void LateUpdate()
+    {
+        if(Health <= 0)
+        {
+            Time.timeScale = 0;
+            Application.Quit();
+        }
+    }
     public void OnFire()
     {
         if (!pauseManager.paused)
         {
-            Debug.Log("Attack!");
+            //Debug.Log("Attack!");
             Attack();
         }
 
@@ -98,21 +104,24 @@ public class MainPlayerController : MonoBehaviour
             CoinCount += 1;
             SetCountText();
         }
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            Debug.Log("enemy");
+            enemyClose = other.GetComponent<EnemyController>();
+        }
     }
 
     public void Attack()
     {
-        Debug.Log("In Attack");
-        enemyClose = FindObjectOfType<EnemyController>();
+       // Debug.Log("In Attack");
         // Not final design - Work in progress for POC
-        if(enemyClose)
-            if(enemyClose.canAttackplayer)
+       if(enemyClose)
+           if(enemyClose.canAttackplayer)
             {
                 enemyClose.takeDamage(20f);
-                weaponAnimation.Play("Sword02");
             }
-        else
-            weaponAnimation.Play("Sword02");
+
+        weaponAnimation.Play("Sword02");
         // Maybe have an attack cooldown so the player can only attack <X> times per second?
         // If canAttack:
 
