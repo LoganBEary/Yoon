@@ -7,7 +7,10 @@ public class EnemyController : MonoBehaviour
 {
     [Header("References")]
     [Tooltip("Game layer in which the player resides")]
-    public LayerMask p_layerMask;
+    public LayerMask p_layerMask; // Used in physics.checkSphere as layermask to determine distance from enemy to player
+    public Transform coinPrefab; // Used to spawn a random number of coins on death
+
+    // Reference to the player gameobject's transform component
     private Transform p_transform;
 
     // Attack/Damage system variables
@@ -15,32 +18,30 @@ public class EnemyController : MonoBehaviour
     [Tooltip("Health value greater than zero")]
     public float health = 100f;
     [Tooltip("Number of hitpoints of damage the enemy will do to the player")]
-    public float damage;
     private bool hasAttacked;
     public float attackCooldown;
-    public Transform fireball;
+    public EnemyAttack attackScript;
 
     // Used to determine enemy action state
     [Header("Enemy Aggro Settings")]
-    public float sightRange;
-    public float attackRange;
+    public float sightRange; // How far away the enemy can see the player
+    public float attackRange; // How far away the enemy can inflict damage to the player
     public bool canSeePlayer, canAttackplayer;
 
     // Variables used for enemy roam behavior
     [Header("Enemy Movement Settings")]
-    public NavMeshAgent navMeshAgent;
-    public float roamRange;
-    public float maxTimeBetweenRoam;
+    public NavMeshAgent navMeshAgent; // Reference to navMeshAgent on the enemy. Used for enemies pathfinding and movement
+    public float roamRange; // How far away can the enemy roam from its current position
+    public float maxTimeBetweenRoam; // the maximum time between roams
     private float m_timer, timeUntilNextRoam;
     private bool isWalking;
-    private MainPlayerController player;
+    private Vector3 lookDirection;
 
     // Start is called before the first frame update
     void Start()
     {
         p_transform = GameObject.Find("Character").transform;
         timeUntilNextRoam = Random.Range(0, maxTimeBetweenRoam);
-        player = FindObjectOfType<MainPlayerController>();
         canAttackplayer = false;
         canSeePlayer = false;
     }
@@ -51,14 +52,17 @@ public class EnemyController : MonoBehaviour
         canSeePlayer = Physics.CheckSphere(transform.position, sightRange, p_layerMask);
         canAttackplayer = Physics.CheckSphere(transform.position, attackRange, p_layerMask);
 
+        // If enemy can see player and can attack
         if (canSeePlayer && canAttackplayer)
         {
             attack();
         }
+        // If enemy can see player but can't attack
         if (canSeePlayer && !canAttackplayer)
         {
             follow();
         }
+        // If enemy can't see player and can't attack
         if (!canSeePlayer && !canAttackplayer)
         {
             roam();
@@ -67,26 +71,49 @@ public class EnemyController : MonoBehaviour
         if (health <= 0)
         {
             Debug.Log("Ded");
+
+            // Play death animation here
+
+            // Call function to spawn random number of coins
+
+            // Destroy the enemy
             Destroy(gameObject);
         }
     }
 
+    // This coroutine is used to reset the enemies attack after 'attackCooldown' seconds
     private IEnumerator resetAttack()
     {
+        // Wait for the attackCooldown to finish
         yield return new WaitForSeconds(attackCooldown);
+
+        // Set hasAttacked to false so the enemy can attack
         hasAttacked = false;
     }
 
+    // This function makes the enemy attack the player
     private void attack()
     {
+        // Set the destination to the enemies current position so it doesnt move
         navMeshAgent.destination = transform.position;
 
+        // Make sure enemy is always looking at player so player can't attack enemy from behind, since enemy can't deal
+        // damage to the player if the player is behind the enemy
+        lookDirection.x = p_transform.position.x;
+        lookDirection.y = transform.position.y;
+        lookDirection.z = p_transform.position.z;
+        transform.LookAt(lookDirection);
+
+        // If enemy hasnt already attacked then attack
         if (!hasAttacked)
         {
-            Transform f = Instantiate(fireball, transform.position, transform.rotation);
-            f.GetComponent<Rigidbody>().velocity = (player.transform.position - transform.position);
-            player.Health -= damage;
+            // Call attackScript.attack() which is set up to call the correct attack function for each enemy
+            attackScript.attack();
+
+            // Set hasAttacked to true so the enemy doesnt attack once per frame
             hasAttacked = true;
+
+            // Start the resetAttack coroutine to make the enemy attack again after the attack cooldown
             StartCoroutine(resetAttack());
         }
         return;
@@ -145,6 +172,9 @@ public class EnemyController : MonoBehaviour
 
     public void takeDamage(float damage)
     {
+        // Play take damage animation here
+
+        // Decrement health
         health -= damage;
     }
 }

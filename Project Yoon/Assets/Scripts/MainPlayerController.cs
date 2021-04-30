@@ -54,8 +54,7 @@ public class MainPlayerController : MonoBehaviour
         //Debug.Log(Health);
         if(Health <= 0)
         {
-            Time.timeScale = 0;
-            Application.Quit();
+            pauseManager.gameOver();
         }
 
         groundedPlayer = controller.isGrounded;
@@ -82,8 +81,8 @@ public class MainPlayerController : MonoBehaviour
     {
         if(Health <= 0)
         {
-            Time.timeScale = 0;
-            Application.Quit();
+            //Time.timeScale = 0;
+            //Application.Quit();
         }
     }
     public void OnFire()
