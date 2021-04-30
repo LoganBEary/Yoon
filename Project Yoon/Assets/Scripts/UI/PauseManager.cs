@@ -8,7 +8,10 @@ public class PauseManager : MonoBehaviour
     public GameObject pauseMenuUI;
     public GameObject settingsMenuUI;
     public GameObject gameOverMenuUI;
+    public GameObject inventoryMenuUI;
+
     public bool paused;
+    public bool inInventory;
 
     private float timeScale;
     // Start is called before the first frame update
@@ -31,27 +34,66 @@ public class PauseManager : MonoBehaviour
         togglePause();
     }
 
+    private void showMouse()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
+    private void hideMouse()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
+    public void OnOpenInventory()
+    {
+        toggleInventory();
+    }
+
+    private void toggleInventory()
+    {
+        if (!paused)
+        {
+            if (inInventory)
+            {
+                hideMouse();
+                timeScale = 1;
+                inventoryMenuUI.SetActive(false);
+                inInventory = false;
+            }
+            else
+            {
+                showMouse();
+                timeScale = 0;
+                inventoryMenuUI.SetActive(true);
+                inInventory = true;
+            }
+        }
+    }
+
     private void togglePause()
     {
         Debug.Log("TOGGLEPAUSE");
-        if (paused)
+        if (!inInventory)
         {
-            resume();
-        }
-        else
-        {
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-            timeScale = 0;
-            pauseMenuUI.SetActive(true);
-            paused = true;
+            if (paused)
+            {
+                resume();
+            }
+            else
+            {
+                showMouse();
+                timeScale = 0;
+                pauseMenuUI.SetActive(true);
+                paused = true;
+            }
         }
     }
 
     public void resume()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        hideMouse();
         timeScale = 1;
         pauseMenuUI.SetActive(false);
         paused = false;
@@ -78,8 +120,7 @@ public class PauseManager : MonoBehaviour
 
     public void gameOver()
     {
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
+        showMouse();
         timeScale = 0;
         gameOverMenuUI.SetActive(true);
         paused = true;
@@ -87,8 +128,7 @@ public class PauseManager : MonoBehaviour
 
     public void reloadScene()
     {
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        hideMouse();
         timeScale = 1;
         gameOverMenuUI.SetActive(false);
         paused = false;
