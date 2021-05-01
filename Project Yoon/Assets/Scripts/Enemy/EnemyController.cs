@@ -12,6 +12,7 @@ public class EnemyController : MonoBehaviour
     public Transform coinPrefab; // Used to spawn a random number of coins on death
     public EnemyAttack attackScript;
     public Image enemyHealthBar;
+    public GameObject healthBarUI;
 
     // Reference to the player gameobject's transform component
     private Transform p_transform;
@@ -88,8 +89,19 @@ public class EnemyController : MonoBehaviour
 
     private void updateHealthBar()
     {
-        float x = Mathf.Lerp(0, 0.3f, health / maxHealth);
-        enemyHealthBar.GetComponent<RectTransform>().sizeDelta = (Vector2.right * x) + (Vector2.up * 0.05f);
+        Vector3 d = p_transform.position - transform.position;
+
+        if (d.sqrMagnitude <= (sightRange * sightRange))
+        {
+            healthBarUI.SetActive(true);
+            float x = Mathf.Lerp(0, 0.3f, health / maxHealth);
+            enemyHealthBar.GetComponent<RectTransform>().sizeDelta = (Vector2.right * x) + (Vector2.up * 0.05f);
+        }
+        else
+        {
+            healthBarUI.SetActive(false);
+        }
+
     }
 
     // This coroutine is used to reset the enemies attack after 'attackCooldown' seconds

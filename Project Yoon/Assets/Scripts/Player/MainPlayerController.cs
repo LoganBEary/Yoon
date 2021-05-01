@@ -88,7 +88,7 @@ public class MainPlayerController : MonoBehaviour
     }
     public void OnFire()
     {
-        if (!pauseManager.paused)
+        if (!pauseManager.paused && !pauseManager.inInventory)
         {
             //Debug.Log("Attack!");
             Attack();

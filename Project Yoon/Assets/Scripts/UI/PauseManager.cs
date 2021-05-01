@@ -79,7 +79,7 @@ public class PauseManager : MonoBehaviour
         {
             if (paused)
             {
-                resume();
+                resumeGame();
             }
             else
             {
@@ -91,12 +91,14 @@ public class PauseManager : MonoBehaviour
         }
     }
 
-    public void resume()
+    public void resumeGame()
     {
         hideMouse();
         timeScale = 1;
         pauseMenuUI.SetActive(false);
+        inventoryMenuUI.SetActive(false);
         paused = false;
+        inInventory = false;
     }
 
     public void gotoSettingsButton()
