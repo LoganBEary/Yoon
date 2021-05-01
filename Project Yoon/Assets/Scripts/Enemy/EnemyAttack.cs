@@ -6,7 +6,7 @@ public class EnemyAttack : MonoBehaviour
 {
     // Determines the amount of damage the enemy does to the player
     public float damage;
-
+    
     // Reference to the player's transform
     public Transform player;
 
@@ -43,7 +43,7 @@ public class EnemyAttack : MonoBehaviour
                 // Play attack animation here
 
                 // Deal damage to the player
-                player.GetComponent<MainPlayerController>().Health -= damage;
+                player.GetComponent<MainPlayerController>().takeDamage(damage);
             }
         }
     }

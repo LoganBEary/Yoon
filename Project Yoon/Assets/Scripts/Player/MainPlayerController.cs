@@ -31,6 +31,7 @@ public class MainPlayerController : MonoBehaviour
     private Animation weaponAnimation;
     public PauseManager pauseManager;
     private EnemyHealth goblinHealth;
+    public HealthBar PlayerHealthBar;
     void SetCountText()
 	{
             countText.text = "Yoodles: " + CoinCount.ToString();
@@ -134,5 +135,15 @@ public class MainPlayerController : MonoBehaviour
         // Reset attack cooldown
         // canAttack = false;
         // StartCoroutine(resetAttack());
+    }
+
+    public void takeDamage(float damage)
+    {
+        if(PlayerHealthBar.Regenerating)
+        {
+            PlayerHealthBar.StopCoroutine(PlayerHealthBar.coroutine);
+            PlayerHealthBar.Regenerating = !PlayerHealthBar.Regenerating;
+        }
+       Health -= damage;
     }
 }

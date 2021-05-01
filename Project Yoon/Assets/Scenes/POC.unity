@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028353, g: 0.22571383, b: 0.30692253, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2204,6 +2204,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 1180106058}
+  Regenerating: 0
+  regenDelay: 10
 --- !u!1 &492332409
 GameObject:
   m_ObjectHideFlags: 0
@@ -3409,7 +3411,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.8828282, y: 1}
+    m_SensorSize: {x: 2.175, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -5492,6 +5494,7 @@ MonoBehaviour:
   gravityVal: -9.81
   Health: 100
   pauseManager: {fileID: 532801224}
+  PlayerHealthBar: {fileID: 486889864}
 --- !u!136 &1180106059
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -11126,6 +11129,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 551264331}
     m_Modifications:
+    - target: {fileID: 15566572, guid: 4ca13c1412fec3e48b31c8428b91eabd, type: 3}
+      propertyPath: damage
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 15566572, guid: 4ca13c1412fec3e48b31c8428b91eabd, type: 3}
       propertyPath: player
       value: 
