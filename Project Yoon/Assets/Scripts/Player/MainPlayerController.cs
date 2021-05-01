@@ -32,6 +32,9 @@ public class MainPlayerController : MonoBehaviour
     public PauseManager pauseManager;
     private EnemyHealth goblinHealth;
     public HealthBar PlayerHealthBar;
+
+    private BreakableCrate crate;
+
     void SetCountText()
 	{
             countText.text = "Yoodles: " + CoinCount.ToString();
@@ -109,6 +112,10 @@ public class MainPlayerController : MonoBehaviour
             Debug.Log("enemy");
             enemyClose = other.GetComponent<EnemyController>();
         }
+        if (other.gameObject.tag == "BreakableObject")
+        {
+            crate = other.gameObject.GetComponent<BreakableCrate>();
+        }
     }
 
     public void Attack()
@@ -120,6 +127,13 @@ public class MainPlayerController : MonoBehaviour
             {
                 enemyClose.takeDamage(20f);
             }
+
+       // Separate takehit function for crates so that breaking them is independent of the player's damage. 
+       // This can be modified later if needed
+       if (crate)
+        {
+            crate.takeHit();
+        }
 
         weaponAnimation.Play("Sword02");
         // Maybe have an attack cooldown so the player can only attack <X> times per second?

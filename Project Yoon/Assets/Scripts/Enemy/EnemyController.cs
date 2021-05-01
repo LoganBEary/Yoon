@@ -99,16 +99,18 @@ public class EnemyController : MonoBehaviour
         // Play enemy death animation
         // wait for animation to finish
 
-        // Spawn random number of coins
+        // Determine if this enemy will drop coins
         if (Random.Range(0, 100) <= coinDropChance)
         {
-            Debug.Log("Coin Drop");
+            // Determine the number of coins to be dropped
             int numCoins = Random.Range(minCoinDrop, maxCoinDrop);
 
             for (int i = 0; i < numCoins; i++)
             {
+                // Find a random position near the enemy to drop the coin
                 Vector3 randPosition = transform.position + (Vector3.right * Random.Range(-1f, 1f)) + (Vector3.forward * Random.Range(-1f, 1f));
 
+                // Spawn the coin in the correct position
                 Instantiate(coinPrefab, randPosition, transform.rotation);
             }
         }
