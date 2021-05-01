@@ -26,6 +26,14 @@ public class EnemyController : MonoBehaviour
     private bool hasAttacked;
     public float attackCooldown;
 
+    [Header("Loot Settings")]
+    [Tooltip("The percentage chance that the enemy will drop coins upon death: (must be between 0 and 100)")]
+    public float coinDropChance;
+    [Tooltip("The minimum amount of coins that an enemy can spawn")]
+    public int minCoinDrop;
+    [Tooltip("The maximum amount of coins that an enemy can spawn")]
+    public int maxCoinDrop;
+
     // Used to determine enemy action state
     [Header("Enemy Aggro Settings")]
     public float sightRange; // How far away the enemy can see the player
@@ -48,6 +56,8 @@ public class EnemyController : MonoBehaviour
         timeUntilNextRoam = Random.Range(0, maxTimeBetweenRoam);
         canAttackplayer = false;
         canSeePlayer = false;
+
+        health = maxHealth;
     }
 
     // Update is called once per frame
@@ -76,15 +86,36 @@ public class EnemyController : MonoBehaviour
 
         if (health <= 0)
         {
-            Debug.Log("Ded");
+            //Debug.Log("Ded");
 
-            // Play death animation here
-
-            // Call function to spawn random number of coins
-
-            // Destroy the enemy
-            Destroy(gameObject);
+            // Call death behavior coroutine
+            StartCoroutine(enemyDeath());
         }
+    }
+
+    // All enemy death behavior goes in here
+    private IEnumerator enemyDeath()
+    {
+        // Play enemy death animation
+        // wait for animation to finish
+
+        // Spawn random number of coins
+        if (Random.Range(0, 100) <= coinDropChance)
+        {
+            Debug.Log("Coin Drop");
+            int numCoins = Random.Range(minCoinDrop, maxCoinDrop);
+
+            for (int i = 0; i < numCoins; i++)
+            {
+                Vector3 randPosition = transform.position + (Vector3.right * Random.Range(-1f, 1f)) + (Vector3.forward * Random.Range(-1f, 1f));
+
+                Instantiate(coinPrefab, randPosition, transform.rotation);
+            }
+        }
+
+        // Destroy enemy
+        Destroy(gameObject);
+        yield return null;
     }
 
     private void updateHealthBar()
