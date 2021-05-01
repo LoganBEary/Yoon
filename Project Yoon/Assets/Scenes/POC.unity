@@ -2675,8 +2675,8 @@ Transform:
   m_LocalPosition: {x: 2.331613, y: -2.293186, z: 3.0137954}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 15566568}
   - {fileID: 1612291414}
+  - {fileID: 15566568}
   - {fileID: 186837453}
   - {fileID: 1271583302}
   - {fileID: 560884586}
@@ -11130,9 +11130,13 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1180106056}
+    - target: {fileID: 1440212183, guid: 4ca13c1412fec3e48b31c8428b91eabd, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 2076336004}
     - target: {fileID: 6443466915731362596, guid: 4ca13c1412fec3e48b31c8428b91eabd, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6443466915731362596, guid: 4ca13c1412fec3e48b31c8428b91eabd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11177,10 +11181,6 @@ PrefabInstance:
     - target: {fileID: 6443466915731362602, guid: 4ca13c1412fec3e48b31c8428b91eabd, type: 3}
       propertyPath: m_Name
       value: TempGoblin
-      objectReference: {fileID: 0}
-    - target: {fileID: 6443466915731362602, guid: 4ca13c1412fec3e48b31c8428b91eabd, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ca13c1412fec3e48b31c8428b91eabd, type: 3}
@@ -11329,6 +11329,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 551264331}
     m_Modifications:
+    - target: {fileID: 1498165169, guid: fb791fc68fafeb24590e6d1409029208, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 2076336004}
     - target: {fileID: 1785193514, guid: fb791fc68fafeb24590e6d1409029208, type: 3}
       propertyPath: player
       value: 
@@ -11339,7 +11343,7 @@ PrefabInstance:
       objectReference: {fileID: 1180106056}
     - target: {fileID: 8114710449003336925, guid: fb791fc68fafeb24590e6d1409029208, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8114710449003336925, guid: fb791fc68fafeb24590e6d1409029208, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11384,10 +11388,6 @@ PrefabInstance:
     - target: {fileID: 8114710449003336926, guid: fb791fc68fafeb24590e6d1409029208, type: 3}
       propertyPath: m_Name
       value: EvilWizard
-      objectReference: {fileID: 0}
-    - target: {fileID: 8114710449003336926, guid: fb791fc68fafeb24590e6d1409029208, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb791fc68fafeb24590e6d1409029208, type: 3}

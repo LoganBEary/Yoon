@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class EnemyController : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class EnemyController : MonoBehaviour
     [Tooltip("Game layer in which the player resides")]
     public LayerMask p_layerMask; // Used in physics.checkSphere as layermask to determine distance from enemy to player
     public Transform coinPrefab; // Used to spawn a random number of coins on death
+    public EnemyAttack attackScript;
+    public Image enemyHealthBar;
 
     // Reference to the player gameobject's transform component
     private Transform p_transform;
@@ -16,11 +19,11 @@ public class EnemyController : MonoBehaviour
     // Attack/Damage system variables
     [Header("Combat Settings")]
     [Tooltip("Health value greater than zero")]
-    public float health = 100f;
+    public float maxHealth = 100f;
+    public float health;
     [Tooltip("Number of hitpoints of damage the enemy will do to the player")]
     private bool hasAttacked;
     public float attackCooldown;
-    public EnemyAttack attackScript;
 
     // Used to determine enemy action state
     [Header("Enemy Aggro Settings")]
@@ -68,6 +71,8 @@ public class EnemyController : MonoBehaviour
             roam();
         }
 
+        updateHealthBar();
+
         if (health <= 0)
         {
             Debug.Log("Ded");
@@ -79,6 +84,12 @@ public class EnemyController : MonoBehaviour
             // Destroy the enemy
             Destroy(gameObject);
         }
+    }
+
+    private void updateHealthBar()
+    {
+        float x = Mathf.Lerp(0, 0.3f, health / maxHealth);
+        enemyHealthBar.GetComponent<RectTransform>().sizeDelta = (Vector2.right * x) + (Vector2.up * 0.05f);
     }
 
     // This coroutine is used to reset the enemies attack after 'attackCooldown' seconds
