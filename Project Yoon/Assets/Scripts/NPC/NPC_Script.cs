@@ -9,6 +9,7 @@ public class NPC_Script : MonoBehaviour
     // Reference to the child of the NPC gameobject that displays text
     float distance;
     public GameObject displayTextCanvas;
+    public GameObject prompt;
     public GameObject player;
     public float distance_;
     private float is_interact = 0;
@@ -36,10 +37,19 @@ public class NPC_Script : MonoBehaviour
     void FixedUpdate()
     {
         distance_ = Vector3.Distance(player.transform.position, transform.position);
-        if (distance_ <= 1.5 && is_interact == 1) 
+        if(distance_ <= 1.5)
         {
-            StartCoroutine(displayText());
+            prompt.SetActive(true);
+            if(is_interact == 1)
+            {
+                prompt.SetActive(false);
+                StartCoroutine(displayText());
+            }
         }
-        is_interact = 0;
+        else
+        {
+            prompt.SetActive(false);
+            is_interact = 0;
+        }
     }
 }
