@@ -13,6 +13,7 @@ public class EnemyController : MonoBehaviour
     public EnemyAttack attackScript;
     public Image enemyHealthBar;
     public GameObject healthBarUI;
+    public Animator anim;
 
     // Reference to the player gameobject's transform component
     private Transform p_transform;
@@ -89,6 +90,8 @@ public class EnemyController : MonoBehaviour
             //Debug.Log("Ded");
 
             // Call death behavior coroutine
+            navMeshAgent.speed = 0;
+            attackScript.damage = 0;
             StartCoroutine(enemyDeath());
         }
     }
@@ -97,6 +100,9 @@ public class EnemyController : MonoBehaviour
     private IEnumerator enemyDeath()
     {
         // Play enemy death animation
+        anim.SetBool("Death", true);
+        yield return new WaitForSeconds(0.8f);
+
         // wait for animation to finish
 
         // Determine if this enemy will drop coins
@@ -108,7 +114,7 @@ public class EnemyController : MonoBehaviour
             for (int i = 0; i < numCoins; i++)
             {
                 // Find a random position near the enemy to drop the coin
-                Vector3 randPosition = transform.position + (Vector3.right * Random.Range(-1f, 1f)) + (Vector3.forward * Random.Range(-1f, 1f));
+                Vector3 randPosition = transform.position + (Vector3.right * Random.Range(-.5f, .5f)) + (Vector3.forward * Random.Range(-.5f, .5f));
 
                 // Spawn the coin in the correct position
                 Instantiate(coinPrefab, randPosition, transform.rotation);

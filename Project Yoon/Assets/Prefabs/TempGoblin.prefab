@@ -265,6 +265,7 @@ GameObject:
   - component: {fileID: 15566567}
   - component: {fileID: 15566570}
   - component: {fileID: 15566572}
+  - component: {fileID: 1250862373}
   m_Layer: 0
   m_Name: TempGoblin
   m_TagString: Enemy
@@ -394,6 +395,7 @@ MonoBehaviour:
   attackScript: {fileID: 15566572}
   enemyHealthBar: {fileID: 117908137}
   healthBarUI: {fileID: 1440212179}
+  anim: {fileID: 1250862373}
   maxHealth: 100
   health: 100
   attackCooldown: 1
@@ -423,3 +425,22 @@ MonoBehaviour:
   player: {fileID: 0}
   projectile: {fileID: 0}
   attackType: 1
+--- !u!95 &1250862373
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6443466915731362602}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0eee27efb6c776b41b971285ef4b9045, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
