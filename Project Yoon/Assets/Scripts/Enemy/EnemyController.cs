@@ -34,6 +34,7 @@ public class EnemyController : MonoBehaviour
     public int minCoinDrop;
     [Tooltip("The maximum amount of coins that an enemy can spawn")]
     public int maxCoinDrop;
+    public float experience;
 
     // Used to determine enemy action state
     [Header("Enemy Aggro Settings")]
@@ -83,6 +84,15 @@ public class EnemyController : MonoBehaviour
             roam();
         }
 
+        if (navMeshAgent.velocity.sqrMagnitude > 0)
+        {
+            anim.SetBool("Walking", true);
+        }
+        else
+        {
+            anim.SetBool("Walking", false);
+        }
+
         updateHealthBar();
 
         if (health <= 0)
@@ -120,6 +130,9 @@ public class EnemyController : MonoBehaviour
                 Instantiate(coinPrefab, randPosition, transform.rotation);
             }
         }
+
+        // Give the player experience
+        // Maybe something like: player.giveEXP(experience);
 
         // Destroy enemy
         Destroy(gameObject);
