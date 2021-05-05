@@ -53,7 +53,7 @@ public class BreakableCrate : MonoBehaviour
             for (int i = 0; i < numCoins; i++)
             {
                 // Find a random position near the crate to spawn the coin
-                Vector3 randPosition = transform.position + (Vector3.right * Random.Range(-.5f, .5f)) + (Vector3.forward * Random.Range(-.5f, .5f));
+                Vector3 randPosition = transform.position + (Vector3.right * Random.Range(-.1f, .1f)) + (Vector3.forward * Random.Range(-.1f, .1f));
 
                 // Spawn the coin
                 Instantiate(coinPrefab, randPosition, transform.rotation);

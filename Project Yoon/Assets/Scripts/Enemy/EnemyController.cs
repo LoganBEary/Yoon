@@ -84,7 +84,7 @@ public class EnemyController : MonoBehaviour
             roam();
         }
 
-        if (navMeshAgent.velocity.sqrMagnitude > 0)
+        if (navMeshAgent.velocity.sqrMagnitude >= 0.1f)
         {
             anim.SetBool("Walking", true);
         }
@@ -102,6 +102,7 @@ public class EnemyController : MonoBehaviour
             // Call death behavior coroutine
             navMeshAgent.speed = 0;
             attackScript.damage = 0;
+            healthBarUI.SetActive(false);
             StartCoroutine(enemyDeath());
         }
     }
@@ -110,8 +111,9 @@ public class EnemyController : MonoBehaviour
     private IEnumerator enemyDeath()
     {
         // Play enemy death animation
-        anim.SetBool("Death", true);
-        yield return new WaitForSeconds(0.8f);
+        anim.SetTrigger("Death");
+        // Let the animation play exactly once
+        yield return new WaitForSeconds(1f);
 
         // wait for animation to finish
 
