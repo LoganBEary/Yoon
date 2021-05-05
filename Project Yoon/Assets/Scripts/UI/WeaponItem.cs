@@ -9,6 +9,6 @@ public class WeaponItem : Item
     public override void use()
     {
         // If the item was clicked on, equip it by calling the inventory.swap function
-        Inventory.instance.swap(this);
+        Inventory.inventoryInstance.swap(this);
     }
 }

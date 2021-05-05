@@ -13,12 +13,29 @@ public class Inventory : MonoBehaviour
     public GameObject inventoryPanel;
 
     // Static inventory instance so any other script can reference the inventory instance
-    public static Inventory instance;
+    public static Inventory inventoryInstance;
+
+    /* This code will be used to maintain inventory singleton throughout scene changes. For now it is not
+     * needed since the only working scene that uses inventory is the POC
+
+    private void Awake()
+    {
+        if (pauseManagerInstance == null)
+        {
+            DontDestroyOnLoad(gameObject);
+            pauseManagerInstance = this;
+        }
+        else if (pauseManagerInstance != this)
+        {
+            Destroy(gameObject);
+        }
+    }
+    */
 
     private void Start()
     {
         // set instance to this inventory
-        instance = this;
+        inventoryInstance = this;
         // Update the inventory slots
         updatePanelSlots();
     }

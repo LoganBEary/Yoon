@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class PauseManager : MonoBehaviour
 {
+    // Follows singleton pattern. Only 1 instance of the pause manager throughout the entire game
+    // public static PauseManager pauseManagerInstance;
+
     public GameObject pauseMenuUI;
     public GameObject settingsMenuUI;
     public GameObject gameOverMenuUI;
@@ -14,7 +17,24 @@ public class PauseManager : MonoBehaviour
     public bool inInventory;
 
     private float timeScale;
-    // Start is called before the first frame update
+    
+    /* This code will be used to maintain pauseManager singleton throughout scene changes. For now it is not
+     * needed since the only working scene that uses pause manager is the POC
+
+    private void Awake()
+    {
+        if (pauseManagerInstance == null)
+        {
+            DontDestroyOnLoad(gameObject);
+            pauseManagerInstance = this;
+        }
+        else if (pauseManagerInstance != this)
+        {
+            Destroy(gameObject);
+        }
+    }
+    */
+
     void Start()
     {
         Cursor.lockState = CursorLockMode.Confined;
