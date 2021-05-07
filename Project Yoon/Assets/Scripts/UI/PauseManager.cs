@@ -208,4 +208,11 @@ public class PauseManager : MonoBehaviour
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
+    // ==================================================== Change Scene Functions ======================================================
+
+    public void gotoScene(string scene)
+    {
+        SceneManager.LoadScene(scene);
+    }
 }
