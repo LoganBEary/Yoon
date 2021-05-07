@@ -15,6 +15,9 @@ public class PauseManager : MonoBehaviour
 
     public bool paused;
     public bool inInventory;
+    public bool inSettings;
+
+    public bool crosshairOn;
 
     private float timeScale;
     
@@ -42,6 +45,7 @@ public class PauseManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         timeScale = 1;
+        crosshairOn = true;
     }
 
     // Update is called once per frame
@@ -50,11 +54,7 @@ public class PauseManager : MonoBehaviour
         Time.timeScale = timeScale;
     }
 
-    public void OnPause()
-    {
-        togglePause();
-    }
-
+    // ==================================================== Helper Functions ======================================================
     private void showMouse()
     {
         Cursor.lockState = CursorLockMode.None;
@@ -69,13 +69,97 @@ public class PauseManager : MonoBehaviour
 
     private void hideCrosshairs()
     {
-        crosshairs.SetActive(false);
+        if (crosshairOn)
+        {
+            crosshairs.SetActive(false);
+        }
     }
 
     private void showCrosshairs()
     {
-        crosshairs.SetActive(true);
+        if (crosshairOn)
+        {
+            crosshairs.SetActive(true);
+        }
     }
+
+    // ==================================================== Pause Menu Functions ======================================================
+
+    public void OnPause()
+    {
+        togglePause();
+    }
+
+    private void togglePause()
+    {
+        Debug.Log("TOGGLEPAUSE");
+        if (!inInventory && !inSettings)
+        {
+            if (paused)
+            {
+                resumeGame();
+                //showCrosshairs();
+            }
+            else
+            {
+                showMouse();
+                hideCrosshairs();
+                timeScale = 0;
+                pauseMenuUI.SetActive(true);
+                paused = true;
+            }
+        }
+    }
+
+    public void resumeGame()
+    {
+        hideMouse();
+        timeScale = 1;
+        pauseMenuUI.SetActive(false);
+        inventoryMenuUI.SetActive(false);
+        paused = false;
+        inInventory = false;
+        showCrosshairs();
+    }
+
+    public void loadMainMenu()
+    {
+        timeScale = 1;
+        SceneManager.LoadScene(0);
+    }
+
+    // ==================================================== Settings Menu Functions ======================================================
+    public void gotoSettingsButton()
+    {
+        pauseMenuUI.SetActive(false);
+        settingsMenuUI.SetActive(true);
+        inSettings = true;
+    }
+
+    public void settingsBackButton()
+    {
+        settingsMenuUI.SetActive(false);
+        pauseMenuUI.SetActive(true);
+        inSettings = false;
+        
+    }
+
+    public void toggleCrosshairButton(bool value)
+    {
+        //
+        Debug.Log(value);
+        if (value)
+        {
+            crosshairOn = true;
+        }
+        else
+        {
+            crosshairOn = false;
+            crosshairs.SetActive(false);
+        }
+    }
+
+    // ==================================================== Inventory Menu Functions ======================================================
 
     public void OnOpenInventory()
     {
@@ -105,56 +189,8 @@ public class PauseManager : MonoBehaviour
         }
     }
 
-    private void togglePause()
-    {
-        Debug.Log("TOGGLEPAUSE");
-        if (!inInventory)
-        {
-            if (paused)
-            {
-                resumeGame();
-                showCrosshairs();
-            }
-            else
-            {
-                showMouse();
-                hideCrosshairs();
-                timeScale = 0;
-                pauseMenuUI.SetActive(true);
-                paused = true;
-            }
-        }
-    }
 
-    public void resumeGame()
-    {
-        hideMouse();
-        timeScale = 1;
-        pauseMenuUI.SetActive(false);
-        inventoryMenuUI.SetActive(false);
-        paused = false;
-        inInventory = false;
-    }
-
-    public void gotoSettingsButton()
-    {
-        pauseMenuUI.SetActive(false);
-        settingsMenuUI.SetActive(true);
-    }
-
-    public void settingsBackButton()
-    {
-        settingsMenuUI.SetActive(false);
-        pauseMenuUI.SetActive(true);
-        
-    }
-
-    public void loadMainMenu()
-    {
-        timeScale = 1;
-        SceneManager.LoadScene(0);
-    }
-
+    // ==================================================== Game Over Menu Functions ======================================================
     public void gameOver()
     {
         showMouse();

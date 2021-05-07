@@ -210,7 +210,7 @@ public class EnemyController : MonoBehaviour
         float z = Random.Range(-roamRange, roamRange);
 
         // Create new destination vector
-        Vector3 dest = (Vector3.right * x) + (Vector3.forward * z);
+        Vector3 dest = (Vector3.right * x) + (Vector3.forward * z) + transform.position;
 
         // Assign walking to true
         isWalking = true;
