@@ -7,7 +7,7 @@ public class PauseManager : MonoBehaviour
 {
     // Follows singleton pattern. Only 1 instance of the pause manager throughout the entire game
     // public static PauseManager pauseManagerInstance;
-
+    private GameObject crosshairs;
     public GameObject pauseMenuUI;
     public GameObject settingsMenuUI;
     public GameObject gameOverMenuUI;
@@ -37,6 +37,7 @@ public class PauseManager : MonoBehaviour
 
     void Start()
     {
+        crosshairs = GameObject.FindGameObjectWithTag("CrossHairs");
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -66,6 +67,16 @@ public class PauseManager : MonoBehaviour
         Cursor.visible = false;
     }
 
+    private void hideCrosshairs()
+    {
+        crosshairs.SetActive(false);
+    }
+
+    private void showCrosshairs()
+    {
+        crosshairs.SetActive(true);
+    }
+
     public void OnOpenInventory()
     {
         toggleInventory();
@@ -78,6 +89,7 @@ public class PauseManager : MonoBehaviour
             if (inInventory)
             {
                 hideMouse();
+                showCrosshairs();
                 timeScale = 1;
                 inventoryMenuUI.SetActive(false);
                 inInventory = false;
@@ -85,6 +97,7 @@ public class PauseManager : MonoBehaviour
             else
             {
                 showMouse();
+                hideCrosshairs();
                 timeScale = 0;
                 inventoryMenuUI.SetActive(true);
                 inInventory = true;
@@ -100,10 +113,12 @@ public class PauseManager : MonoBehaviour
             if (paused)
             {
                 resumeGame();
+                showCrosshairs();
             }
             else
             {
                 showMouse();
+                hideCrosshairs();
                 timeScale = 0;
                 pauseMenuUI.SetActive(true);
                 paused = true;
