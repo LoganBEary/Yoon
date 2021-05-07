@@ -23,7 +23,7 @@ public class MainPlayerController : MonoBehaviour
     private Rigidbody rb;
     private float movementX;
     private float movementY;
-    private int CoinCount;
+    public int CoinCount;
     private InputManager inputManager;
     private Transform cameraTransform;
     private EnemyController enemyClose;
@@ -48,7 +48,8 @@ public class MainPlayerController : MonoBehaviour
         controller = GetComponent<CharacterController>();
         inputManager = InputManager.Instance;
         cameraTransform = Camera.main.transform;
-        CoinCount = 0;
+        Health = GameManager.gameManager.health;
+        CoinCount = GameManager.gameManager.yoodles;
         SetCountText();
     }
 

@@ -20,6 +20,7 @@ public class PauseManager : MonoBehaviour
     public bool crosshairOn;
 
     private float timeScale;
+    public MainPlayerController player;
     
     /* This code will be used to maintain pauseManager singleton throughout scene changes. For now it is not
      * needed since the only working scene that uses pause manager is the POC
@@ -213,6 +214,8 @@ public class PauseManager : MonoBehaviour
 
     public void gotoScene(string scene)
     {
+        GameManager.gameManager.updateInfo(player.Health, player.CoinCount, Inventory.inventoryInstance.list);
+        GameManager.gameManager.SaveState();
         SceneManager.LoadScene(scene);
     }
 }

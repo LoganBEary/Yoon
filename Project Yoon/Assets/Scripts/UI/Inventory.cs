@@ -37,6 +37,10 @@ public class Inventory : MonoBehaviour
         // set instance to this inventory
         inventoryInstance = this;
         // Update the inventory slots
+        if (GameManager.gameManager.itemList != null)
+        {
+            list = GameManager.gameManager.itemList;
+        }
         updatePanelSlots();
     }
 
