@@ -11,7 +11,10 @@ public class BreakableCrate : MonoBehaviour
     private int numHits;
 
     // Percentage chance that the crate will drop coins when broken
-    private float coinDropChance = 40;
+    public float coinDropChance = 40;
+
+    public int minCoins;
+    public int maxCoins;
 
     // Reference to the coin prefab
     public Transform coinPrefab;
@@ -48,7 +51,7 @@ public class BreakableCrate : MonoBehaviour
         if (Random.Range(0, 100) <= coinDropChance)
         {
             // Determine the number of coins to be spawned
-            int numCoins = Random.Range(1, 3);
+            int numCoins = Random.Range(minCoins, maxCoins);
 
             for (int i = 0; i < numCoins; i++)
             {
