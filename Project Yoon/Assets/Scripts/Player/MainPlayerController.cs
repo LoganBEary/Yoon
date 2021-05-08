@@ -48,7 +48,7 @@ public class MainPlayerController : MonoBehaviour
         controller = GetComponent<CharacterController>();
         inputManager = InputManager.Instance;
         cameraTransform = Camera.main.transform;
-        Health = GameManager.gameManager.health;
+        Health = GameManager.gameManager.curHealth;
         CoinCount = GameManager.gameManager.yoodles;
         SetCountText();
     }

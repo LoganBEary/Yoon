@@ -6,9 +6,10 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager gameManager;
 
-    public float health;
+    public float curHealth;
     public int yoodles;
     public List<Item> itemList = new List<Item>();
+    public List<float> statsList = new List<float>(); // [MaxHealth, damage, defense, magic]
 
     private void Awake()
     {
@@ -25,20 +26,23 @@ public class GameManager : MonoBehaviour
 
     public void Start()
     {
-        health = GameManager.gameManager.health;
+        curHealth = GameManager.gameManager.curHealth;
+        statsList = GameManager.gameManager.statsList;
         yoodles = GameManager.gameManager.yoodles;
     }
 
-    public void updateInfo(float h, int y, List<Item> i)
+    public void updateInfo(float h, int y, List<Item> i, List<float> s)
     {
-        health = h;
+        curHealth = h;
+        statsList = s;
         yoodles = y;
         itemList = i;
     }
 
     public void SaveState()
     {
-        GameManager.gameManager.health = health;
+        GameManager.gameManager.curHealth = curHealth;
+        GameManager.gameManager.statsList = statsList;
         GameManager.gameManager.yoodles = yoodles;
         GameManager.gameManager.itemList = itemList;
     }

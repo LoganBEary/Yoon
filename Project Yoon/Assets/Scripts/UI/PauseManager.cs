@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class PauseManager : MonoBehaviour
 {
-    // Follows singleton pattern. Only 1 instance of the pause manager throughout the entire game
-    // public static PauseManager pauseManagerInstance;
     private GameObject crosshairs;
     public GameObject pauseMenuUI;
     public GameObject settingsMenuUI;
@@ -21,23 +20,24 @@ public class PauseManager : MonoBehaviour
 
     private float timeScale;
     public MainPlayerController player;
-    
-    /* This code will be used to maintain pauseManager singleton throughout scene changes. For now it is not
-     * needed since the only working scene that uses pause manager is the POC
+
+    public List<TextMeshProUGUI> statsList;
+    public List<float> statVals;
 
     private void Awake()
     {
-        if (pauseManagerInstance == null)
+        if (GameManager.gameManager != null)
         {
-            DontDestroyOnLoad(gameObject);
-            pauseManagerInstance = this;
-        }
-        else if (pauseManagerInstance != this)
-        {
-            Destroy(gameObject);
+            statVals = GameManager.gameManager.statsList;
+
+            int count = statVals.Count;
+
+            for (int i = 0; i < count; i++)
+            {
+                statsList[i].text = statVals[i].ToString();
+            }
         }
     }
-    */
 
     void Start()
     {
@@ -47,6 +47,7 @@ public class PauseManager : MonoBehaviour
         Cursor.visible = false;
         timeScale = 1;
         crosshairOn = true;
+        // updateStat(2, 1200);
     }
 
     // Update is called once per frame
@@ -147,8 +148,7 @@ public class PauseManager : MonoBehaviour
 
     public void toggleCrosshairButton(bool value)
     {
-        //
-        Debug.Log(value);
+        // Debug.Log(value);
         if (value)
         {
             crosshairOn = true;
@@ -190,6 +190,25 @@ public class PauseManager : MonoBehaviour
         }
     }
 
+    // Updates the stat at the specified index with the new value
+    // EX: health is at index 0 -> updateStat(0, 120)
+    public void updateStat(int index, float value)
+    {
+        // Make sure we are accessing a valid stat/index
+        if (index < statsList.Count)
+        {
+            // Update the text of that stat with the new value
+            statsList[index].text = value.ToString();
+        }
+    }
+
+    public void plusButton(int index)
+    {
+        float val = statVals[index] + 1;
+        updateStat(index, val);
+        statVals[index] = val;
+    }
+
 
     // ==================================================== Game Over Menu Functions ======================================================
     public void gameOver()
@@ -214,7 +233,7 @@ public class PauseManager : MonoBehaviour
 
     public void gotoScene(string scene)
     {
-        GameManager.gameManager.updateInfo(player.Health, player.CoinCount, Inventory.inventoryInstance.list);
+        GameManager.gameManager.updateInfo(player.Health, player.CoinCount, Inventory.inventoryInstance.list, statVals);
         GameManager.gameManager.SaveState();
         SceneManager.LoadScene(scene);
     }
