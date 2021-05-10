@@ -11,6 +11,9 @@ public class GameManager : MonoBehaviour
     public List<Item> itemList = new List<Item>();
     public List<float> statsList = new List<float>(); // [MaxHealth, damage, defense, magic]
 
+    public string previousScene;
+    public string currentScene;
+
     private void Awake()
     {
         if (gameManager == null)
@@ -31,12 +34,14 @@ public class GameManager : MonoBehaviour
         yoodles = GameManager.gameManager.yoodles;
     }
 
-    public void updateInfo(float h, int y, List<Item> i, List<float> s)
+    public void updateInfo(float h, int y, List<Item> i, List<float> s, string curScene, string newScene)
     {
         curHealth = h;
         statsList = s;
         yoodles = y;
         itemList = i;
+        previousScene = curScene;
+        currentScene = newScene;
     }
 
     public void SaveState()
@@ -45,5 +50,7 @@ public class GameManager : MonoBehaviour
         GameManager.gameManager.statsList = statsList;
         GameManager.gameManager.yoodles = yoodles;
         GameManager.gameManager.itemList = itemList;
+        GameManager.gameManager.currentScene = currentScene;
+        GameManager.gameManager.previousScene = previousScene;
     }
 }

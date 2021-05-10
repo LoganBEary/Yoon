@@ -233,7 +233,8 @@ public class PauseManager : MonoBehaviour
 
     public void gotoScene(string scene)
     {
-        GameManager.gameManager.updateInfo(player.Health, player.CoinCount, Inventory.inventoryInstance.list, statVals);
+        string curScene = SceneManager.GetActiveScene().name;
+        GameManager.gameManager.updateInfo(player.Health, player.CoinCount, Inventory.inventoryInstance.list, statVals, curScene, scene);
         GameManager.gameManager.SaveState();
         SceneManager.LoadScene(scene);
     }
