@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028353, g: 0.22571383, b: 0.30692253, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4194,6 +4194,7 @@ GameObject:
   - component: {fileID: 382066279}
   - component: {fileID: 382066278}
   - component: {fileID: 382066277}
+  - component: {fileID: 382066280}
   m_Layer: 0
   m_Name: ToLevelTwo
   m_TagString: Untagged
@@ -4223,7 +4224,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 382066275}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -4277,6 +4278,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 382066275}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &382066280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 382066275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64be8cb6d3fb512469a1a848efd9e35a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scene: SecondLevel
+  pmanager: {fileID: 1879600019}
 --- !u!1001 &391470599
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8149,6 +8164,7 @@ GameObject:
   - component: {fileID: 971235601}
   - component: {fileID: 971235600}
   - component: {fileID: 971235599}
+  - component: {fileID: 971235603}
   m_Layer: 0
   m_Name: ToTown
   m_TagString: Untagged
@@ -8164,7 +8180,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 971235598}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -8232,6 +8248,20 @@ Transform:
   m_Father: {fileID: 1195402058}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &971235603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 971235598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64be8cb6d3fb512469a1a848efd9e35a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scene: Town
+  pmanager: {fileID: 1879600019}
 --- !u!1 &973010509
 GameObject:
   m_ObjectHideFlags: 3
@@ -13669,12 +13699,12 @@ Transform:
   - {fileID: 984685707}
   - {fileID: 1705027884}
   - {fileID: 268778892}
+  - {fileID: 1507753882}
   - {fileID: 183630562}
   - {fileID: 15776477}
-  - {fileID: 1507753882}
   - {fileID: 620704168}
-  - {fileID: 1865938741}
   - {fileID: 1969287502}
+  - {fileID: 1865938741}
   - {fileID: 1923643421}
   - {fileID: 211113148}
   - {fileID: 600235000}
