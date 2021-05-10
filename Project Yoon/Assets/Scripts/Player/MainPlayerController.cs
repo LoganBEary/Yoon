@@ -28,6 +28,8 @@ public class MainPlayerController : MonoBehaviour
     private Transform cameraTransform;
     private EnemyController enemyClose;
     private GameObject weapon;
+
+    public AudioSource weaponSound;
     private Animation weaponAnimation;
     public PauseManager pauseManager;
     private EnemyHealth goblinHealth;
@@ -123,6 +125,8 @@ public class MainPlayerController : MonoBehaviour
     {
        // Debug.Log("In Attack");
         // Not final design - Work in progress for POC
+       weaponAnimation.Play("Sword02");
+       weaponSound.Play();
        if(enemyClose)
            if(enemyClose.canAttackplayer)
             {
@@ -135,8 +139,6 @@ public class MainPlayerController : MonoBehaviour
         {
             crate.takeHit();
         }
-
-        weaponAnimation.Play("Sword02");
         // Maybe have an attack cooldown so the player can only attack <X> times per second?
         // If canAttack:
 
