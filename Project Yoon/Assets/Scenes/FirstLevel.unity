@@ -1548,7 +1548,8 @@ PrefabInstance:
       propertyPath: m_Animations.Array.data[0]
       value: 
       objectReference: {fileID: 7400000, guid: e1116c01c9198204d9950dd742aecda4, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -2296213510098594146, guid: 17bc343ea46b0854e94c8a7d199ca8dc, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 17bc343ea46b0854e94c8a7d199ca8dc, type: 3}
 --- !u!1 &126029303
 GameObject:
@@ -10627,7 +10628,7 @@ AudioSource:
   m_GameObject: {fileID: 1216197041}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: f977a69f730a86f479654fd87ba9460b, type: 2}
   m_audioClip: {fileID: 8300000, guid: 9e50b5155e523e2408739280f615cfbf, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -11843,13 +11844,25 @@ MonoBehaviour:
   m_FillRect: {fileID: 159988894}
   m_HandleRect: {fileID: 206934519}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: -60
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1879600022}
+        m_TargetAssemblyTypeName: SettingsScript, Assembly-CSharp
+        m_MethodName: setVolume
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &1358113214
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15222,6 +15235,7 @@ GameObject:
   - component: {fileID: 1879600019}
   - component: {fileID: 1879600021}
   - component: {fileID: 1879600020}
+  - component: {fileID: 1879600022}
   m_Layer: 5
   m_Name: Pause Manager
   m_TagString: Untagged
@@ -15328,6 +15342,20 @@ MonoBehaviour:
   m_DefaultActionMap: PauseMenu
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &1879600022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1879600017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc63b99a966de0c42b5dc7b1e89ef0b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicMixer: {fileID: 24100000, guid: f977a69f730a86f479654fd87ba9460b, type: 2}
+  soundMixer: {fileID: 24100000, guid: 03f3786c675bb024c9b5b077d18272fc, type: 2}
 --- !u!1001 &1904393890
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16338,7 +16366,7 @@ AudioSource:
   m_GameObject: {fileID: 2044637274}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 03f3786c675bb024c9b5b077d18272fc, type: 2}
   m_audioClip: {fileID: 8300000, guid: fb1377303a615214ba2b5c6ea3d366f6, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -16632,13 +16660,25 @@ MonoBehaviour:
   m_FillRect: {fileID: 1287150671}
   m_HandleRect: {fileID: 1395616399}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: -60
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1879600022}
+        m_TargetAssemblyTypeName: SettingsScript, Assembly-CSharp
+        m_MethodName: setSound
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2070202898
 GameObject:
   m_ObjectHideFlags: 0

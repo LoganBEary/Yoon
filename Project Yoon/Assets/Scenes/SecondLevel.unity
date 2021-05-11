@@ -206,13 +206,25 @@ MonoBehaviour:
   m_FillRect: {fileID: 2072892117}
   m_HandleRect: {fileID: 601698004}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: -60
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 532801227}
+        m_TargetAssemblyTypeName: SettingsScript, Assembly-CSharp
+        m_MethodName: setSound
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &15566568 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6443466915731362596, guid: 4ca13c1412fec3e48b31c8428b91eabd, type: 3}
@@ -3129,7 +3141,7 @@ AudioSource:
   m_GameObject: {fileID: 342400760}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: f977a69f730a86f479654fd87ba9460b, type: 2}
   m_audioClip: {fileID: 8300000, guid: 829316feb7d1c2e4b9989a2ebe4a71ec, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -4705,6 +4717,7 @@ GameObject:
   - component: {fileID: 532801224}
   - component: {fileID: 532801225}
   - component: {fileID: 532801226}
+  - component: {fileID: 532801227}
   m_Layer: 5
   m_Name: Pause Manager
   m_TagString: Untagged
@@ -4811,6 +4824,20 @@ MonoBehaviour:
   list: []
   player: {fileID: 1180106054}
   inventoryPanel: {fileID: 290036790}
+--- !u!114 &532801227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 532801222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc63b99a966de0c42b5dc7b1e89ef0b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicMixer: {fileID: 24100000, guid: f977a69f730a86f479654fd87ba9460b, type: 2}
+  soundMixer: {fileID: 24100000, guid: 03f3786c675bb024c9b5b077d18272fc, type: 2}
 --- !u!1001 &535229958
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5688,13 +5715,25 @@ MonoBehaviour:
   m_FillRect: {fileID: 139395828}
   m_HandleRect: {fileID: 1528865945}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: -60
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 532801227}
+        m_TargetAssemblyTypeName: SettingsScript, Assembly-CSharp
+        m_MethodName: setVolume
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &622096360
 GameObject:
   m_ObjectHideFlags: 0
@@ -6216,6 +6255,11 @@ PrefabInstance:
 --- !u!1 &690404226 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3876894946268953695, guid: 17bc343ea46b0854e94c8a7d199ca8dc, type: 3}
+  m_PrefabInstance: {fileID: 4948824106121978035}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &690404227 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: -2296213510098594146, guid: 17bc343ea46b0854e94c8a7d199ca8dc, type: 3}
   m_PrefabInstance: {fileID: 4948824106121978035}
   m_PrefabAsset: {fileID: 0}
 --- !u!135 &690404231
@@ -11281,7 +11325,7 @@ MonoBehaviour:
   gravityVal: -9.81
   Health: 100
   CoinCount: 0
-  weaponSound: {fileID: 342400761}
+  weaponSound: {fileID: 690404227}
   pauseManager: {fileID: 532801224}
   PlayerHealthBar: {fileID: 486889864}
 --- !u!136 &1180106059
@@ -19526,6 +19570,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2076336005}
     m_Modifications:
+    - target: {fileID: -2296213510098594146, guid: 17bc343ea46b0854e94c8a7d199ca8dc, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: 03f3786c675bb024c9b5b077d18272fc, type: 2}
     - target: {fileID: 258436571752615500, guid: 17bc343ea46b0854e94c8a7d199ca8dc, type: 3}
       propertyPath: m_RootOrder
       value: 0

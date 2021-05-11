@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028353, g: 0.22571383, b: 0.30692253, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5099,6 +5099,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1332117110}
     m_Modifications:
+    - target: {fileID: -2296213510098594146, guid: 17bc343ea46b0854e94c8a7d199ca8dc, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -2296213510098594146, guid: 17bc343ea46b0854e94c8a7d199ca8dc, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 258436571752615500, guid: 17bc343ea46b0854e94c8a7d199ca8dc, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -5179,7 +5187,8 @@ PrefabInstance:
       propertyPath: m_Animations.Array.data[0]
       value: 
       objectReference: {fileID: 7400000, guid: e1116c01c9198204d9950dd742aecda4, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -2296213510098594146, guid: 17bc343ea46b0854e94c8a7d199ca8dc, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 17bc343ea46b0854e94c8a7d199ca8dc, type: 3}
 --- !u!4 &532838684 stripped
 Transform:
@@ -5213,7 +5222,7 @@ AudioSource:
   m_GameObject: {fileID: 532838685}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 03f3786c675bb024c9b5b077d18272fc, type: 2}
   m_audioClip: {fileID: 8300000, guid: fb1377303a615214ba2b5c6ea3d366f6, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -10151,13 +10160,25 @@ MonoBehaviour:
   m_FillRect: {fileID: 1169140731}
   m_HandleRect: {fileID: 190391982}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: -80
+  m_MaxValue: -10
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1975479053}
+        m_TargetAssemblyTypeName: SettingsScript, Assembly-CSharp
+        m_MethodName: setSound
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1212320416
 GameObject:
   m_ObjectHideFlags: 0
@@ -13379,7 +13400,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1595375944
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13407,7 +13428,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1595375943}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -15825,6 +15846,7 @@ GameObject:
   - component: {fileID: 1975479052}
   - component: {fileID: 1975479051}
   - component: {fileID: 1975479050}
+  - component: {fileID: 1975479053}
   m_Layer: 5
   m_Name: SettingsMenu
   m_TagString: Untagged
@@ -15899,6 +15921,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1975479053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1975479049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc63b99a966de0c42b5dc7b1e89ef0b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicMixer: {fileID: 24100000, guid: f977a69f730a86f479654fd87ba9460b, type: 2}
+  soundMixer: {fileID: 24100000, guid: 03f3786c675bb024c9b5b077d18272fc, type: 2}
 --- !u!1 &1996569379
 GameObject:
   m_ObjectHideFlags: 0
@@ -17241,7 +17277,7 @@ AudioSource:
   m_GameObject: {fileID: 2117589377}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: f977a69f730a86f479654fd87ba9460b, type: 2}
   m_audioClip: {fileID: 8300000, guid: 9e50b5155e523e2408739280f615cfbf, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -17547,10 +17583,22 @@ MonoBehaviour:
   m_FillRect: {fileID: 663609447}
   m_HandleRect: {fileID: 114025469}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: -80
   m_MaxValue: 1
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1975479053}
+        m_TargetAssemblyTypeName: SettingsScript, Assembly-CSharp
+        m_MethodName: setVolume
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
