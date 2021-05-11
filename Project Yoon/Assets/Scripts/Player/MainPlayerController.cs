@@ -102,13 +102,18 @@ public class MainPlayerController : MonoBehaviour
 
     }
 
+    public void addYoodles(int yoodles)
+    {
+        CoinCount += yoodles;
+        SetCountText();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Coin"))
         {
             other.gameObject.SetActive(false);
-            CoinCount += 1;
-            SetCountText();
+            addYoodles(1);
         }
         if (other.gameObject.CompareTag("Enemy"))
         {

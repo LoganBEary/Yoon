@@ -51,6 +51,8 @@ public class EnemyController : MonoBehaviour
     private bool isWalking;
     private Vector3 lookDirection;
 
+    private bool dead;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -60,6 +62,7 @@ public class EnemyController : MonoBehaviour
         canSeePlayer = false;
 
         health = maxHealth;
+        dead = true;
     }
 
     // Update is called once per frame
@@ -134,7 +137,12 @@ public class EnemyController : MonoBehaviour
         }
 
         // Give the player experience
-        // Maybe something like: player.giveEXP(experience);
+        if (gameObject.layer == 11 && dead)
+        {
+            dead = false;
+            gameObject.GetComponent<EnemyQuest>().onDeath();
+            Destroy(gameObject);
+        }
 
         // Destroy enemy
         Destroy(gameObject);

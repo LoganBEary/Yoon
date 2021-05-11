@@ -11,6 +11,7 @@ public class PauseManager : MonoBehaviour
     public GameObject settingsMenuUI;
     public GameObject gameOverMenuUI;
     public GameObject inventoryMenuUI;
+    public GameObject questCompletedMenuUI;
 
     public bool paused;
     public bool inInventory;
@@ -237,5 +238,36 @@ public class PauseManager : MonoBehaviour
         GameManager.gameManager.updateInfo(player.Health, player.CoinCount, Inventory.inventoryInstance.list, statVals, curScene, scene);
         GameManager.gameManager.SaveState();
         SceneManager.LoadScene(scene);
+    }
+
+    // ==================================================== Quest Menu Functions ======================================================
+
+    public void CompletedQuest(int coins, float xp)
+    {
+        // Update coins display and xp display in inventory
+        player.addYoodles(coins);
+
+        TextMeshProUGUI yoodlesText = questCompletedMenuUI.transform.GetChild(2).GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI xpText = questCompletedMenuUI.transform.GetChild(3).GetComponent<TextMeshProUGUI>();
+
+        Debug.Log(yoodlesText);
+        Debug.Log(xpText);
+
+        yoodlesText.text = "+ " + coins.ToString() + " Yoodles";
+        xpText.text = "+ " + xp.ToString() + " XP";
+
+
+        // Display the Completed Text UI
+        StartCoroutine(displayCompletedQuest());
+        return;
+    }
+
+    public IEnumerator displayCompletedQuest()
+    {
+        hideCrosshairs();
+        questCompletedMenuUI.SetActive(true);
+        yield return new WaitForSeconds(2.5f);
+        questCompletedMenuUI.SetActive(false);
+        showCrosshairs();
     }
 }

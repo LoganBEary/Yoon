@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using ObserverPattern;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class GameManager : MonoBehaviour
     public string previousScene;
     public string currentScene;
 
+    Subject firstQuestSubject = new Subject();
+
     private void Awake()
     {
         if (gameManager == null)
@@ -25,6 +28,13 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        // Observers for quest 1
+        UI_Observer quest1_UIObserver = new UI_Observer(new UIQuestBehavior(200, 500));
+
+        // Add observers to the first quest subject
+        firstQuestSubject.AddObserver(quest1_UIObserver);
+
     }
 
     public void Start()
@@ -52,5 +62,13 @@ public class GameManager : MonoBehaviour
         GameManager.gameManager.itemList = itemList;
         GameManager.gameManager.currentScene = currentScene;
         GameManager.gameManager.previousScene = previousScene;
+    }
+
+    public void notifyEvent(string m_event)
+    {
+        if (m_event == "Quest1")
+        {
+            firstQuestSubject.Notify();
+        }
     }
 }
