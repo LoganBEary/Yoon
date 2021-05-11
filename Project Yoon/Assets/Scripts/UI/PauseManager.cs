@@ -12,9 +12,11 @@ public class PauseManager : MonoBehaviour
     public GameObject gameOverMenuUI;
     public GameObject inventoryMenuUI;
     public GameObject questCompletedMenuUI;
+    public GameObject shopMenuUI;
 
     public bool paused;
     public bool inInventory;
+    public bool inShop;
     public bool inSettings;
 
     public bool crosshairOn;
@@ -96,7 +98,7 @@ public class PauseManager : MonoBehaviour
     private void togglePause()
     {
         Debug.Log("TOGGLEPAUSE");
-        if (!inInventory && !inSettings)
+        if (!inInventory && !inShop && !inSettings)
         {
             if (paused)
             {
@@ -122,6 +124,7 @@ public class PauseManager : MonoBehaviour
         inventoryMenuUI.SetActive(false);
         paused = false;
         inInventory = false;
+        inShop = false;
         showCrosshairs();
     }
 
@@ -228,6 +231,35 @@ public class PauseManager : MonoBehaviour
         paused = false;
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    // ==================================================== Shop Menu Functions ======================================================
+    public void OpenShop()
+    {
+        toggleShop();
+    }
+
+    private void toggleShop()
+    {
+        if (!paused)
+        {
+            if (inShop)
+            {
+                hideMouse();
+                showCrosshairs();
+                timeScale = 1;
+                shopMenuUI.SetActive(false);
+                inShop = false;
+            }
+            else
+            {
+                showMouse();
+                hideCrosshairs();
+                timeScale = 0;
+                shopMenuUI.SetActive(true);
+                inShop = true;
+            }
+        }
     }
 
     // ==================================================== Change Scene Functions ======================================================
