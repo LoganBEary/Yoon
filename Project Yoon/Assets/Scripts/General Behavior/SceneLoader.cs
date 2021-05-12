@@ -13,21 +13,21 @@ public class SceneLoader : MonoBehaviour
     {
         if (GameManager.gameManager != null)
         {
-            Debug.Log("Loading scene");
             loadCurrentScene(GameManager.gameManager.currentScene, GameManager.gameManager.previousScene);
         }
     }
 
     public void loadCurrentScene(string curScene, string prevScene)
     {
-        Debug.Log("LoadCurrentscene function");
         CharacterController cc = player.GetComponent<CharacterController>();
         cc.enabled = false;
         if (curScene == "Town")
         {
-            Vector3 pos = SpawnPoints[0].transform.position;
-            Debug.Log("Loading town scene: This is where player should be teleported" + "  " + pos);
-            player.transform.SetPositionAndRotation(SpawnPoints[0].transform.position, SpawnPoints[0].transform.rotation);
+            if (prevScene != null)
+            {
+                Vector3 pos = SpawnPoints[0].transform.position;
+                player.transform.SetPositionAndRotation(SpawnPoints[0].transform.position, SpawnPoints[0].transform.rotation);
+            }
         }
         else if (curScene == "FirstLevel")
         {

@@ -13,7 +13,10 @@ public class NPC_Merchant : MonoBehaviour
 
     public void OnPlayerInteract()
     {
-        is_interact = 1;
+        if (!pauseManager.inShop)
+        {
+            is_interact = 1;
+        }
     }
 
     private void FixedUpdate()
@@ -28,6 +31,7 @@ public class NPC_Merchant : MonoBehaviour
             if (is_interact == 1)
             {
                 pauseManager.OpenShop();
+                is_interact = 0;
             }
         }
     }

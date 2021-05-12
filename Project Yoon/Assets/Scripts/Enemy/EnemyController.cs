@@ -34,7 +34,7 @@ public class EnemyController : MonoBehaviour
     public int minCoinDrop;
     [Tooltip("The maximum amount of coins that an enemy can spawn")]
     public int maxCoinDrop;
-    public float experience;
+    public int experience;
 
     // Used to determine enemy action state
     [Header("Enemy Aggro Settings")]
@@ -137,11 +137,15 @@ public class EnemyController : MonoBehaviour
         }
 
         // Give the player experience
-        if (gameObject.layer == 11 && dead)
+        if (dead)
         {
+            GameManager.gameManager.xp(experience);
+            if (gameObject.layer == 11)
+            {
+                gameObject.GetComponent<EnemyQuest>().onDeath();
+                Destroy(gameObject);
+            }
             dead = false;
-            gameObject.GetComponent<EnemyQuest>().onDeath();
-            Destroy(gameObject);
         }
 
         // Destroy enemy

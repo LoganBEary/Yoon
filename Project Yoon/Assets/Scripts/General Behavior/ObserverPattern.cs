@@ -20,6 +20,11 @@ namespace ObserverPattern
         {
             m_observers.Add(observer);
         }
+
+        public void RemoveObserver(Observer observer)
+        {
+            m_observers.Remove(observer);
+        }
     }
 
     public abstract class Observer
@@ -51,9 +56,9 @@ namespace ObserverPattern
     public class UIQuestBehavior : Behavior
     {
         public int coinReward;
-        public float xpReward;
+        public int xpReward;
 
-        public UIQuestBehavior(int coins, float xp)
+        public UIQuestBehavior(int coins, int xp)
         {
             this.coinReward = coins;
             this.xpReward = xp;

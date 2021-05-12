@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.UI;
 
 public class PauseManager : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class PauseManager : MonoBehaviour
     public GameObject inventoryMenuUI;
     public GameObject questCompletedMenuUI;
     public GameObject shopMenuUI;
+
+    public Image experienceBar;
+    public TextMeshProUGUI playerLevelText;
 
     public bool paused;
     public bool inInventory;
@@ -50,6 +54,7 @@ public class PauseManager : MonoBehaviour
         Cursor.visible = false;
         timeScale = 1;
         crosshairOn = true;
+        updateXPbar();
         // updateStat(2, 1200);
     }
 
@@ -97,7 +102,6 @@ public class PauseManager : MonoBehaviour
 
     private void togglePause()
     {
-        Debug.Log("TOGGLEPAUSE");
         if (!inInventory && !inShop && !inSettings)
         {
             if (paused)
@@ -122,6 +126,7 @@ public class PauseManager : MonoBehaviour
         timeScale = 1;
         pauseMenuUI.SetActive(false);
         inventoryMenuUI.SetActive(false);
+        shopMenuUI.SetActive(false);
         paused = false;
         inInventory = false;
         inShop = false;
@@ -206,11 +211,19 @@ public class PauseManager : MonoBehaviour
         }
     }
 
+    public void updateXPbar()
+    {
+        playerLevelText.text = GameManager.gameManager.playerLevel.ToString();
+        float x = GameManager.gameManager.experiencePoints / 500f;
+        experienceBar.fillAmount = x;
+        return;
+    }
+
     public void plusButton(int index)
     {
         float val = statVals[index] + 1;
-        updateStat(index, val);
-        statVals[index] = val;
+        //updateStat(index, val);
+        //statVals[index] = val;
     }
 
 
@@ -274,7 +287,7 @@ public class PauseManager : MonoBehaviour
 
     // ==================================================== Quest Menu Functions ======================================================
 
-    public void CompletedQuest(int coins, float xp)
+    public void CompletedQuest(int coins, int xp)
     {
         // Update coins display and xp display in inventory
         player.addYoodles(coins);
@@ -291,6 +304,7 @@ public class PauseManager : MonoBehaviour
 
         // Display the Completed Text UI
         StartCoroutine(displayCompletedQuest());
+        GameManager.gameManager.xp(xp);
         return;
     }
 

@@ -78,6 +78,10 @@ public class NPC_Script : MonoBehaviour
                 prompt.SetActive(true);
             }
         }
+        else
+        {
+            prompt.SetActive(false);
+        }
     }
 
 }
