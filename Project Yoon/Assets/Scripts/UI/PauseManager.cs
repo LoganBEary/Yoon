@@ -49,8 +49,9 @@ public class PauseManager : MonoBehaviour
     void Start()
     {
         crosshairs = GameObject.FindGameObjectWithTag("CrossHairs");
-        Cursor.lockState = CursorLockMode.Confined;
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = false;
         timeScale = 1;
         crosshairOn = true;
