@@ -22,7 +22,7 @@ public class BreakableCrate : MonoBehaviour
     void Start()
     {
         // Initialize the number of hits needed to break with a random number between 3 and 10
-        hitsToBreak = Random.Range(3, 10);
+        hitsToBreak = Random.Range(3, 6);
 
         // Initialize the number of hits taken to 0
         numHits = 0;

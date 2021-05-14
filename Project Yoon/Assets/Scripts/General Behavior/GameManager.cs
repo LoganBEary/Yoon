@@ -80,18 +80,23 @@ public class GameManager : MonoBehaviour
 
     // Updates the xp stat of the player and notifies the pausemanager to update the xp bar. 
     // This is temporary and should probably be changed to use the observer pattern later on
-    public void xp(int xp)
+    public void addXP(int xp)
     {
+        PauseManager p = GameObject.Find("Pause Manager").GetComponent<PauseManager>();
+
         experiencePoints += xp;
-        Debug.Log(experiencePoints);
         if (experiencePoints >= 500)
         {
-            playerLevel += 1;
+            int numLevels = experiencePoints / 500;
+            playerLevel += numLevels;
             experiencePoints = experiencePoints % 500;
+            for (int i = 0; i < numLevels; i++)
+            {
+                p.levelUp();
+            }
         }
         SaveState();
 
-        PauseManager p = GameObject.Find("Pause Manager").GetComponent<PauseManager>();
         p.updateXPbar();
     }
 }

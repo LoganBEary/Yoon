@@ -62,7 +62,7 @@ public class EnemyController : MonoBehaviour
         canSeePlayer = false;
 
         health = maxHealth;
-        dead = true;
+        dead = false;
     }
 
     // Update is called once per frame
@@ -98,8 +98,9 @@ public class EnemyController : MonoBehaviour
 
         updateHealthBar();
 
-        if (health <= 0)
+        if (health <= 0 && !dead)
         {
+            dead = true;
             //Debug.Log("Ded");
 
             // Call death behavior coroutine
@@ -139,13 +140,13 @@ public class EnemyController : MonoBehaviour
         // Give the player experience
         if (dead)
         {
-            GameManager.gameManager.xp(experience);
+            GameManager.gameManager.addXP(experience);
             if (gameObject.layer == 11)
             {
                 gameObject.GetComponent<EnemyQuest>().onDeath();
                 Destroy(gameObject);
             }
-            dead = false;
+            //dead = false;
         }
 
         // Destroy enemy

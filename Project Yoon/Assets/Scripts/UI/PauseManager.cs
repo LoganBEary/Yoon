@@ -31,20 +31,8 @@ public class PauseManager : MonoBehaviour
     public List<TextMeshProUGUI> statsList;
     public List<float> statVals;
 
-    private void Awake()
-    {
-        if (GameManager.gameManager != null)
-        {
-            statVals = GameManager.gameManager.statsList;
-
-            int count = statVals.Count;
-
-            for (int i = 0; i < count; i++)
-            {
-                statsList[i].text = statVals[i].ToString();
-            }
-        }
-    }
+    public List<Button> plusButtons;
+    public int upgradePoints;
 
     void Start()
     {
@@ -56,7 +44,19 @@ public class PauseManager : MonoBehaviour
         timeScale = 1;
         crosshairOn = true;
         updateXPbar();
-        // updateStat(2, 1200);
+
+        if (GameManager.gameManager != null)
+        {
+            statVals = GameManager.gameManager.statsList;
+
+            int count = statVals.Count;
+
+            for (int i = 0; i < count; i++)
+            {
+                statsList[i].text = statVals[i].ToString();
+            }
+        }
+        setPlusButton(false);
     }
 
     // Update is called once per frame
@@ -220,11 +220,42 @@ public class PauseManager : MonoBehaviour
         return;
     }
 
+    public void setPlusButton(bool state)
+    {
+        for (int i = 0; i < plusButtons.Count; i++)
+        {
+            plusButtons[i].gameObject.SetActive(state);
+        }
+    }
+
+    public void levelUp()
+    {
+        upgradePoints += 1;
+
+        setPlusButton(true);
+    }
+
     public void plusButton(int index)
     {
-        float val = statVals[index] + 1;
-        //updateStat(index, val);
-        //statVals[index] = val;
+        float val;
+        switch (index)
+        {
+            case 0:
+                val = statVals[index] + 10;
+                updateStat(index, val);
+                statVals[index] = val;
+                break;
+            default:
+                val = statVals[index] + 5;
+                updateStat(index, val);
+                statVals[index] = val;
+                break;
+        }
+
+        if (--upgradePoints < 1)
+        {
+            setPlusButton(false);
+        }
     }
 
 
@@ -296,16 +327,13 @@ public class PauseManager : MonoBehaviour
         TextMeshProUGUI yoodlesText = questCompletedMenuUI.transform.GetChild(2).GetComponent<TextMeshProUGUI>();
         TextMeshProUGUI xpText = questCompletedMenuUI.transform.GetChild(3).GetComponent<TextMeshProUGUI>();
 
-        Debug.Log(yoodlesText);
-        Debug.Log(xpText);
-
         yoodlesText.text = "+ " + coins.ToString() + " Yoodles";
         xpText.text = "+ " + xp.ToString() + " XP";
 
 
         // Display the Completed Text UI
         StartCoroutine(displayCompletedQuest());
-        GameManager.gameManager.xp(xp);
+        GameManager.gameManager.addXP(xp);
         return;
     }
 

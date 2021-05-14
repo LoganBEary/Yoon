@@ -13,7 +13,7 @@ public class NPC_Merchant : MonoBehaviour
 
     public void OnPlayerInteract()
     {
-        if (!pauseManager.inShop)
+        if (!pauseManager.inShop && distance_ <= 1.5)
         {
             is_interact = 1;
         }
