@@ -59,6 +59,10 @@ public class MainPlayerController : MonoBehaviour
     void Update()
     {
         //Debug.Log(Health);
+        if (transform.position.y <= -5)
+        {
+            pauseManager.reloadScene();
+        }
         if(Health <= 0)
         {
             pauseManager.gameOver();
