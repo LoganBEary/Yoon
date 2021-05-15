@@ -238,19 +238,25 @@ public class PauseManager : MonoBehaviour
     public void plusButton(int index)
     {
         float val;
+        float add;
+
         switch (index)
         {
             case 0:
+                add = 10;
                 val = statVals[index] + 10;
                 updateStat(index, val);
                 statVals[index] = val;
                 break;
             default:
                 val = statVals[index] + 5;
+                add = 5;
                 updateStat(index, val);
                 statVals[index] = val;
                 break;
         }
+
+        GameManager.gameManager.addStat(index, val, add);
 
         if (--upgradePoints < 1)
         {
@@ -333,7 +339,6 @@ public class PauseManager : MonoBehaviour
 
         // Display the Completed Text UI
         StartCoroutine(displayCompletedQuest());
-        GameManager.gameManager.addXP(xp);
         return;
     }
 

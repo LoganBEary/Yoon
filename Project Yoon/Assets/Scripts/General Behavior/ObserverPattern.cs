@@ -66,7 +66,11 @@ namespace ObserverPattern
 
         public override void behave(PauseManager pauseManager)
         {
+            // Notify the pause manager that the quest has been completed
             pauseManager.CompletedQuest(coinReward, xpReward);
+
+            // Notify the gameManager about the added xp
+            GameManager.gameManager.addXP(xpReward);
         }
     }
 }

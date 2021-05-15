@@ -17,6 +17,8 @@ public class MainPlayerController : MonoBehaviour
     [SerializeField]
     private float jumpingHeight = 3.0f;
 
+    public float damage = 20f;
+
     [SerializeField]
     private float gravityVal = -9.81f;
     public float Health = 100f;
@@ -88,14 +90,6 @@ public class MainPlayerController : MonoBehaviour
         controller.Move(playerVelocity * Time.deltaTime);
     }
 
-    void LateUpdate()
-    {
-        if(Health <= 0)
-        {
-            //Time.timeScale = 0;
-            //Application.Quit();
-        }
-    }
     public void OnFire()
     {
         if (!pauseManager.paused && !pauseManager.inInventory)
@@ -139,7 +133,7 @@ public class MainPlayerController : MonoBehaviour
        if(enemyClose)
            if(enemyClose.canAttackplayer)
             {
-                enemyClose.takeDamage(20f);
+                enemyClose.takeDamage(damage);
             }
 
        // Separate takehit function for crates so that breaking them is independent of the player's damage. 

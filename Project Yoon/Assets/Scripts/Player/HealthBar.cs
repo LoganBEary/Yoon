@@ -7,7 +7,7 @@ public class HealthBar : MonoBehaviour
 {
     private Image TheHealthBar;
     private float CurrentHealth;
-    private float PlayerMaxHealth = 100.0f;
+    public float PlayerMaxHealth = 100.0f;
     public MainPlayerController Player;
     //private float waitTime = 4f;
     public bool Regenerating;
@@ -23,7 +23,7 @@ public class HealthBar : MonoBehaviour
     void Update()
     {
         CurrentHealth = Player.Health;
-        TheHealthBar.fillAmount = CurrentHealth/100;
+        TheHealthBar.fillAmount = CurrentHealth/ PlayerMaxHealth;
         if(CurrentHealth < PlayerMaxHealth && !Regenerating)
         {    
             coroutine = RegainHealth();

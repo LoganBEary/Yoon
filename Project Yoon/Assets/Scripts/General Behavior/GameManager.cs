@@ -20,6 +20,9 @@ public class GameManager : MonoBehaviour
     public string currentScene;
 
     Subject firstQuestSubject = new Subject();
+
+    public Subject xpGainSubject = new Subject();
+
     UI_Observer quest1_UIObserver;
 
     private void Awake()
@@ -98,5 +101,24 @@ public class GameManager : MonoBehaviour
         SaveState();
 
         p.updateXPbar();
+    }
+
+    public void addStat(int index, float stat, float add)
+    {
+        statsList[index] = stat;
+
+        MainPlayerController player = GameObject.Find("Character").GetComponent<MainPlayerController>();
+
+        switch (index)
+        {
+            case 0:
+                HealthBar hb = GameObject.Find("HealthGuage").GetComponent<HealthBar>();
+                player.Health += add;
+                hb.PlayerMaxHealth = stat;
+                break;
+            case 1:
+                player.damage = stat;
+                break;
+        }
     }
 }
