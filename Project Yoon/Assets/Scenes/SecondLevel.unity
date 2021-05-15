@@ -2717,6 +2717,10 @@ PrefabInstance:
       propertyPath: coinDropChance
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 1612291409, guid: fb791fc68fafeb24590e6d1409029208, type: 3}
+      propertyPath: knockBackFactor
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1785193514, guid: fb791fc68fafeb24590e6d1409029208, type: 3}
       propertyPath: damage
       value: 60
@@ -5119,6 +5123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c948f0868f4b484cb6ef9bdb8c54af8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerMaxHealth: 100
   Player: {fileID: 1180106058}
   Regenerating: 0
   regenDelay: 10
@@ -7696,6 +7701,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 551264331}
     m_Modifications:
+    - target: {fileID: 1612291409, guid: fb791fc68fafeb24590e6d1409029208, type: 3}
+      propertyPath: knockBackFactor
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1785193514, guid: fb791fc68fafeb24590e6d1409029208, type: 3}
       propertyPath: player
       value: 
@@ -7751,6 +7760,10 @@ PrefabInstance:
     - target: {fileID: 8114710449003336926, guid: fb791fc68fafeb24590e6d1409029208, type: 3}
       propertyPath: m_Name
       value: EvilWizard
+      objectReference: {fileID: 0}
+    - target: {fileID: 8114710449003336926, guid: fb791fc68fafeb24590e6d1409029208, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb791fc68fafeb24590e6d1409029208, type: 3}
@@ -8590,6 +8603,10 @@ PrefabInstance:
     - target: {fileID: 15566570, guid: 4ca13c1412fec3e48b31c8428b91eabd, type: 3}
       propertyPath: sightRange
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 15566570, guid: 4ca13c1412fec3e48b31c8428b91eabd, type: 3}
+      propertyPath: knockBackFactor
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 15566572, guid: 4ca13c1412fec3e48b31c8428b91eabd, type: 3}
       propertyPath: damage
@@ -12328,6 +12345,7 @@ MonoBehaviour:
   countText: {fileID: 164990815}
   speed: 4.5
   jumpingHeight: 1.5
+  damage: 20
   gravityVal: -9.81
   Health: 100
   CoinCount: 0
@@ -21732,6 +21750,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 2076336004}
+    - target: {fileID: 1612291409, guid: fb791fc68fafeb24590e6d1409029208, type: 3}
+      propertyPath: knockBackFactor
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1785193514, guid: fb791fc68fafeb24590e6d1409029208, type: 3}
       propertyPath: player
       value: 

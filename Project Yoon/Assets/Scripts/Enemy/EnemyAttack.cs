@@ -36,7 +36,7 @@ public class EnemyAttack : MonoBehaviour
 
         RaycastHit raycastHit;
 
-        if (Physics.Raycast(ray, out raycastHit))
+        if (Physics.Raycast(ray, out raycastHit, 1f))
         {
             if (raycastHit.transform == player) // If player still in range
             {
