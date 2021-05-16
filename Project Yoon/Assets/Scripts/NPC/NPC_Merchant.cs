@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class NPC_Merchant : MonoBehaviour
 {
     public GameObject player;
+    public GameObject prompt;
     public float distance_;
     public PauseManager pauseManager;
     public float is_interact = 0;
@@ -30,9 +31,18 @@ public class NPC_Merchant : MonoBehaviour
             // If the player has interacted, disable the prompt
             if (is_interact == 1)
             {
+                prompt.SetActive(false);
                 pauseManager.OpenShop();
                 is_interact = 0;
             }
+            else
+            {
+                prompt.SetActive(true);
+            }
+        }
+        else
+        {
+            prompt.SetActive(false);
         }
     }
 }
