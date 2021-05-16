@@ -15,6 +15,8 @@ public class Inventory : MonoBehaviour
     // Static inventory instance so any other script can reference the inventory instance
     public static Inventory inventoryInstance;
 
+    public GameObject weaponHolder;
+
     /* This code will be used to maintain inventory singleton throughout scene changes. For now it is not
      * needed since the only working scene that uses inventory is the POC
 
@@ -137,6 +139,10 @@ public class Inventory : MonoBehaviour
                     list[ind].index = ind;
                 }
             }
+
+            // Update the weapon that the player is holding
+            weaponHolder.GetComponent<WeaponHolder>().selectWeapon(item.ID);
+            
             // Update each inventory slot to display the correct information
             updatePanelSlots();
         }

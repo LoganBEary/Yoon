@@ -14,6 +14,9 @@ public class Item : ScriptableObject
     // Index of the item in the inventory
     public int index;
 
+    // Used for swapping weapons. Basically represents the index of the weapon under the weaponHolder gameobject
+    public int ID;
+
     // This function will basically describe what happens when an item is clicked on in the menu
     public virtual void use()
     {
