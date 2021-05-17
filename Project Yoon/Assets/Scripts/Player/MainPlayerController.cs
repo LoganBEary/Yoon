@@ -46,8 +46,6 @@ public class MainPlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        weapon = GameObject.FindGameObjectWithTag("WeaponEquiped");
-        weaponAnimation = weapon.GetComponent<Animation>();
         enemyClose = GetComponent<EnemyController>();
         controller = GetComponent<CharacterController>();
         inputManager = InputManager.Instance;
@@ -55,6 +53,20 @@ public class MainPlayerController : MonoBehaviour
         Health = GameManager.gameManager.curHealth;
         CoinCount = GameManager.gameManager.yoodles;
         SetCountText();
+        //weapon = GameObject.FindGameObjectWithTag("WeaponEquiped");
+
+        updateWeapon(); // Make a call to updateWeapon to assign the 'weapon' gameobject correctly
+    }
+
+    // This function is called whenever the player switches their equipped weapon. 
+    public void updateWeapon()
+    {
+        // Retrieve the equipped weapon gameobject from the weaponHolder script. This will allow the player
+        // to be able to still attack with the new weapon
+        weapon = GameObject.Find("WeaponHolder").GetComponent<WeaponHolder>().selectedWeaponObject;
+
+        weaponAnimation = weapon.GetComponent<Animation>(); // Update the weaponAnimation
+        weaponSound = weapon.GetComponent<AudioSource>(); // Update the audioSource
     }
 
 
@@ -69,8 +81,10 @@ public class MainPlayerController : MonoBehaviour
         {
             pauseManager.gameOver();
         }
-
-        groundedPlayer = controller.isGrounded;
+        if (controller.enabled)
+        {
+            groundedPlayer = controller.isGrounded;
+        }
         if (groundedPlayer && playerVelocity.y < 0)
         {
             playerVelocity.y = 0f;
@@ -165,5 +179,11 @@ public class MainPlayerController : MonoBehaviour
             PlayerHealthBar.Regenerating = !PlayerHealthBar.Regenerating;
         }
        Health -= damage;
+    }
+
+    public void OnSceneChange()
+    {
+        GameManager.gameManager.curHealth = Health;
+        GameManager.gameManager.yoodles = CoinCount;
     }
 }

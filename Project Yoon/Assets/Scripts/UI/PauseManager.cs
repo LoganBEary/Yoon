@@ -315,12 +315,21 @@ public class PauseManager : MonoBehaviour
 
     // ==================================================== Change Scene Functions ======================================================
 
-    public void gotoScene(string scene)
+    public void OnSceneChange()
     {
-        string curScene = SceneManager.GetActiveScene().name;
-        GameManager.gameManager.updateInfo(player.Health, player.CoinCount, Inventory.inventoryInstance.list, statVals, curScene, scene);
+        GameManager.gameManager.statsList = statVals;
+        GameManager.gameManager.itemList = Inventory.inventoryInstance.list;
+        GameManager.gameManager.previousScene = SceneManager.GetActiveScene().name;
+    }
+
+    public void gotoScene(string newScene)
+    {
+        //string curScene = SceneManager.GetActiveScene().name;
+        //GameManager.gameManager.updateInfo(player.Health, player.CoinCount, Inventory.inventoryInstance.list, statVals, curScene, scene);
+        GameManager.gameManager.changeSceneSubject.Notify();
+        GameManager.gameManager.currentScene = newScene;
         GameManager.gameManager.SaveState();
-        SceneManager.LoadScene(scene);
+        SceneManager.LoadScene(newScene);
     }
 
     // ==================================================== Quest Menu Functions ======================================================

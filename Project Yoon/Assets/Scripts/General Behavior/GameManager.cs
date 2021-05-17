@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
 
     public float curHealth;
 
+    public int selectedWeaponID;
+
     public int yoodles;
     public int playerLevel;
 
@@ -21,7 +23,7 @@ public class GameManager : MonoBehaviour
 
     Subject firstQuestSubject = new Subject();
 
-    public Subject xpGainSubject = new Subject();
+    public Subject changeSceneSubject = new Subject();
 
     UI_Observer quest1_UIObserver;
 
@@ -40,8 +42,14 @@ public class GameManager : MonoBehaviour
         // Observers for quest 1
         quest1_UIObserver = new UI_Observer(new UIQuestBehavior(200, 500));
 
+        // Observer for scene changes
+        SceneChange_Observer sc = new SceneChange_Observer();
+
         // Add observers to the first quest subject
         firstQuestSubject.AddObserver(quest1_UIObserver);
+
+        // Add scene change observer to the scene change subject
+        changeSceneSubject.AddObserver(sc);
 
     }
 
@@ -50,6 +58,10 @@ public class GameManager : MonoBehaviour
         curHealth = GameManager.gameManager.curHealth;
         statsList = GameManager.gameManager.statsList;
         yoodles = GameManager.gameManager.yoodles;
+        itemList = GameManager.gameManager.itemList;
+        currentScene = GameManager.gameManager.currentScene;
+        previousScene = GameManager.gameManager.previousScene;
+        selectedWeaponID = GameManager.gameManager.selectedWeaponID;
     }
 
     public void updateInfo(float h, int y, List<Item> i, List<float> s, string curScene, string newScene)

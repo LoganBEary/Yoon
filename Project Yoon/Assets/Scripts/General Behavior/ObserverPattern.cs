@@ -48,6 +48,16 @@ namespace ObserverPattern
         }
     }
 
+    public class SceneChange_Observer : Observer
+    {
+        public override void OnNotify()
+        {
+            GameObject.Find("Pause Manager").GetComponent<PauseManager>().OnSceneChange();
+            GameObject.Find("WeaponHolder").GetComponent<WeaponHolder>().OnSceneChange();
+            GameObject.Find("Character").GetComponent<MainPlayerController>().OnSceneChange();
+        }
+    }
+
     public abstract class Behavior
     {
         public abstract void behave(PauseManager pauseManager);
