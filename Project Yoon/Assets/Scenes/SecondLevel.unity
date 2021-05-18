@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -554,8 +554,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -205, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -156, y: -0.000032067}
+  m_SizeDelta: {x: 100, y: 96.727}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &32318600
 MonoBehaviour:
@@ -1667,6 +1667,11 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.31
   m_Center: {x: 0.000000011133122, y: -0.002868954, z: -0.15584426}
+--- !u!1 &152236284 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8089296494139743165, guid: 695bc9707363f9144a88130832794647, type: 3}
+  m_PrefabInstance: {fileID: 8089296493772488968}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &152239158
 GameObject:
   m_ObjectHideFlags: 0
@@ -1967,7 +1972,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 33, y: 0}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &164990815
@@ -5694,6 +5699,7 @@ MonoBehaviour:
   inventoryMenuUI: {fileID: 1319420591}
   questCompletedMenuUI: {fileID: 235634287}
   shopMenuUI: {fileID: 9201118608286971984, guid: ce9f62c3aa6e76c418a46e856756a58c, type: 3}
+  questText: {fileID: 152236284}
   experienceBar: {fileID: 983532344}
   playerLevelText: {fileID: 2032676396}
   paused: 0
@@ -8397,7 +8403,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.6007984, y: 1}
+    m_SensorSize: {x: 1.7824352, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -12604,15 +12610,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countText: {fileID: 164990815}
-  controller: {fileID: 1180106060}
   speed: 4.5
   jumpingHeight: 1.5
   damage: 20
   gravityVal: -9.81
   Health: 100
   CoinCount: 0
-  inputManager: {fileID: 0}
-  weapon: {fileID: 0}
   weaponSound: {fileID: 0}
   pauseManager: {fileID: 532801224}
   PlayerHealthBar: {fileID: 486889864}
@@ -13949,7 +13952,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1319420592
 RectTransform:
   m_ObjectHideFlags: 0

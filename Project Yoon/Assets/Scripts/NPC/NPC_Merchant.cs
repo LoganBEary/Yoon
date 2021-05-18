@@ -8,6 +8,7 @@ public class NPC_Merchant : MonoBehaviour
 {
     public GameObject player;
     public GameObject prompt;
+    public GameObject questText;
     public float distance_;
     public PauseManager pauseManager;
     public float is_interact = 0;
@@ -31,12 +32,14 @@ public class NPC_Merchant : MonoBehaviour
             // If the player has interacted, disable the prompt
             if (is_interact == 1)
             {
+                questText.SetActive(false);
                 prompt.SetActive(false);
                 pauseManager.OpenShop();
                 is_interact = 0;
             }
             else
             {
+                questText.SetActive(true);
                 prompt.SetActive(true);
             }
         }

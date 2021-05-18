@@ -14,7 +14,7 @@ public class PauseManager : MonoBehaviour
     public GameObject inventoryMenuUI;
     public GameObject questCompletedMenuUI;
     public GameObject shopMenuUI;
-
+    public GameObject questText;
     public Image experienceBar;
     public TextMeshProUGUI playerLevelText;
 
@@ -112,6 +112,7 @@ public class PauseManager : MonoBehaviour
             }
             else
             {
+                questText.SetActive(false);
                 showMouse();
                 hideCrosshairs();
                 timeScale = 0;
@@ -123,11 +124,13 @@ public class PauseManager : MonoBehaviour
 
     public void resumeGame()
     {
+        questText.SetActive(true);
         hideMouse();
         timeScale = 1;
         pauseMenuUI.SetActive(false);
         inventoryMenuUI.SetActive(false);
         shopMenuUI.SetActive(false);
+
         paused = false;
         inInventory = false;
         inShop = false;
@@ -183,6 +186,7 @@ public class PauseManager : MonoBehaviour
         {
             if (inInventory)
             {
+                questText.SetActive(true);
                 hideMouse();
                 showCrosshairs();
                 timeScale = 1;
@@ -191,6 +195,7 @@ public class PauseManager : MonoBehaviour
             }
             else
             {
+                questText.SetActive(false);
                 showMouse();
                 hideCrosshairs();
                 timeScale = 0;
