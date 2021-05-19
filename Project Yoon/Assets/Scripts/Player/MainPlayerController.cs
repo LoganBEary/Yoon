@@ -22,6 +22,9 @@ public class MainPlayerController : MonoBehaviour
     [SerializeField]
     private float gravityVal = -9.81f;
     public float Health = 100f;
+    public float xPos;
+    public float yPos;
+    public float zPos;
     private Rigidbody rb;
     private float movementX;
     private float movementY;
@@ -73,10 +76,10 @@ public class MainPlayerController : MonoBehaviour
     void Update()
     {
         //Debug.Log(Health);
-        if (transform.position.y <= -5)
-        {
-            pauseManager.reloadScene();
-        }
+       // if (transform.position.y <= -5)
+       // {
+      //      pauseManager.reloadScene();
+      //  }
         if(Health <= 0)
         {
             pauseManager.gameOver();
@@ -135,6 +138,10 @@ public class MainPlayerController : MonoBehaviour
         if (other.gameObject.tag == "BreakableObject")
         {
             crate = other.gameObject.GetComponent<BreakableCrate>();
+        }
+        if (other.gameObject.tag == "OutOfBounds")
+        {
+            transform.position = new Vector3(xPos,yPos,zPos);
         }
     }
 
