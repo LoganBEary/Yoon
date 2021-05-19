@@ -28,7 +28,7 @@ public class Projectile : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            other.GetComponent<MainPlayerController>().Health -= damage;
+            other.GetComponent<MainPlayerController>().takeDamage(damage);
             Destroy(gameObject);
         }
     }

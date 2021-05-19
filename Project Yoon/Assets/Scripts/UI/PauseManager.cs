@@ -18,10 +18,13 @@ public class PauseManager : MonoBehaviour
     public Image experienceBar;
     public TextMeshProUGUI playerLevelText;
 
+    public GameObject cheatMenuUI;
+
     public bool paused;
     public bool inInventory;
     public bool inShop;
     public bool inSettings;
+    public bool inCheatMenu;
 
     public bool crosshairOn;
 
@@ -94,6 +97,18 @@ public class PauseManager : MonoBehaviour
         }
     }
 
+    // This funtion will add yoodles. Probably would be best to implement with observer to make sure
+    // all scripts involved with yoodles get notified easily. But this will have to do for now
+    public void addYoodles(int yoodles)
+    {
+        player.addYoodles(yoodles);
+    }
+
+    public void addXP(int xp)
+    {
+        GameManager.gameManager.addXP(xp);
+    }
+
     // ==================================================== Pause Menu Functions ======================================================
 
     public void OnPause()
@@ -112,12 +127,12 @@ public class PauseManager : MonoBehaviour
             }
             else
             {
+                paused = true;
                 questText.SetActive(false);
                 showMouse();
                 hideCrosshairs();
                 timeScale = 0;
                 pauseMenuUI.SetActive(true);
-                paused = true;
             }
         }
     }
@@ -195,12 +210,12 @@ public class PauseManager : MonoBehaviour
             }
             else
             {
+                inInventory = true;
                 questText.SetActive(false);
                 showMouse();
                 hideCrosshairs();
                 timeScale = 0;
                 inventoryMenuUI.SetActive(true);
-                inInventory = true;
             }
         }
     }
@@ -342,7 +357,7 @@ public class PauseManager : MonoBehaviour
     public void CompletedQuest(int coins, int xp)
     {
         // Update coins display and xp display in inventory
-        player.addYoodles(coins);
+        addYoodles(coins);
 
         TextMeshProUGUI yoodlesText = questCompletedMenuUI.transform.GetChild(2).GetComponent<TextMeshProUGUI>();
         TextMeshProUGUI xpText = questCompletedMenuUI.transform.GetChild(3).GetComponent<TextMeshProUGUI>();
@@ -363,5 +378,38 @@ public class PauseManager : MonoBehaviour
         yield return new WaitForSeconds(2.5f);
         questCompletedMenuUI.SetActive(false);
         showCrosshairs();
+    }
+
+    // ==================================================== Cheat Menu Functions ======================================================
+
+    public void playerInvincibleToggle(bool value)
+    {
+        player.isInvincible = value;
+    }
+    
+    public void OnOpenCheatMenu()
+    {
+        if (!inInventory && !inShop && !inSettings)
+        {
+            if (inCheatMenu)
+            {
+                questText.SetActive(false);
+                timeScale = 1;
+                hideMouse();
+                showCrosshairs();
+                cheatMenuUI.SetActive(false);
+                inCheatMenu = false;
+            }
+            else
+            {
+                inCheatMenu = true;
+                questText.SetActive(false);
+                showMouse();
+                hideCrosshairs();
+                timeScale = 0;
+                cheatMenuUI.SetActive(true);
+            }
+        }
+        return;
     }
 }

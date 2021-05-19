@@ -40,6 +40,8 @@ public class MainPlayerController : MonoBehaviour
     private EnemyHealth goblinHealth;
     public HealthBar PlayerHealthBar;
 
+    public bool isInvincible;
+
     private BreakableCrate crate;
 
     void SetCountText()
@@ -59,6 +61,8 @@ public class MainPlayerController : MonoBehaviour
         //weapon = GameObject.FindGameObjectWithTag("WeaponEquiped");
 
         updateWeapon(); // Make a call to updateWeapon to assign the 'weapon' gameobject correctly
+
+        isInvincible = false;
     }
 
     // This function is called whenever the player switches their equipped weapon. 
@@ -109,7 +113,7 @@ public class MainPlayerController : MonoBehaviour
 
     public void OnFire()
     {
-        if (!pauseManager.paused && !pauseManager.inInventory)
+        if (!pauseManager.paused && !pauseManager.inInventory &&!pauseManager.inShop && !pauseManager.inCheatMenu)
         {
             //Debug.Log("Attack!");
             Attack();
@@ -180,12 +184,15 @@ public class MainPlayerController : MonoBehaviour
 
     public void takeDamage(float damage)
     {
-        if(PlayerHealthBar.Regenerating)
+        if (!isInvincible)
         {
-            PlayerHealthBar.StopCoroutine(PlayerHealthBar.coroutine);
-            PlayerHealthBar.Regenerating = !PlayerHealthBar.Regenerating;
+            if (PlayerHealthBar.Regenerating)
+            {
+                PlayerHealthBar.StopCoroutine(PlayerHealthBar.coroutine);
+                PlayerHealthBar.Regenerating = !PlayerHealthBar.Regenerating;
+            }
+            Health -= damage;
         }
-       Health -= damage;
     }
 
     public void OnSceneChange()
