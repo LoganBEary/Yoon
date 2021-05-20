@@ -22,6 +22,7 @@ public class MainPlayerController : MonoBehaviour
     [SerializeField]
     private float gravityVal = -9.81f;
     public float Health = 100f;
+    public float Energy = 100f;
     public float xPos;
     public float yPos;
     public float zPos;
@@ -155,8 +156,10 @@ public class MainPlayerController : MonoBehaviour
     {
        // Debug.Log("In Attack");
         // Not final design - Work in progress for POC
+       if(Energy > 33.4f){
        weaponAnimation.Play("Sword02");
        weaponSound.Play();
+       Energy -= 33.4f;
        if(enemyClose)
            if(enemyClose.canAttackplayer)
             {
@@ -182,6 +185,7 @@ public class MainPlayerController : MonoBehaviour
         // Reset attack cooldown
         // canAttack = false;
         // StartCoroutine(resetAttack());
+       }
     }
 
     public void takeDamage(float damage)

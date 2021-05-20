@@ -5,27 +5,24 @@ using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
-    private Image TheHealthBar;
+    [SerializeField]
+    public Image TheHealthBar;
     private float CurrentHealth;
+
+    // Update to variable for when player is changing attr
     public float PlayerMaxHealth = 100.0f;
     public MainPlayerController Player;
     //private float waitTime = 4f;
     public bool Regenerating;
     public IEnumerator coroutine;
     public int regenDelay;
-    // Start is called before the first frame update
-    void Start()
-    {
-        TheHealthBar = GetComponent<Image>();
-    }
-
     // Update is called once per frame
     void Update()
     {
         CurrentHealth = Player.Health;
         TheHealthBar.fillAmount = CurrentHealth/ PlayerMaxHealth;
         if(CurrentHealth < PlayerMaxHealth && !Regenerating)
-        {    
+        {
             coroutine = RegainHealth();
             StartCoroutine(coroutine);
         }
@@ -37,8 +34,8 @@ public class HealthBar : MonoBehaviour
         yield return new WaitForSeconds(regenDelay);
         while (CurrentHealth < PlayerMaxHealth)
         {
-           AddHealth();
-           yield return new WaitForSeconds(1);
+            AddHealth();
+            yield return new WaitForSeconds(1);
         }
             Regenerating = false;
     }
