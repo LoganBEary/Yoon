@@ -11,8 +11,12 @@ public class GameManager : MonoBehaviour
 
     public int selectedWeaponID;
 
+    public int upgradePoints;
+
     public int yoodles;
     public int playerLevel;
+
+    public bool playerIsInvincible;
 
     public int experiencePoints;
     public List<Item> itemList = new List<Item>();
@@ -62,6 +66,8 @@ public class GameManager : MonoBehaviour
         currentScene = GameManager.gameManager.currentScene;
         previousScene = GameManager.gameManager.previousScene;
         selectedWeaponID = GameManager.gameManager.selectedWeaponID;
+        upgradePoints = GameManager.gameManager.upgradePoints;
+        playerIsInvincible = GameManager.gameManager.playerIsInvincible;
     }
 
     public void updateInfo(float h, int y, List<Item> i, List<float> s, string curScene, string newScene)
@@ -82,6 +88,8 @@ public class GameManager : MonoBehaviour
         GameManager.gameManager.itemList = itemList;
         GameManager.gameManager.currentScene = currentScene;
         GameManager.gameManager.previousScene = previousScene;
+        GameManager.gameManager.upgradePoints = upgradePoints;
+        GameManager.gameManager.playerIsInvincible = playerIsInvincible;
     }
 
     public void notifyEvent(string m_event)

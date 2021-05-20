@@ -62,7 +62,9 @@ public class MainPlayerController : MonoBehaviour
 
         updateWeapon(); // Make a call to updateWeapon to assign the 'weapon' gameobject correctly
 
-        isInvincible = false;
+        Debug.Log("Player reads Invicible: " + GameManager.gameManager.playerIsInvincible);
+        isInvincible = GameManager.gameManager.playerIsInvincible;
+        pauseManager.playerInvincibleToggle(isInvincible);
     }
 
     // This function is called whenever the player switches their equipped weapon. 
@@ -199,5 +201,6 @@ public class MainPlayerController : MonoBehaviour
     {
         GameManager.gameManager.curHealth = Health;
         GameManager.gameManager.yoodles = CoinCount;
+        GameManager.gameManager.playerIsInvincible = isInvincible;
     }
 }

@@ -59,7 +59,16 @@ public class PauseManager : MonoBehaviour
                 statsList[i].text = statVals[i].ToString();
             }
         }
-        setPlusButton(false);
+
+        upgradePoints = GameManager.gameManager.upgradePoints;
+        if (upgradePoints > 0)
+        {
+            setPlusButton(true);
+        }
+        else
+        {
+            setPlusButton(false);
+        }
     }
 
     // Update is called once per frame
@@ -340,6 +349,7 @@ public class PauseManager : MonoBehaviour
         GameManager.gameManager.statsList = statVals;
         GameManager.gameManager.itemList = Inventory.inventoryInstance.list;
         GameManager.gameManager.previousScene = SceneManager.GetActiveScene().name;
+        GameManager.gameManager.upgradePoints = upgradePoints;
     }
 
     public void gotoScene(string newScene)
@@ -384,6 +394,8 @@ public class PauseManager : MonoBehaviour
 
     public void playerInvincibleToggle(bool value)
     {
+        Transform t = transform.Find("CheatMenu/CheatMenuBG/AdditionalCheatBG/InvincibleToggle");
+        t.gameObject.GetComponent<Toggle>().isOn = value;
         player.isInvincible = value;
     }
     
