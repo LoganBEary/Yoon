@@ -12,7 +12,9 @@ public class MainPlayerController : MonoBehaviour
     private bool groundedPlayer;
     
     [SerializeField]
-    public float speed = 10f;
+    public float default_speed = 3f;
+
+    public float sprint_speed = 7f;
 
     [SerializeField]
     private float jumpingHeight = 3.0f;
@@ -42,6 +44,7 @@ public class MainPlayerController : MonoBehaviour
     public HealthBar PlayerHealthBar;
 
     public bool isInvincible;
+    public bool isSprinting;
 
     private BreakableCrate crate;
 
@@ -79,6 +82,17 @@ public class MainPlayerController : MonoBehaviour
         weaponSound = weapon.GetComponent<AudioSource>(); // Update the audioSource
     }
 
+    // This function determines if shift button is held down to sprint
+    public void OnSprintStart()
+    {
+        isSprinting = true;
+    }
+
+    // This function determines if shift button was released to disable sprint
+    public void OnSprintFinish()
+    {
+        isSprinting = false;
+    }
 
     void Update()
     {
@@ -103,7 +117,17 @@ public class MainPlayerController : MonoBehaviour
         Vector2 movement = inputManager.GetPlayerMovement();
         Vector3 move = new Vector3(movement.x, 0.0f, movement.y);
         move = cameraTransform.forward * move.z + cameraTransform.right * move.x;
-        controller.Move(move * Time.deltaTime * speed);
+
+        // Determines sprinting or not
+        if (isSprinting)
+        {
+            controller.Move(move * Time.deltaTime * sprint_speed);
+        }
+        else
+        {
+            controller.Move(move * Time.deltaTime * default_speed);
+        }
+
         // Changes the height position of the player..
         if (inputManager.PlayerJumpedThisFrame() && groundedPlayer)
         {
