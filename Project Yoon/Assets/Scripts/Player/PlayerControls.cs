@@ -39,7 +39,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""type"": ""PassThrough"",
                     ""id"": ""ffc266d9-92ee-401c-9f81-9c1a854cde83"",
                     ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
+                    ""processors"": ""ScaleVector2"",
                     ""interactions"": """"
                 },
                 {
@@ -68,7 +68,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""id"": ""7821a5c8-4000-45eb-a37f-d480eb22bf2a"",
                     ""path"": ""<Mouse>/delta"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""ScaleVector2"",
                     ""groups"": """",
                     ""action"": ""Look"",
                     ""isComposite"": false,

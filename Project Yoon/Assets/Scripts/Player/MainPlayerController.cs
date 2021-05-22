@@ -38,6 +38,8 @@ public class MainPlayerController : MonoBehaviour
     private GameObject weapon;
 
     public AudioSource weaponSound;
+    [SerializeField]
+    public AudioSource jumpSound;
     private Animation weaponAnimation;
     public PauseManager pauseManager;
     private EnemyHealth goblinHealth;
@@ -96,11 +98,6 @@ public class MainPlayerController : MonoBehaviour
 
     void Update()
     {
-        //Debug.Log(Health);
-       // if (transform.position.y <= -5)
-       // {
-      //      pauseManager.reloadScene();
-      //  }
         if(Health <= 0)
         {
             pauseManager.gameOver();
@@ -131,6 +128,7 @@ public class MainPlayerController : MonoBehaviour
         // Changes the height position of the player..
         if (inputManager.PlayerJumpedThisFrame() && groundedPlayer)
         {
+            jumpSound.Play();
             playerVelocity.y += Mathf.Sqrt(jumpingHeight * -3.0f * gravityVal);
         }
 
@@ -180,10 +178,10 @@ public class MainPlayerController : MonoBehaviour
     {
        // Debug.Log("In Attack");
         // Not final design - Work in progress for POC
-       if(Energy > 33.4f){
+       if(Energy > 15.4f){
        weaponAnimation.Play("Sword02");
        weaponSound.Play();
-       Energy -= 33.4f;
+       Energy -= 20.4f;
        if(enemyClose)
            if(enemyClose.canAttackplayer)
             {

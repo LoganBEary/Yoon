@@ -31,13 +31,13 @@ void Update()
         while (currentEnergy < maxEnergy)
         {
             AddEnergy();
-            yield return new WaitForSeconds(0.09f);
+            yield return new WaitForSeconds(0.05f);
         }
             Regenerating = false;
     }
 
     public void AddEnergy()
     {
-        Player.Energy+= 0.5f;
+        Player.Energy+= 0.9f;
     }
 }
