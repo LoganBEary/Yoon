@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -834,20 +834,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   curHealth: 100
-  selectedWeaponID: 0
-  upgradePoints: 0
   yoodles: 0
-  playerLevel: 1
   playerIsInvincible: 0
-  experiencePoints: 0
   itemList: []
+  previousScene: 
+  currentScene: 
+  upgradePoints: 0
+  playerLevel: 1
+  experiencePoints: 0
   statsList:
   - 0
   - 0
   - 0
   - 0
-  previousScene: 
-  currentScene: 
+  statMaxedList: 
+  selectedWeaponID: 0
 --- !u!4 &523394248
 Transform:
   m_ObjectHideFlags: 0
@@ -862,11 +863,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &578641296 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5460528482678560116, guid: 4bc512b9575c5423d9da15437fd18ea6, type: 3}
-  m_PrefabInstance: {fileID: 5460528483174713572}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &600234999
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -986,6 +982,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16c0b83c81585b046ac18cfe0c769a9c, type: 3}
+--- !u!1 &899297060 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2255261026159098655, guid: 4bc512b9575c5423d9da15437fd18ea6, type: 3}
+  m_PrefabInstance: {fileID: 5460528483174713572}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &967607110
 GameObject:
   m_ObjectHideFlags: 0
@@ -2842,7 +2843,11 @@ PrefabInstance:
     - target: {fileID: 7115360239846830892, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
       propertyPath: weaponHolder
       value: 
-      objectReference: {fileID: 578641296}
+      objectReference: {fileID: 899297060}
+    - target: {fileID: 7115360239846830892, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: list.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7115360239846830894, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2939,6 +2944,10 @@ PrefabInstance:
       propertyPath: questCompletedMenuUI
       value: 
       objectReference: {fileID: 2024064418}
+    - target: {fileID: 7115360239846830895, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: plusButtonActive.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7115360239846830897, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
       propertyPath: m_Name
       value: Pause Manager
@@ -2952,6 +2961,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5460528481415065658, guid: 4bc512b9575c5423d9da15437fd18ea6, type: 3}
+      propertyPath: far clip plane
+      value: 950
+      objectReference: {fileID: 0}
     - target: {fileID: 5460528482973934661, guid: 4bc512b9575c5423d9da15437fd18ea6, type: 3}
       propertyPath: m_RootOrder
       value: 3

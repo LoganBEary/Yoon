@@ -5,6 +5,8 @@ using UnityEngine;
 public class DisplayWeaponRotate : MonoBehaviour
 {
     private float rotateSpeed = 20f;
+
+    public Vector3 axis;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,7 +16,7 @@ public class DisplayWeaponRotate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 rotation = Vector3.back * rotateSpeed * Time.deltaTime;
+        Vector3 rotation = axis * rotateSpeed * Time.deltaTime;
         transform.Rotate(rotation);
     }
 }

@@ -17,6 +17,10 @@ public class WeaponHolder : MonoBehaviour
     void Start()
     {
         // Get the selected weapon ID from the gamemanager. This is needed in order to save the selected weapon across scenes
+        foreach (Transform child in transform)
+        {
+            Debug.Log(child.gameObject.name);
+        }
         selectedWeapon = GameManager.gameManager.selectedWeaponID;
         selectedWeaponObject = transform.GetChild(selectedWeapon).gameObject; // Update the selected weapon GameObject
         selectWeapon(selectedWeapon); // Make this function call to 'equip' the weapon by setting the correct gameobject active in the scene
