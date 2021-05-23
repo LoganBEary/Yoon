@@ -4809,22 +4809,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   curHealth: 100
-  selectedWeaponID: 0
-  upgradePoints: 0
   yoodles: 0
-  playerLevel: 1
   playerIsInvincible: 0
-  experiencePoints: 0
   itemList:
   - {fileID: 11400000, guid: df5fd643a8ef178459364a872954cdb9, type: 2}
   - {fileID: 11400000, guid: e23ad563fbe859240b1a4565ad2d93ac, type: 2}
-  statsList:
-  - 100
-  - 20
-  - 0
-  - 0
   previousScene: 
   currentScene: 
+  upgradePoints: 0
+  playerLevel: 1
+  experiencePoints: 0
+  statsList:
+  - 100
+  - 0
+  - 0
+  - 0
+  statMaxedList: 01010101
+  selectedWeaponID: 0
 --- !u!4 &893983776
 Transform:
   m_ObjectHideFlags: 0
@@ -10414,6 +10415,22 @@ PrefabInstance:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 5066096938503859246, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: m_Name
+      value: PlusButton2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5066096938649332779, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: m_Name
+      value: PlusButton3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5066096940029290123, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: m_Name
+      value: PlusButton4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5066096940371716395, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: m_Name
+      value: PlusButton1
+      objectReference: {fileID: 0}
     - target: {fileID: 7115360239846830892, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
       propertyPath: player
       value: 
@@ -10514,6 +10531,10 @@ PrefabInstance:
       propertyPath: questText
       value: 
       objectReference: {fileID: 1711450264}
+    - target: {fileID: 7115360239846830895, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: upgradePoints
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7115360239846830895, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
       propertyPath: questCompletedMenuUI
       value: 
@@ -12289,6 +12310,9 @@ MonoBehaviour:
   sprint_speed: 7
   jumpingHeight: 1.5
   damage: 20
+  baseDamage: 20
+  weaponDamage: 0
+  defense: 0
   gravityVal: -9.81
   Health: 100
   Energy: 100

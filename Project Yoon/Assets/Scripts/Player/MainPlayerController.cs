@@ -19,7 +19,13 @@ public class MainPlayerController : MonoBehaviour
     [SerializeField]
     private float jumpingHeight = 3.0f;
 
-    public float damage = 20f;
+    public float damage;
+
+    public float baseDamage = 10f;
+    public float weaponDamage = 0f;
+
+    public float defense = 0f; // decimal value representing percent. Range from 0 to 0.4
+
 
     [SerializeField]
     private float gravityVal = -9.81f;
@@ -66,9 +72,11 @@ public class MainPlayerController : MonoBehaviour
         SetCountText();
         //weapon = GameObject.FindGameObjectWithTag("WeaponEquiped");
 
+        baseDamage = GameManager.gameManager.statsList[1];
+        defense = Mathf.Lerp(0, 40, GameManager.gameManager.statsList[2] / 20) / 100;
+
         updateWeapon(); // Make a call to updateWeapon to assign the 'weapon' gameobject correctly
 
-        Debug.Log("Player reads Invicible: " + GameManager.gameManager.playerIsInvincible);
         isInvincible = GameManager.gameManager.playerIsInvincible;
         pauseManager.playerInvincibleToggle(isInvincible);
     }
@@ -82,6 +90,9 @@ public class MainPlayerController : MonoBehaviour
 
         weaponAnimation = weapon.GetComponent<Animation>(); // Update the weaponAnimation
         weaponSound = weapon.GetComponent<AudioSource>(); // Update the audioSource
+        weaponDamage = weapon.GetComponent<WeaponScript>().weaponDamage;
+
+        damage = baseDamage + weaponDamage;
     }
 
     // This function determines if shift button is held down to sprint
@@ -219,7 +230,8 @@ public class MainPlayerController : MonoBehaviour
                 PlayerHealthBar.StopCoroutine(PlayerHealthBar.coroutine);
                 PlayerHealthBar.Regenerating = !PlayerHealthBar.Regenerating;
             }
-            Health -= damage;
+            float damageAfterDefense = damage - (damage * defense);
+            Health -= damageAfterDefense;
         }
     }
 

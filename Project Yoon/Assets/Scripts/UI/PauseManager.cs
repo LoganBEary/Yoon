@@ -35,6 +35,7 @@ public class PauseManager : MonoBehaviour
     public List<float> statVals;
 
     public List<Button> plusButtons;
+    public List<bool> plusButtonActive;
     public int upgradePoints;
 
     void Start()
@@ -61,6 +62,9 @@ public class PauseManager : MonoBehaviour
         }
 
         upgradePoints = GameManager.gameManager.upgradePoints;
+
+        plusButtonActive = GameManager.gameManager.statMaxedList;
+  
         if (upgradePoints > 0)
         {
             setPlusButton(true);
@@ -251,9 +255,14 @@ public class PauseManager : MonoBehaviour
 
     public void setPlusButton(bool state)
     {
+        print(state);
         for (int i = 0; i < plusButtons.Count; i++)
         {
-            plusButtons[i].gameObject.SetActive(state);
+            print(plusButtonActive[i]);
+            if (plusButtonActive[i])
+            {
+                plusButtons[i].gameObject.SetActive(state);
+            }
         }
     }
 
@@ -271,15 +280,41 @@ public class PauseManager : MonoBehaviour
 
         switch (index)
         {
-            case 0:
+            case 0: // Adding health
                 add = 10;
-                val = statVals[index] + 10;
+                val = statVals[index] + add;
                 updateStat(index, val);
                 statVals[index] = val;
                 break;
-            default:
-                val = statVals[index] + 5;
+            case 1: // Adding damage
+                add = 2;
+                val = statVals[index] + add;
+                updateStat(index, val);
+                statVals[index] = val;
+
+                if (val >= 20) // Max Damage
+                {
+                    plusButtons[index].gameObject.SetActive(false);
+                    plusButtonActive[index] = false;
+                }
+
+                break;
+            case 2: // Adding defense
+                add = 2;
+                val = statVals[index] + add;
+                updateStat(index, val);
+                statVals[index] = val;
+
+                if (val >= 20) // Max Defense
+                {
+                    plusButtons[index].gameObject.SetActive(false);
+                    plusButtonActive[index] = false;
+                }
+
+                break;
+            default: // Adding magic
                 add = 5;
+                val = statVals[index] + add;
                 updateStat(index, val);
                 statVals[index] = val;
                 break;
@@ -350,6 +385,7 @@ public class PauseManager : MonoBehaviour
         GameManager.gameManager.itemList = Inventory.inventoryInstance.list;
         GameManager.gameManager.previousScene = SceneManager.GetActiveScene().name;
         GameManager.gameManager.upgradePoints = upgradePoints;
+        GameManager.gameManager.statMaxedList = plusButtonActive;
     }
 
     public void gotoScene(string newScene)
