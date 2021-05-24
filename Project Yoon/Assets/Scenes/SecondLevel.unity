@@ -3618,7 +3618,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7784431, y: 1}
+    m_SensorSize: {x: 1.7768924, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -4863,13 +4863,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 556477587}
     - target: {fileID: 5460528482973934713, guid: 4bc512b9575c5423d9da15437fd18ea6, type: 3}
+      propertyPath: coolDownTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5460528482973934713, guid: 4bc512b9575c5423d9da15437fd18ea6, type: 3}
       propertyPath: pauseManager
       value: 
       objectReference: {fileID: 556477585}
     - target: {fileID: 5460528482973934713, guid: 4bc512b9575c5423d9da15437fd18ea6, type: 3}
       propertyPath: PlayerHealthBar
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1283845322}
     - target: {fileID: 5460528482973934717, guid: 4bc512b9575c5423d9da15437fd18ea6, type: 3}
       propertyPath: m_Name
       value: Character
@@ -6013,6 +6017,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8037496544557104341, guid: 9eb1a25538ab346a4b03daee56dae11a, type: 3}
   m_PrefabInstance: {fileID: 1283845320}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1283845322 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8536532353264380148, guid: 9eb1a25538ab346a4b03daee56dae11a, type: 3}
+  m_PrefabInstance: {fileID: 1283845320}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c948f0868f4b484cb6ef9bdb8c54af8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1289909034
 PrefabInstance:
   m_ObjectHideFlags: 0
