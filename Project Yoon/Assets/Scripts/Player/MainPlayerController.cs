@@ -56,7 +56,7 @@ public class MainPlayerController : MonoBehaviour
 
     private BreakableCrate crate;
 
-    void SetCountText()
+    public void SetCountText()
 	{
             countText.text = "Yoodles: " + CoinCount.ToString();
     }
