@@ -10,7 +10,7 @@ public class MainPlayerController : MonoBehaviour
     private CharacterController controller;
     private Vector3 playerVelocity;
     private bool groundedPlayer;
-    
+
     [SerializeField]
     public float default_speed = 3f;
 
@@ -51,6 +51,8 @@ public class MainPlayerController : MonoBehaviour
     private EnemyHealth goblinHealth;
     public HealthBar PlayerHealthBar;
 
+    public float coolDownTime;
+    private float attackTimer = 1.0f;
     public bool isInvincible;
     public bool isSprinting;
 
@@ -109,6 +111,10 @@ public class MainPlayerController : MonoBehaviour
 
     void Update()
     {
+        Debug.Log("attack timer: " + attackTimer);
+        Debug.Log("CoolDown timer: " + coolDownTime);
+        if(attackTimer < coolDownTime)
+            attackTimer += Time.deltaTime;
         if(Health <= 0)
         {
             pauseManager.gameOver();
@@ -187,21 +193,20 @@ public class MainPlayerController : MonoBehaviour
 
     public void Attack()
     {
-       // Debug.Log("In Attack");
-        // Not final design - Work in progress for POC
-       if(Energy > 15.4f){
-       weaponAnimation.Play("Sword02");
-       weaponSound.Play();
-       Energy -= 20.4f;
-       if(enemyClose)
-           if(enemyClose.canAttackplayer)
+        if(Energy > 19.5f && attackTimer > coolDownTime){
+        attackTimer = 0;
+        weaponAnimation.Play("Sword02");
+        weaponSound.Play();
+        Energy -= 20.4f;
+        if(enemyClose)
+            if(enemyClose.canAttackplayer)
             {
                 enemyClose.takeDamage(damage);
             }
 
        // Separate takehit function for crates so that breaking them is independent of the player's damage. 
        // This can be modified later if needed
-       if (crate)
+        if (crate)
         {
             crate.takeHit();
         }
@@ -214,11 +219,11 @@ public class MainPlayerController : MonoBehaviour
         // If raycast found an enemy, damage the enemy:
         // Something along these lines:
         // enemy.getComponent<EnemyController>().takeDamage(20f);
-        
+
         // Reset attack cooldown
         // canAttack = false;
         // StartCoroutine(resetAttack());
-       }
+        }
     }
 
     public void takeDamage(float damage)

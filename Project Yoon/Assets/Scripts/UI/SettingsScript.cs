@@ -9,27 +9,27 @@ public class SettingsScript : MonoBehaviour
 {
     public AudioMixer musicMixer;
     public AudioMixer soundMixer;
-
     [SerializeField] private InputAction mouse;
+
+    private float sen;
     [SerializeField] private PlayerControls thePlayer;
 
-    private void Awake()
+    private void Update()
     {
-        mouse = thePlayer.Player.Look;
+      //thePlayer.Player.Look.ReadValue<Vector2>() = sen;
     }
-
 
     public void setVolume(float musicVolume)
     {
-      musicMixer.SetFloat("MyVolume", musicVolume);
+      musicMixer.SetFloat("MyVolume",Mathf.Log10(musicVolume) * 20);
     }
 
     public void setSound(float soundVolume)
     {
-      soundMixer.SetFloat("MySound", soundVolume);
+      soundMixer.SetFloat("MySound", Mathf.Log10(soundVolume) * 20);
     }
     public void setSensitivity(float sensitivity)
     {
-      //
+       //var action = new Input
     }
 }
