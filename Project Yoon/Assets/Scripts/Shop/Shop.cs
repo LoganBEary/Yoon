@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Shop : MonoBehaviour
 {
@@ -9,6 +10,18 @@ public class Shop : MonoBehaviour
     public List<int> weaponCosts;
     public MainPlayerController player;
     public GameObject notEnoughPrompt;
+
+    public TextMeshProUGUI yoodlesDisplayText;
+
+    private void Update()
+    {
+        updateCoinsDisplay();
+    }
+
+    public void updateCoinsDisplay()
+    {
+        yoodlesDisplayText.text = "Yoodles: " + player.CoinCount;
+    }
 
     public bool enoughCoins(int num_coins, int cost)
     {
