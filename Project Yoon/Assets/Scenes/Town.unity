@@ -7103,7 +7103,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7768924, y: 1}
+    m_SensorSize: {x: 1.7761394, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -14053,7 +14053,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: f977a69f730a86f479654fd87ba9460b, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 9e50b5155e523e2408739280f615cfbf, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 8aebee5da474e4a81bb3d304876e808e, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -14393,6 +14393,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5460528482973934713, guid: 4bc512b9575c5423d9da15437fd18ea6, type: 3}
+      propertyPath: energy
+      value: 
+      objectReference: {fileID: 8536532352575081747}
+    - target: {fileID: 5460528482973934713, guid: 4bc512b9575c5423d9da15437fd18ea6, type: 3}
       propertyPath: CoinCount
       value: 5
       objectReference: {fileID: 0}
@@ -14402,7 +14406,7 @@ PrefabInstance:
       objectReference: {fileID: 1350794922}
     - target: {fileID: 5460528482973934713, guid: 4bc512b9575c5423d9da15437fd18ea6, type: 3}
       propertyPath: coolDownTime
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 5460528482973934713, guid: 4bc512b9575c5423d9da15437fd18ea6, type: 3}
       propertyPath: pauseManager
@@ -14523,3 +14527,14 @@ PrefabInstance:
       objectReference: {fileID: 2103561509}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9eb1a25538ab346a4b03daee56dae11a, type: 3}
+--- !u!114 &8536532352575081747 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7745348788999036391, guid: 9eb1a25538ab346a4b03daee56dae11a, type: 3}
+  m_PrefabInstance: {fileID: 8536532352575081746}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05e6312e0783a40078b4793906c54cb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

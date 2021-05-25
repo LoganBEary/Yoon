@@ -10,7 +10,7 @@ public class EnergyBar : MonoBehaviour
     public MainPlayerController Player;
     //private float waitTime = 4f;
     public bool Regenerating;
-    public IEnumerator coroutine;
+    public IEnumerator energyCoroutine;
     public int regenDelay;
     // Start is called before the first frame update
 void Update()
@@ -19,8 +19,8 @@ void Update()
         energy.fillAmount = currentEnergy/ maxEnergy;
         if(currentEnergy < maxEnergy && !Regenerating)
         {
-            coroutine = RegainEnergy();
-            StartCoroutine(coroutine);
+            energyCoroutine = RegainEnergy();
+            StartCoroutine(energyCoroutine);
         }
     }
 

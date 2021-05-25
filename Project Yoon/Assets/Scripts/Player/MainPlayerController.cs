@@ -50,7 +50,7 @@ public class MainPlayerController : MonoBehaviour
     public PauseManager pauseManager;
     private EnemyHealth goblinHealth;
     public HealthBar PlayerHealthBar;
-
+    public EnergyBar energy;
     public float coolDownTime;
     private float attackTimer = 1.0f;
     public bool isInvincible;
@@ -193,17 +193,20 @@ public class MainPlayerController : MonoBehaviour
 
     public void Attack()
     {
-        if(Energy > 19.5f && attackTimer > coolDownTime){
-        attackTimer = 0;
-        weaponAnimation.Play("Sword02");
-        weaponSound.Play();
-        Energy -= 20.4f;
-        if(enemyClose)
-            if(enemyClose.canAttackplayer)
+        if(Energy > 19.5f && attackTimer > coolDownTime)
+        {
+            if(energy.Regenerating)
             {
-                enemyClose.takeDamage(damage);
+                energy.StopCoroutine(energy.energyCoroutine);
+                energy.Regenerating = !energy.Regenerating;
             }
-
+            attackTimer = 0;
+            weaponAnimation.Play("Sword02");
+            weaponSound.Play();
+            Energy -= 20.4f;
+            if(enemyClose)
+                if(enemyClose.canAttackplayer)
+                    enemyClose.takeDamage(damage);
        // Separate takehit function for crates so that breaking them is independent of the player's damage. 
        // This can be modified later if needed
         if (crate)
