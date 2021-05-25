@@ -14,7 +14,7 @@ public class PauseManager : MonoBehaviour
     public GameObject inventoryMenuUI;
     public GameObject questCompletedMenuUI;
     public GameObject shopMenuUI;
-    public GameObject questText;
+    public GameObject QuestMenuUI;
     public Image experienceBar;
     public TextMeshProUGUI playerLevelText;
 
@@ -25,6 +25,7 @@ public class PauseManager : MonoBehaviour
     public bool inShop;
     public bool inSettings;
     public bool inCheatMenu;
+    public bool inQuestMenu;
 
     public bool crosshairOn;
 
@@ -41,7 +42,6 @@ public class PauseManager : MonoBehaviour
     void Start()
     {
         crosshairs = GameObject.FindGameObjectWithTag("CrossHairs");
-        Cursor.lockState = CursorLockMode.Locked;
         Cursor.lockState = CursorLockMode.None;
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = false;
@@ -64,7 +64,7 @@ public class PauseManager : MonoBehaviour
         upgradePoints = GameManager.gameManager.upgradePoints;
 
         plusButtonActive = GameManager.gameManager.statMaxedList;
-  
+
         if (upgradePoints > 0)
         {
             setPlusButton(true);
@@ -141,7 +141,6 @@ public class PauseManager : MonoBehaviour
             else
             {
                 paused = true;
-                questText.SetActive(false);
                 showMouse();
                 hideCrosshairs();
                 timeScale = 0;
@@ -152,7 +151,6 @@ public class PauseManager : MonoBehaviour
 
     public void resumeGame()
     {
-        questText.SetActive(true);
         hideMouse();
         timeScale = 1;
         pauseMenuUI.SetActive(false);
@@ -214,7 +212,6 @@ public class PauseManager : MonoBehaviour
         {
             if (inInventory)
             {
-                questText.SetActive(true);
                 hideMouse();
                 showCrosshairs();
                 timeScale = 1;
@@ -224,7 +221,6 @@ public class PauseManager : MonoBehaviour
             else
             {
                 inInventory = true;
-                questText.SetActive(false);
                 showMouse();
                 hideCrosshairs();
                 timeScale = 0;
@@ -398,7 +394,7 @@ public class PauseManager : MonoBehaviour
         SceneManager.LoadScene(newScene);
     }
 
-    // ==================================================== Quest Menu Functions ======================================================
+    // ==================================================== Quest Completed Menu Functions ======================================================
 
     public void CompletedQuest(int coins, int xp)
     {
@@ -426,6 +422,23 @@ public class PauseManager : MonoBehaviour
         showCrosshairs();
     }
 
+ // ==================================================== Quest Menu Functions ======================================================
+
+    public void gotoQuestsButton()
+    {
+        Debug.Log("hitting button");
+        pauseMenuUI.SetActive(false);
+        QuestMenuUI.SetActive(true);
+        inQuestMenu = true;
+    }
+
+    public void questBackButton()
+    {
+        QuestMenuUI.SetActive(false);
+        pauseMenuUI.SetActive(true);
+        inQuestMenu = false;
+    }
+
     // ==================================================== Cheat Menu Functions ======================================================
 
     public void playerInvincibleToggle(bool value)
@@ -437,11 +450,10 @@ public class PauseManager : MonoBehaviour
     
     public void OnOpenCheatMenu()
     {
-        if (!inInventory && !inShop && !inSettings)
+        if (!inInventory && !inShop && !inSettings && !inQuestMenu)
         {
             if (inCheatMenu)
             {
-                questText.SetActive(false);
                 timeScale = 1;
                 hideMouse();
                 showCrosshairs();
@@ -451,7 +463,6 @@ public class PauseManager : MonoBehaviour
             else
             {
                 inCheatMenu = true;
-                questText.SetActive(false);
                 showMouse();
                 hideCrosshairs();
                 timeScale = 0;

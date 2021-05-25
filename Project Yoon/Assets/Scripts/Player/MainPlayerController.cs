@@ -111,8 +111,6 @@ public class MainPlayerController : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("attack timer: " + attackTimer);
-        Debug.Log("CoolDown timer: " + coolDownTime);
         if(attackTimer < coolDownTime)
             attackTimer += Time.deltaTime;
         if(Health <= 0)
@@ -178,7 +176,6 @@ public class MainPlayerController : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log("enemy");
             enemyClose = other.GetComponent<EnemyController>();
         }
         if (other.gameObject.tag == "BreakableObject")

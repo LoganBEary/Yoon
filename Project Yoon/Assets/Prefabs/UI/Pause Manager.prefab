@@ -740,15 +740,16 @@ MonoBehaviour:
   inventoryMenuUI: {fileID: 5066096940350300528}
   questCompletedMenuUI: {fileID: 0}
   shopMenuUI: {fileID: 2093653688660717525}
-  questText: {fileID: 8089296494139743165, guid: 695bc9707363f9144a88130832794647, type: 3}
+  QuestMenuUI: {fileID: 6696418642419988363, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
   experienceBar: {fileID: 5066096939865350252}
   playerLevelText: {fileID: 5066096938744527115}
   cheatMenuUI: {fileID: 6399159288061327501}
   paused: 0
   inInventory: 0
   inShop: 0
-  inSettings: 0
+  inSettings: 1
   inCheatMenu: 0
+  inQuestMenu: 0
   crosshairOn: 0
   player: {fileID: 0}
   statsList:
@@ -1591,7 +1592,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4075676278041540579, guid: 58437fb1868f1ca419a20960da5a9ce1, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4075676278041540582, guid: 58437fb1868f1ca419a20960da5a9ce1, type: 3}
       propertyPath: m_Pivot.x
@@ -1879,6 +1880,10 @@ PrefabInstance:
     - target: {fileID: 7995486268710913383, guid: d889345fa7d603d4283f1f369b863e24, type: 3}
       propertyPath: m_Name
       value: SettingsMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 7995486268710913383, guid: d889345fa7d603d4283f1f369b863e24, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7995486269517317525, guid: d889345fa7d603d4283f1f369b863e24, type: 3}
       propertyPath: m_AnchorMax.x
