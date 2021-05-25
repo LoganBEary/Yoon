@@ -32,7 +32,6 @@ public class NPC_Script : MonoBehaviour
                 StartCoroutine(displayText());
             }
         }
-
     }
 
 

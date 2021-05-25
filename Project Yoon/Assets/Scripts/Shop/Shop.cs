@@ -9,9 +9,12 @@ public class Shop : MonoBehaviour
     public List<GameObject> weaponObjects;
     public List<int> weaponCosts;
     public MainPlayerController player;
-    public GameObject notEnoughPrompt;
 
     public TextMeshProUGUI yoodlesDisplayText;
+
+    public GameObject notEnoughPrompt;
+    public GameObject successPrompt;
+    
 
     private void Update()
     {
@@ -28,6 +31,20 @@ public class Shop : MonoBehaviour
         return num_coins >= cost;
     }
 
+    IEnumerator displaysuccessPrompt()
+    {
+        successPrompt.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        successPrompt.SetActive(false);
+    }
+
+    IEnumerator displaynotEnoughPrompt()
+    {
+        notEnoughPrompt.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        notEnoughPrompt.SetActive(false);
+    }
+
     public void onClickWeapon(int index)
     {
         Item itemtoadd = weapons[index];
@@ -38,10 +55,12 @@ public class Shop : MonoBehaviour
             weaponObjects[index].SetActive(false);
             player.CoinCount -= itemCost;
             player.SetCountText();
+            StartCoroutine(displaysuccessPrompt());
             Debug.Log("Num coins after purchase is: " + player.CoinCount.ToString());
         }
         else
         {
+            StartCoroutine(displaynotEnoughPrompt());
             Debug.Log("You don't have enough coins to purchase this item");
         }
     }
