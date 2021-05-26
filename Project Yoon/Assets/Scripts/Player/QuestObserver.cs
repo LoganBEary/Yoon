@@ -7,15 +7,17 @@ using TMPro;
 public class QuestObserver : MonoBehaviour
 {
     public MainPlayerController playerController;
-
+    public GameObject QuestMenuUI;
     public PauseManager PauseM;
     public GameObject Quest2Display;
     public int numOfDefeated;
+    private bool set;
 
-    public Toggle QuestToggle;
-    public GameObject questCompletedMenuUI;
     // Start is called before the first frame update
-    
+    private void Start()
+    {
+        set = false;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -29,11 +31,16 @@ public class QuestObserver : MonoBehaviour
         }
         if(playerController.numOfDefeated == 5)
         {
+            if(!set)
+            {
+                PauseM.OnPause();
                 playerController.quest.isActive = false;
                 playerController.quest.isComplete = true;
-                QuestToggle.isOn = true;
+                set = true;
                 playerController.currentQuest = 3;
-                QuestComplete(playerController.quest.yoodlesRewarded, playerController.quest.expRewarded);
+                QuestMenuUI.GetComponent<SetQuestReward>().SetReward();
+                //Possibly set onclick to toggle pausescreen 
+            }
         }
         /*if(playerController.currentQuest >= 2)
         {
@@ -43,18 +50,4 @@ public class QuestObserver : MonoBehaviour
             }
    }*/
     }
-    public void QuestComplete(int yoon, int exp)
-    {
-            PauseM.addXP(exp);
-            PauseM.addYoodles(yoon);
-
-            TextMeshProUGUI yoodlesText = questCompletedMenuUI.transform.GetChild(2).GetComponent<TextMeshProUGUI>();
-            TextMeshProUGUI xpText = questCompletedMenuUI.transform.GetChild(3).GetComponent<TextMeshProUGUI>();
-
-            yoodlesText.text = "+ " + yoon.ToString() + " Yoodles";
-            xpText.text = "+ " + exp.ToString() + " XP";
-        // Display the Completed Text UI
-            questCompletedMenuUI.SetActive(true);
-        return;
-     }
 }

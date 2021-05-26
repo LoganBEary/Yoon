@@ -263,11 +263,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 202927261}
+  QuestMenuUI: {fileID: 244436515}
   PauseM: {fileID: 1267678119}
   Quest2Display: {fileID: 244436520}
   numOfDefeated: 0
-  QuestToggle: {fileID: 2086069354}
-  questCompletedMenuUI: {fileID: 2031657329}
 --- !u!1001 &211113147
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -406,10 +405,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1267678118}
     m_Modifications:
+    - target: {fileID: 1582995509, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
+      propertyPath: m_IsOn
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1657392844731008088, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
       propertyPath: PauseM
       value: 
       objectReference: {fileID: 1267678119}
+    - target: {fileID: 1657392844731008088, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1657392844731008088, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
+      propertyPath: QuestMenuUI
+      value: 
+      objectReference: {fileID: 244436515}
     - target: {fileID: 1657392844731008088, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
       propertyPath: playerController
       value: 
@@ -421,6 +432,10 @@ PrefabInstance:
     - target: {fileID: 2974946844352371099, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: questBackButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294265416371313856, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6696418642419988363, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
       propertyPath: m_IsActive
@@ -530,6 +545,57 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4294265416371313856, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
   m_PrefabInstance: {fileID: 244436514}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &244436527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 244436515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad17d212fb0ca471e9567fb8bf399be7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exp: 150
+  yoon: 30
+  PauseM: {fileID: 1267678119}
+  QuestToggle: {fileID: 2086069354}
+  questCompletedMenuUI: {fileID: 2031657329}
+--- !u!114 &244436528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 244436515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2288fd87a98c42d9aa3ceb2ccf9edad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quest1:
+    questNum: 1
+    isActive: 0
+    isComplete: 1
+    title: Welcome to Yoon!
+    description: Hi There! You look to have traveled far! Collect coins around the
+      town and purchase yourself a new weapon!
+    yoodlesRewarded: 0
+    expRewarded: 0
+  quest2:
+    questNum: 2
+    isActive: 1
+    isComplete: 0
+    title: Defeat The Goblins!
+    description: Oh No! The Townspeople say there are Goblins heading for the town!
+      Stop them in the desert before its too late!
+    yoodlesRewarded: 0
+    expRewarded: 0
+  Quest1Title: {fileID: 244436517}
+  Quest1Desc: {fileID: 244436516}
+  Quest2Title: {fileID: 244436519}
+  Quest2Desc: {fileID: 244436518}
 --- !u!1 &267989649
 GameObject:
   m_ObjectHideFlags: 0
@@ -2827,6 +2893,22 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 202927261}
+    - target: {fileID: 8536532353323548376, guid: 9eb1a25538ab346a4b03daee56dae11a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 5.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8536532353323548376, guid: 9eb1a25538ab346a4b03daee56dae11a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 5.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8556546433222480090, guid: 9eb1a25538ab346a4b03daee56dae11a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 5.0999603
+      objectReference: {fileID: 0}
+    - target: {fileID: 8556546433222480090, guid: 9eb1a25538ab346a4b03daee56dae11a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 5.100025
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9eb1a25538ab346a4b03daee56dae11a, type: 3}
 --- !u!114 &1656425493 stripped
@@ -3014,7 +3096,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7786187, y: 1}
+    m_SensorSize: {x: 1.7769376, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0

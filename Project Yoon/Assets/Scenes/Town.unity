@@ -7581,7 +7581,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7786187, y: 1}
+    m_SensorSize: {x: 1.7769376, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -7722,8 +7722,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 2103561509}
+  QuestMenuUI: {fileID: 0}
   PauseM: {fileID: 539271184}
   Quest2Display: {fileID: 1276823015}
+  numOfDefeated: 0
 --- !u!1001 &1225199152
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14938,6 +14940,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 539271183}
     m_Modifications:
+    - target: {fileID: 130853019, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 438
+      objectReference: {fileID: 0}
+    - target: {fileID: 1950404698, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 112
+      objectReference: {fileID: 0}
+    - target: {fileID: 1950404698, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -47
+      objectReference: {fileID: 0}
+    - target: {fileID: 1444026336102487406, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -143
+      objectReference: {fileID: 0}
     - target: {fileID: 1657392844731008088, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
       propertyPath: PauseM
       value: 
@@ -14950,9 +14968,17 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 539271184}
+    - target: {fileID: 4294265416371313856, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6696418642419988363, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
       propertyPath: m_Name
       value: QuestMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 6696418642419988363, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6981399442587374434, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
       propertyPath: m_Pivot.x
@@ -15851,19 +15877,19 @@ PrefabInstance:
       objectReference: {fileID: 2103561509}
     - target: {fileID: 8536532353323548376, guid: 9eb1a25538ab346a4b03daee56dae11a, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -9.900024
+      value: -7.700077
       objectReference: {fileID: 0}
     - target: {fileID: 8536532353323548376, guid: 9eb1a25538ab346a4b03daee56dae11a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -12.299988
+      value: -10.799988
       objectReference: {fileID: 0}
     - target: {fileID: 8556546433222480090, guid: 9eb1a25538ab346a4b03daee56dae11a, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -9.899963
+      value: -7.7
       objectReference: {fileID: 0}
     - target: {fileID: 8556546433222480090, guid: 9eb1a25538ab346a4b03daee56dae11a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -12.300011
+      value: -10.8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9eb1a25538ab346a4b03daee56dae11a, type: 3}
