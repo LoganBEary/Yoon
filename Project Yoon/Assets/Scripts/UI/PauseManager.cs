@@ -39,6 +39,8 @@ public class PauseManager : MonoBehaviour
     public List<bool> plusButtonActive;
     public int upgradePoints;
 
+    public bool mouseIsHidden = false;
+
     void Start()
     {
         crosshairs = GameObject.FindGameObjectWithTag("CrossHairs");
@@ -79,6 +81,15 @@ public class PauseManager : MonoBehaviour
     void Update()
     {
         Time.timeScale = timeScale;
+
+        if (mouseIsHidden)
+        {
+            hideMouse();
+        }
+        else
+        {
+            showMouse();
+        }
     }
 
     // ==================================================== Helper Functions ======================================================
@@ -142,6 +153,7 @@ public class PauseManager : MonoBehaviour
             {
                 paused = true;
                 showMouse();
+                mouseIsHidden = false;
                 hideCrosshairs();
                 timeScale = 0;
                 pauseMenuUI.SetActive(true);
@@ -152,6 +164,7 @@ public class PauseManager : MonoBehaviour
     public void resumeGame()
     {
         hideMouse();
+        mouseIsHidden = true;
         timeScale = 1;
         pauseMenuUI.SetActive(false);
         inventoryMenuUI.SetActive(false);
@@ -213,6 +226,7 @@ public class PauseManager : MonoBehaviour
             if (inInventory)
             {
                 hideMouse();
+                mouseIsHidden = true;
                 showCrosshairs();
                 timeScale = 1;
                 inventoryMenuUI.SetActive(false);
@@ -222,6 +236,7 @@ public class PauseManager : MonoBehaviour
             {
                 inInventory = true;
                 showMouse();
+                mouseIsHidden = false;
                 hideCrosshairs();
                 timeScale = 0;
                 inventoryMenuUI.SetActive(true);
@@ -329,6 +344,7 @@ public class PauseManager : MonoBehaviour
     public void gameOver()
     {
         showMouse();
+        mouseIsHidden = false;
         timeScale = 0;
         gameOverMenuUI.SetActive(true);
         paused = true;
@@ -337,6 +353,7 @@ public class PauseManager : MonoBehaviour
     public void reloadScene()
     {
         hideMouse();
+        mouseIsHidden = true;
         timeScale = 1;
         gameOverMenuUI.SetActive(false);
         paused = false;
@@ -357,6 +374,7 @@ public class PauseManager : MonoBehaviour
             if (inShop)
             {
                 hideMouse();
+                mouseIsHidden = true;
                 showCrosshairs();
                 timeScale = 1;
                 shopMenuUI.SetActive(false);
@@ -365,6 +383,7 @@ public class PauseManager : MonoBehaviour
             else
             {
                 showMouse();
+                mouseIsHidden = false;
                 hideCrosshairs();
                 timeScale = 0;
                 shopMenuUI.SetActive(true);
@@ -454,6 +473,7 @@ public class PauseManager : MonoBehaviour
         {
             if (inCheatMenu)
             {
+                mouseIsHidden = true;
                 timeScale = 1;
                 hideMouse();
                 showCrosshairs();
@@ -464,6 +484,7 @@ public class PauseManager : MonoBehaviour
             {
                 inCheatMenu = true;
                 showMouse();
+                mouseIsHidden = false;
                 hideCrosshairs();
                 timeScale = 0;
                 cheatMenuUI.SetActive(true);

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1679,20 +1679,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapons:
-  - {fileID: 11400000, guid: df5fd643a8ef178459364a872954cdb9, type: 2}
-  - {fileID: 11400000, guid: 9abbbda16bcddf34886593f9ac319c31, type: 2}
   - {fileID: 11400000, guid: e23ad563fbe859240b1a4565ad2d93ac, type: 2}
-  - {fileID: 11400000, guid: 702d4d28d6be3cd42834d46124a1526e, type: 2}
-  - {fileID: 11400000, guid: 347dbb2eaba0acc4395943504d75bef0, type: 2}
-  - {fileID: 11400000, guid: 86671dd21ecb93d48ace93d5e0798742, type: 2}
+  - {fileID: 11400000, guid: 0281a7a305f6cf44e90b52ae5e9cf005, type: 2}
+  - {fileID: 11400000, guid: 23f37090dec2ad04f855efbe5529c679, type: 2}
   weaponObjects:
   - {fileID: 2024586311}
   - {fileID: 665186559}
   - {fileID: 1742356982}
-  - {fileID: 652612371}
-  - {fileID: 1838207518}
-  - {fileID: 671114477}
-  weaponCosts: 050000000a0000000f000000140000001400000019000000
+  weaponCosts: 0f00000032000000c8000000
   player: {fileID: 2103561509}
   yoodlesDisplayText: {fileID: 1087540632}
   notEnoughPrompt: {fileID: 213796684}
@@ -3245,19 +3239,9 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &652612371 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2093653687650510033, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
-  m_PrefabInstance: {fileID: 1834247994}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &665186559 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2093653687586778920, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
-  m_PrefabInstance: {fileID: 1834247994}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &671114477 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2093653688199935390, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
   m_PrefabInstance: {fileID: 1834247994}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &679800376
@@ -5497,9 +5481,6 @@ MonoBehaviour:
   currentQuest: 0
   itemList:
   - {fileID: 11400000, guid: df5fd643a8ef178459364a872954cdb9, type: 2}
-  - {fileID: 11400000, guid: e23ad563fbe859240b1a4565ad2d93ac, type: 2}
-  - {fileID: 11400000, guid: 23f37090dec2ad04f855efbe5529c679, type: 2}
-  - {fileID: 11400000, guid: 0281a7a305f6cf44e90b52ae5e9cf005, type: 2}
   previousScene: 
   currentScene: 
   upgradePoints: 0
@@ -7581,7 +7562,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7769376, y: 1}
+    m_SensorSize: {x: 1.7773585, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -12455,6 +12436,18 @@ PrefabInstance:
       propertyPath: m_CullTransparentMesh
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2093653687474955280, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: fb8c15302f430f44cac11595b6f21b16, type: 3}
+    - target: {fileID: 2093653687518929052, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d294810e54e0580408bd0fe28b9ad927, type: 3}
+    - target: {fileID: 2093653687564513333, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 89931a47311e6344aa24c2d58267dbee, type: 3}
     - target: {fileID: 2093653687586778926, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -12486,6 +12479,18 @@ PrefabInstance:
     - target: {fileID: 2093653687586778926, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2093653687606765403, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: m_Text
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2093653687628304117, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: m_Text
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 2093653687650510033, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2093653687650510039, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -12583,6 +12588,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 2093653688134529574, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2093653688199935388, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -12617,7 +12626,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2093653688199935390, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2093653688463483705, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: m_Text
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 2093653688660717525, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
       propertyPath: m_IsActive
@@ -12853,11 +12866,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
---- !u!1 &1838207518 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2093653688134529574, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
-  m_PrefabInstance: {fileID: 1834247994}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1838812560
 GameObject:
   m_ObjectHideFlags: 0
@@ -15478,6 +15486,10 @@ PrefabInstance:
     - target: {fileID: 5460528482973934717, guid: 4bc512b9575c5423d9da15437fd18ea6, type: 3}
       propertyPath: m_Name
       value: Character
+      objectReference: {fileID: 0}
+    - target: {fileID: 6802627236732100267, guid: 4bc512b9575c5423d9da15437fd18ea6, type: 3}
+      propertyPath: weaponDamage
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4bc512b9575c5423d9da15437fd18ea6, type: 3}
