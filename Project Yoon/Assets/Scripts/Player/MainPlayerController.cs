@@ -56,6 +56,9 @@ public class MainPlayerController : MonoBehaviour
     public bool isInvincible;
     public bool isSprinting;
 
+    // Array - to access multiple quests at once
+    public GeneralQuest quest;
+
     private BreakableCrate crate;
 
     public void SetCountText()

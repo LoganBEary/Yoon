@@ -29,7 +29,7 @@ public class PauseManager : MonoBehaviour
 
     public bool crosshairOn;
 
-    private float timeScale;
+    public float timeScale;
     public MainPlayerController player;
 
     public List<TextMeshProUGUI> statsList;
@@ -82,19 +82,19 @@ public class PauseManager : MonoBehaviour
     }
 
     // ==================================================== Helper Functions ======================================================
-    private void showMouse()
+    public void showMouse()
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }
 
-    private void hideMouse()
+    public void hideMouse()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
 
-    private void hideCrosshairs()
+    public void hideCrosshairs()
     {
         if (crosshairOn)
         {
@@ -102,7 +102,7 @@ public class PauseManager : MonoBehaviour
         }
     }
 
-    private void showCrosshairs()
+    public void showCrosshairs()
     {
         if (crosshairOn)
         {
