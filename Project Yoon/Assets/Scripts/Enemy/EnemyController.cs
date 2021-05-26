@@ -14,7 +14,8 @@ public class EnemyController : MonoBehaviour
     public Image enemyHealthBar;
     public GameObject healthBarUI;
     public Animator anim;
-
+    public MainPlayerController playerController;
+    public int enemyID;
     // Reference to the player gameobject's transform component
     private Transform p_transform;
 
@@ -58,6 +59,7 @@ public class EnemyController : MonoBehaviour
     public Rigidbody rb;
     public bool knockback;
     public float k_timer = 0;
+    public int numDefeated;
 
     // Start is called before the first frame update
     void Start()
@@ -75,6 +77,11 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(numDefeated > 0)
+        {
+            playerController.AddCount();
+            numDefeated = 0;
+        }
         canSeePlayer = Physics.CheckSphere(transform.position, sightRange, p_layerMask);
         canAttackplayer = Physics.CheckSphere(transform.position, attackRange, p_layerMask);
 
@@ -146,6 +153,9 @@ public class EnemyController : MonoBehaviour
 
         if (health <= 0 && !dead)
         {
+            if(enemyID == 1)
+               numDefeated++;
+
             dead = true;
             //Debug.Log("Ded");
 

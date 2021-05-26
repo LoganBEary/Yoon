@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public float curHealth;
     public int yoodles;
     public bool playerIsInvincible;
+    public int currentQuest;
 
     // ++++++++++++++++++++++++++++ Info saved for PauseManager script ++++++++++++++++++++++++++++
     public List<Item> itemList = new List<Item>();

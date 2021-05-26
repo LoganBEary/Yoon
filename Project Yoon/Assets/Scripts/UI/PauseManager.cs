@@ -417,7 +417,7 @@ public class PauseManager : MonoBehaviour
     {
         hideCrosshairs();
         questCompletedMenuUI.SetActive(true);
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(1.5f);
         questCompletedMenuUI.SetActive(false);
         showCrosshairs();
     }
@@ -427,7 +427,7 @@ public class PauseManager : MonoBehaviour
     public void gotoQuestsButton()
     {
         Debug.Log("hitting button");
-        pauseMenuUI.SetActive(false);
+        pauseMenuUI.SetActive(true);
         QuestMenuUI.SetActive(true);
         inQuestMenu = true;
     }
@@ -435,7 +435,7 @@ public class PauseManager : MonoBehaviour
     public void questBackButton()
     {
         QuestMenuUI.SetActive(false);
-        pauseMenuUI.SetActive(true);
+       // pauseMenuUI.SetActive(false);
         inQuestMenu = false;
     }
 

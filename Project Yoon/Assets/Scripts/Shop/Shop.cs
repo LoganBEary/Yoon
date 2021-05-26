@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class Shop : MonoBehaviour
@@ -14,7 +15,10 @@ public class Shop : MonoBehaviour
 
     public GameObject notEnoughPrompt;
     public GameObject successPrompt;
-    
+    public PauseManager PauseM;
+
+    public Toggle QuestToggle;
+    public GameObject questCompletedMenuUI;
 
     private void Update()
     {
@@ -51,6 +55,14 @@ public class Shop : MonoBehaviour
         int itemCost = weaponCosts[index];
         if (enoughCoins(player.CoinCount, itemCost))
         {
+            if(player.currentQuest == 1)
+            {
+                player.quest.isActive = false;
+                player.quest.isComplete = true;
+                QuestToggle.isOn = true;
+                player.currentQuest = 2;
+                ShopQuest(player.quest.yoodlesRewarded, player.quest.expRewarded);
+            }
             Inventory.inventoryInstance.add(itemtoadd);
             weaponObjects[index].SetActive(false);
             player.CoinCount -= itemCost;
@@ -64,4 +76,18 @@ public class Shop : MonoBehaviour
             Debug.Log("You don't have enough coins to purchase this item");
         }
     }
+
+    public void ShopQuest(int yoodles, int exp){
+        PauseM.addYoodles(yoodles);
+        PauseM.addXP(exp);
+        TextMeshProUGUI yoodlesText = questCompletedMenuUI.transform.GetChild(2).GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI xpText = questCompletedMenuUI.transform.GetChild(3).GetComponent<TextMeshProUGUI>();
+
+        yoodlesText.text = "+ " + yoodles.ToString() + " Yoodles";
+        xpText.text = "+ " + exp.ToString() + " XP";
+        // Display the Completed Text UI
+        questCompletedMenuUI.SetActive(true);
+        return;
+    }
+
 }

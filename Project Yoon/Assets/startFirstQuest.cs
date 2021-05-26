@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class startFirstQuest : MonoBehaviour
 {
-    public GameObject quest1;
+    public GameObject quest;
+    public PauseManager pauseM;
     // Start is called before the first frame update
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.CompareTag("Player"))
         {
-            quest1.GetComponent<QuestGiver>().OpenQuestUI();
+            pauseM.GetComponent<PauseManager>().OnPause();
+            quest.GetComponent<QuestGiver>().OpenQuestUI();
             GetComponent<Collider>().enabled = false;
         }
     }

@@ -55,11 +55,12 @@ public class MainPlayerController : MonoBehaviour
     private float attackTimer = 1.0f;
     public bool isInvincible;
     public bool isSprinting;
-
+    public PauseManager PauseM;
     // Array - to access multiple quests at once
     public GeneralQuest quest;
-
+    public int currentQuest;
     private BreakableCrate crate;
+    public int numOfDefeated;
 
     public void SetCountText()
 	{
@@ -205,8 +206,10 @@ public class MainPlayerController : MonoBehaviour
             weaponSound.Play();
             Energy -= 20.4f;
             if(enemyClose)
+            {
                 if(enemyClose.canAttackplayer)
                     enemyClose.takeDamage(damage);
+            }
        // Separate takehit function for crates so that breaking them is independent of the player's damage. 
        // This can be modified later if needed
         if (crate)
@@ -248,5 +251,11 @@ public class MainPlayerController : MonoBehaviour
         GameManager.gameManager.curHealth = Health;
         GameManager.gameManager.yoodles = CoinCount;
         GameManager.gameManager.playerIsInvincible = isInvincible;
+    }
+
+
+    public void AddCount()
+    {
+        numOfDefeated++;
     }
 }
