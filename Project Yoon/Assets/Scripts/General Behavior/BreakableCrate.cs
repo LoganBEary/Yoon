@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BreakableCrate : MonoBehaviour
 {
@@ -19,20 +20,37 @@ public class BreakableCrate : MonoBehaviour
     // Reference to the coin prefab
     public Transform coinPrefab;
 
+    public Image healthBar;
+
+    public GameObject canvas;
+
+    private Transform player;
+
     void Start()
     {
         // Initialize the number of hits needed to break with a random number between 3 and 10
-        hitsToBreak = Random.Range(3, 6);
+        hitsToBreak = Random.Range(2, 4);
 
         // Initialize the number of hits taken to 0
         numHits = 0;
+
+        player = GameObject.Find("character").transform;
+    }
+
+    public void Awake()
+    {
+        canvas.SetActive(false);
     }
 
     //  This function increments the number of hits a crate has taken
     public void takeHit()
     {
+        canvas.SetActive(true);
         // Increment number of hits taken
         numHits++;
+
+        float amount = (float)numHits / hitsToBreak;
+        healthBar.fillAmount =  1f - amount;
 
         // If the number of hits equals the number of hits needed to break
         if (numHits == hitsToBreak)
@@ -40,6 +58,15 @@ public class BreakableCrate : MonoBehaviour
             // Start the coroutine for destroying the crate object
             StartCoroutine(breakCrate());
         }
+
+        StartCoroutine(hideHealthBar());
+
+    }
+
+    private IEnumerator hideHealthBar()
+    {
+        yield return new WaitForSeconds(3f);
+        canvas.SetActive(false);
     }
 
     // This function defines the behavior of the crate when broken
