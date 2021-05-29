@@ -162,6 +162,10 @@ public class GameManager : MonoBehaviour
             case 2:
                 player.defense = Mathf.Lerp(0, 40, stat / 20) / 100;
                 break;
+            case 3:
+                player.coolDownTime = (100 - stat) / 100f;
+                player.AttackEnergyCost = 15 - (stat / 10);
+                break;
         }
     }
 }

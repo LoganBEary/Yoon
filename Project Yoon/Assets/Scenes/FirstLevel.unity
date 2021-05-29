@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3096,7 +3096,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7769376, y: 1}
+    m_SensorSize: {x: 1.7773585, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -3960,6 +3960,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1929645753}
     - target: {fileID: 8036419428027230908, guid: d5d8d39761b6f4d319074c5ee29c9926, type: 3}
+      propertyPath: coolDownTime
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8036419428027230908, guid: d5d8d39761b6f4d319074c5ee29c9926, type: 3}
       propertyPath: currentQuest
       value: 2
       objectReference: {fileID: 0}
@@ -3971,5 +3975,9 @@ PrefabInstance:
       propertyPath: PlayerHealthBar
       value: 
       objectReference: {fileID: 1656425493}
+    - target: {fileID: 8802109770637791342, guid: d5d8d39761b6f4d319074c5ee29c9926, type: 3}
+      propertyPath: weaponDamage
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5d8d39761b6f4d319074c5ee29c9926, type: 3}

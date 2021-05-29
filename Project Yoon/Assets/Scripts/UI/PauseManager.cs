@@ -39,7 +39,7 @@ public class PauseManager : MonoBehaviour
     public List<bool> plusButtonActive;
     public int upgradePoints;
 
-    public bool mouseIsHidden = false;
+    public bool mouseIsHidden = true;
 
     void Start()
     {
@@ -75,6 +75,9 @@ public class PauseManager : MonoBehaviour
         {
             setPlusButton(false);
         }
+
+        togglePause();
+        togglePause();
     }
 
     // Update is called once per frame
@@ -317,6 +320,19 @@ public class PauseManager : MonoBehaviour
                 statVals[index] = val;
 
                 if (val >= 20) // Max Defense
+                {
+                    plusButtons[index].gameObject.SetActive(false);
+                    plusButtonActive[index] = false;
+                }
+
+                break;
+            case 3: // Adding Attack Speed
+                add = 10;
+                val = statVals[index] + add;
+                updateStat(index, val);
+                statVals[index] = val;
+
+                if (val >= 50) // Max Defense
                 {
                     plusButtons[index].gameObject.SetActive(false);
                     plusButtonActive[index] = false;

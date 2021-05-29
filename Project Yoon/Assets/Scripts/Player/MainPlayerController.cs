@@ -19,18 +19,14 @@ public class MainPlayerController : MonoBehaviour
     [SerializeField]
     private float jumpingHeight = 3.0f;
 
-    public float damage;
 
-    public float baseDamage = 10f;
-    public float weaponDamage = 0f;
 
-    public float defense = 0f; // decimal value representing percent. Range from 0 to 0.4
+
 
 
     [SerializeField]
     private float gravityVal = -9.81f;
-    public float Health = 100f;
-    public float Energy = 100f;
+
     public float xPos;
     public float yPos;
     public float zPos;
@@ -41,19 +37,37 @@ public class MainPlayerController : MonoBehaviour
     private InputManager inputManager;
     private Transform cameraTransform;
     private EnemyController enemyClose;
-    private GameObject weapon;
+   
 
-    public AudioSource weaponSound;
+    // ++++++++++++++++++++ Combat Variables +++++++++++++++++++++++
+    private GameObject weapon; // Reference to currently equipped weapon
+    public AudioSource weaponSound; // Sound weapon makes on attack
+    private Animation weaponAnimation; // Attack animation
+
+    public float Health = 100f; // Player current health
+    public float Energy = 100f;
+
+    public float damage; // Total damage dealt to each enemy. Made up of base damage and weapon damage
+
+    public float baseDamage = 10f; // player base damage. Affected by damage stat
+    public float weaponDamage = 0f; // Bonus damage added by currently equipped weapon
+
+    public float coolDownTime; // How long the player must wait between attacks
+
+    public float AttackEnergyCost = 15; // How much energy each attack takes away
+
+    public float defense = 0f; // decimal value representing percent. Range from 0 to 0.4
+
+    public EnergyBar energy; // Energy bar displays how much energy the player currently has
+
+    public bool isInvincible;
+
     [SerializeField]
     public AudioSource jumpSound;
-    private Animation weaponAnimation;
     public PauseManager pauseManager;
     private EnemyHealth goblinHealth;
     public HealthBar PlayerHealthBar;
-    public EnergyBar energy;
-    public float coolDownTime;
     private float attackTimer = 1.0f;
-    public bool isInvincible;
     public bool isSprinting;
     public PauseManager PauseM;
     // Array - to access multiple quests at once
@@ -80,6 +94,8 @@ public class MainPlayerController : MonoBehaviour
 
         baseDamage = GameManager.gameManager.statsList[1];
         defense = Mathf.Lerp(0, 40, GameManager.gameManager.statsList[2] / 20) / 100;
+        coolDownTime = (100 - GameManager.gameManager.statsList[3]) / 100;
+        AttackEnergyCost = 15 - (GameManager.gameManager.statsList[3] / 10);
 
         updateWeapon(); // Make a call to updateWeapon to assign the 'weapon' gameobject correctly
 
@@ -194,7 +210,7 @@ public class MainPlayerController : MonoBehaviour
 
     public void Attack()
     {
-        if(Energy > 19.5f && attackTimer > coolDownTime)
+        if(Energy > 19.5f && attackTimer >= coolDownTime)
         {
             if(energy.Regenerating)
             {
@@ -204,7 +220,7 @@ public class MainPlayerController : MonoBehaviour
             attackTimer = 0;
             weaponAnimation.Play("Sword02");
             weaponSound.Play();
-            Energy -= 20.4f;
+            Energy -= AttackEnergyCost;
             if(enemyClose)
             {
                 if(enemyClose.canAttackplayer)
