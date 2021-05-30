@@ -15,6 +15,7 @@ public class PauseManager : MonoBehaviour
     public GameObject questCompletedMenuUI;
     public GameObject shopMenuUI;
     public GameObject QuestMenuUI;
+    public GameObject ControlsMenuUI;
     public Image experienceBar;
     public TextMeshProUGUI playerLevelText;
 
@@ -375,6 +376,21 @@ public class PauseManager : MonoBehaviour
         paused = false;
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+// ==================================================== Control Menu Functions ======================================================
+
+    public void gotoControlsButton()
+    {
+        pauseMenuUI.SetActive(false);
+        ControlsMenuUI.SetActive(true);
+    }
+
+    public void controlsBackButton()
+    {
+        ControlsMenuUI.SetActive(false);
+        pauseMenuUI.SetActive(true);
+
     }
 
     // ==================================================== Shop Menu Functions ======================================================

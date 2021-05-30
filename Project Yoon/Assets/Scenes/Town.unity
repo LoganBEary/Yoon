@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -11562,6 +11562,50 @@ PrefabInstance:
       propertyPath: playerController
       value: 
       objectReference: {fileID: 2103561509}
+    - target: {fileID: 3282691670868737905, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 830.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 3282691670868737905, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 936.274
+      objectReference: {fileID: 0}
+    - target: {fileID: 3282691670868737905, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.000015258789
+      objectReference: {fileID: 0}
+    - target: {fileID: 3282691670868737905, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.00002670288
+      objectReference: {fileID: 0}
+    - target: {fileID: 5465328489239704881, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5529665495921221949, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -319
+      objectReference: {fileID: 0}
+    - target: {fileID: 5529665495921221949, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 407
+      objectReference: {fileID: 0}
+    - target: {fileID: 6499085186517531771, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6499085186517531771, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 539271184}
+    - target: {fileID: 6499085186517531771, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: gotoControlsButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 6499085186517531771, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PauseManager, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 7115360239846830892, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
       propertyPath: player
       value: 
@@ -11658,6 +11702,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 2103561509}
+    - target: {fileID: 7115360239846830895, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: ControlsMenuUI
+      value: 
+      objectReference: {fileID: 1834247995}
     - target: {fileID: 7115360239846830897, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
       propertyPath: m_Name
       value: Pause Manager
@@ -11670,8 +11718,21 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1686176581}
+    - target: {fileID: 7696859551738288564, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 539271184}
+    - target: {fileID: 7696859551738288564, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: controlsBackButton
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+--- !u!1 &1834247995 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5465328489239704881, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+  m_PrefabInstance: {fileID: 1834247994}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1838812560
 GameObject:
   m_ObjectHideFlags: 0
