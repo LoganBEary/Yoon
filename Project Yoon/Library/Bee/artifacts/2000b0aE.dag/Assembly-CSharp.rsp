@@ -90,6 +90,7 @@
 -define:ENABLE_TILEMAP
 -define:ENABLE_TIMELINE
 -define:ENABLE_INPUT_SYSTEM
+-define:UNITY_POST_PROCESSING_STACK_V2
 -define:CSHARP_7_OR_LATER
 -define:CSHARP_7_3_OR_NEWER
 -r:"/Applications/Unity/Hub/Editor/2021.1.4f1/PlaybackEngines/WebGLSupport/Managed/UnityEngine.WebGLModule.dll"
@@ -289,6 +290,8 @@
 -r:"Library/Bee/artifacts/2000b0aE.dag/Unity.InputSystem.ref.dll"
 -r:"Library/Bee/artifacts/2000b0aE.dag/Unity.Mathematics.Editor.ref.dll"
 -r:"Library/Bee/artifacts/2000b0aE.dag/Unity.Mathematics.ref.dll"
+-r:"Library/Bee/artifacts/2000b0aE.dag/Unity.Postprocessing.Editor.ref.dll"
+-r:"Library/Bee/artifacts/2000b0aE.dag/Unity.Postprocessing.Runtime.ref.dll"
 -r:"Library/Bee/artifacts/2000b0aE.dag/Unity.RenderPipeline.Universal.ShaderLibrary.ref.dll"
 -r:"Library/Bee/artifacts/2000b0aE.dag/Unity.RenderPipelines.Core.Editor.ref.dll"
 -r:"Library/Bee/artifacts/2000b0aE.dag/Unity.RenderPipelines.Core.Runtime.ref.dll"
@@ -311,7 +314,7 @@
 -r:"Library/Bee/artifacts/2000b0aE.dag/Unity.VSCode.Editor.ref.dll"
 -r:"Library/Bee/artifacts/2000b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/2000b0aE.dag/UnityEngine.UI.ref.dll"
-"Assets/scip.cs"
+"Assets/Scripts/DisableSpawners.cs"
 "Assets/Scripts/Enemy/BossHealthTrigger.cs"
 "Assets/Scripts/Enemy/EnemyAttack.cs"
 "Assets/Scripts/Enemy/EnemyController.cs"
@@ -351,7 +354,9 @@
 "Assets/Scripts/Player/SetQuestUI.cs"
 "Assets/Scripts/Player/SimpleCameraController.cs"
 "Assets/Scripts/Player/UpdatedControls.cs"
+"Assets/Scripts/SecondQuestScript.cs"
 "Assets/Scripts/Shop/Shop.cs"
+"Assets/Scripts/startFirstQuest.cs"
 "Assets/Scripts/UI/Inventory.cs"
 "Assets/Scripts/UI/InventorySlotController.cs"
 "Assets/Scripts/UI/Item.cs"
@@ -359,8 +364,6 @@
 "Assets/Scripts/UI/PauseManager.cs"
 "Assets/Scripts/UI/SettingsScript.cs"
 "Assets/Scripts/UI/WeaponItem.cs"
-"Assets/SecondQuestScript.cs"
-"Assets/startFirstQuest.cs"
 "Assets/TutorialInfo/Scripts/Readme.cs"
 -langversion:8.0
 

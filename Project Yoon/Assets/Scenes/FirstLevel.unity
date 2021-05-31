@@ -3096,7 +3096,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7773585, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -3404,6 +3404,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1947493863 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3250885045470570652, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+  m_PrefabInstance: {fileID: 2031657328}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1963704536
 GameObject:
   m_ObjectHideFlags: 0
@@ -3705,6 +3710,22 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2901440613159942047, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2901440613159942047, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: m_Color.g
+      value: 0.18039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 2901440613159942047, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3250885045470570652, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6499085186311452252, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -3874,6 +3895,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7115360239846830895, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: ControlsMenuUI
+      value: 
+      objectReference: {fileID: 1947493863}
+    - target: {fileID: 7115360239846830895, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
       propertyPath: questCompletedMenuUI
       value: 
       objectReference: {fileID: 2031657329}
@@ -3886,6 +3911,14 @@ PrefabInstance:
       value: Pause Manager
       objectReference: {fileID: 0}
     - target: {fileID: 7696859551738288564, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: controlsBackButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 8271873943860094915, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1267678119}
+    - target: {fileID: 8271873943860094915, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: controlsBackButton
       objectReference: {fileID: 0}
