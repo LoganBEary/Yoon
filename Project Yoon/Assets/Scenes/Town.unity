@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7045,7 +7045,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 1.3333334, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -12391,6 +12391,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pause Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 7115360239846830897, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7433965726886669832, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
       propertyPath: player
       value: 
@@ -14861,6 +14865,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5460528482973934713, guid: 4bc512b9575c5423d9da15437fd18ea6, type: 3}
+      propertyPath: coinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 8ce540c0c33f1804db4708c998cb20f9, type: 3}
+    - target: {fileID: 5460528482973934713, guid: 4bc512b9575c5423d9da15437fd18ea6, type: 3}
       propertyPath: countText
       value: 
       objectReference: {fileID: 1350794922}
@@ -15048,7 +15056,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7433965726779278907, guid: a2d846d5909064619804cd9e20d26b06, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7433965727281272785, guid: a2d846d5909064619804cd9e20d26b06, type: 3}
       propertyPath: m_Name
@@ -15195,6 +15203,10 @@ PrefabInstance:
     - target: {fileID: 3243374053958089605, guid: 9eb1a25538ab346a4b03daee56dae11a, type: 3}
       propertyPath: m_Name
       value: Guages
+      objectReference: {fileID: 0}
+    - target: {fileID: 3243374053958089605, guid: 9eb1a25538ab346a4b03daee56dae11a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7745348788999036391, guid: 9eb1a25538ab346a4b03daee56dae11a, type: 3}
       propertyPath: Player

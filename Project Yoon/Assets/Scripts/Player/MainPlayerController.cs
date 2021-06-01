@@ -44,6 +44,8 @@ public class MainPlayerController : MonoBehaviour
     public AudioSource weaponSound; // Sound weapon makes on attack
     private Animation weaponAnimation; // Attack animation
 
+    public AudioClip coinSound;
+
     public float Health = 100f; // Player current health
     public float Energy = 100f;
 
@@ -191,6 +193,7 @@ public class MainPlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Coin"))
         {
+            AudioSource.PlayClipAtPoint(coinSound, transform.position);
             other.gameObject.SetActive(false);
             addYoodles(1);
         }
