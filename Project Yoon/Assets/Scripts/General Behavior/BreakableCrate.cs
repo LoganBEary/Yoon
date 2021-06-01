@@ -34,7 +34,7 @@ public class BreakableCrate : MonoBehaviour
         // Initialize the number of hits taken to 0
         numHits = 0;
 
-        player = GameObject.Find("character").transform;
+        player = GameObject.Find("Character").transform;
     }
 
     public void Awake()
