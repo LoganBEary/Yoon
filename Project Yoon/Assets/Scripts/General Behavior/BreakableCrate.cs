@@ -3,14 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BreakableCrate : MonoBehaviour
+public class BreakableCrate : CrateBase
 {
-    // Number of hits needed to break the crate
-    private int hitsToBreak;
-    
-    // Current number of hits the crate has taken
-    private int numHits;
-
     // Percentage chance that the crate will drop coins when broken
     public float coinDropChance = 40;
 
@@ -20,32 +14,32 @@ public class BreakableCrate : MonoBehaviour
     // Reference to the coin prefab
     public Transform coinPrefab;
 
-    public Image healthBar;
-
-    public GameObject canvas;
-
-    private Transform player;
-
-    void Start()
-    {
-        // Initialize the number of hits needed to break with a random number between 3 and 10
-        hitsToBreak = Random.Range(2, 4);
-
-        // Initialize the number of hits taken to 0
-        numHits = 0;
-
-        player = GameObject.Find("Character").transform;
-    }
-
     public void Awake()
     {
         canvas.SetActive(false);
+
+    }
+
+    private void FixedUpdate()
+    {
+        bool playerInRange = (Vector3.SqrMagnitude(player.position - transform.position) < 5);
+        if (numHits > 0 && playerInRange && (timeSinceLastHit <= 5))
+        {
+            canvas.SetActive(true);
+            
+        }
+        else
+        {
+            canvas.SetActive(false);
+        }
+
+        timeSinceLastHit += Time.deltaTime;
     }
 
     //  This function increments the number of hits a crate has taken
-    public void takeHit()
+    public override void takeHit()
     {
-        canvas.SetActive(true);
+        //canvas.SetActive(true);
         // Increment number of hits taken
         numHits++;
 
@@ -59,7 +53,8 @@ public class BreakableCrate : MonoBehaviour
             StartCoroutine(breakCrate());
         }
 
-        StartCoroutine(hideHealthBar());
+        timeSinceLastHit = 0;
+        //StartCoroutine(hideHealthBar());
 
     }
 

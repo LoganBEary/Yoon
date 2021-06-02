@@ -44,6 +44,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "WeaponPickup",
+                    "type": "Button",
+                    "id": "f03896a8-af15-4f14-a9ff-795d275e2495",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -286,6 +294,17 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "SprintFinish",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7a545912-b538-4119-9115-32bb831d8a6e",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "WeaponPickup",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

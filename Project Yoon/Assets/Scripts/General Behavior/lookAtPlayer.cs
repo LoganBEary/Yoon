@@ -12,6 +12,8 @@ public class lookAtPlayer : MonoBehaviour
     void Start()
     {
         m_Axis = transform.forward;
+
+        player = GameObject.Find("Character").transform;
     }
 
     // Update is called once per frame

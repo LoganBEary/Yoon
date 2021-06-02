@@ -75,7 +75,7 @@ public class MainPlayerController : MonoBehaviour
     // Array - to access multiple quests at once
     public GeneralQuest quest;
     public int currentQuest;
-    private BreakableCrate crate;
+    private CrateBase crate;
     public int numOfDefeated;
 
     public void SetCountText()
@@ -203,7 +203,7 @@ public class MainPlayerController : MonoBehaviour
         }
         if (other.gameObject.tag == "BreakableObject")
         {
-            crate = other.gameObject.GetComponent<BreakableCrate>();
+            crate = other.gameObject.GetComponent<CrateBase>();
         }
         if (other.gameObject.tag == "OutOfBounds")
         {
