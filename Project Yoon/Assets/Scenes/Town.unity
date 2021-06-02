@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2340,6 +2340,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 55cbf94e-9a20-42ea-8a9f-a61b55ebfe51
     m_ActionName: PauseMenu/OpenCheatMenu[/Keyboard/h]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f03896a8-af15-4f14-a9ff-795d275e2495
+    m_ActionName: Player/WeaponPickup[/Keyboard/e]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: NPC
@@ -3012,6 +3016,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90c25ff0db82bf64cbc6b8e405018824, type: 3}
+--- !u!1 &332565720 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6696418642195072776, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+  m_PrefabInstance: {fileID: 1834247994}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &365279235
 GameObject:
   m_ObjectHideFlags: 0
@@ -7694,8 +7703,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 916648673}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 38, y: -8.4, z: -36}
-  m_LocalScale: {x: 1000, y: 1, z: 1000}
+  m_LocalPosition: {x: 11, y: -8.4, z: -36}
+  m_LocalScale: {x: 700, y: 1, z: 700}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 22
@@ -9603,7 +9612,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 7009254121477322004}
-  QuestMenuUI: {fileID: 0}
+  QuestMenuUI: {fileID: 332565720}
   PauseM: {fileID: 539271184}
   Quest2Display: {fileID: 1276823015}
   numOfDefeated: 0
@@ -15530,6 +15539,10 @@ PrefabInstance:
       value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 1657392844414858459, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: QuestMenuUI
+      value: 
+      objectReference: {fileID: 332565720}
+    - target: {fileID: 1657392844414858459, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
       propertyPath: playerController
       value: 
       objectReference: {fileID: 7009254121477322004}
@@ -17504,6 +17517,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e191e21fcb275784a9f8b6d08dcd932c, type: 3}
+--- !u!82 &1943488929 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6053807326059177454, guid: 4bc512b9575c5423d9da15437fd18ea6, type: 3}
+  m_PrefabInstance: {fileID: 3063132492216750445}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1950404697 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1739104474, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
@@ -19551,6 +19569,10 @@ PrefabInstance:
       propertyPath: countText
       value: 
       objectReference: {fileID: 1350794922}
+    - target: {fileID: 5460528482973934713, guid: 4bc512b9575c5423d9da15437fd18ea6, type: 3}
+      propertyPath: weaponSound
+      value: 
+      objectReference: {fileID: 1943488929}
     - target: {fileID: 5460528482973934713, guid: 4bc512b9575c5423d9da15437fd18ea6, type: 3}
       propertyPath: pauseManager
       value: 

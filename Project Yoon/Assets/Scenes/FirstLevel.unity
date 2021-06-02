@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4002,6 +4002,10 @@ PrefabInstance:
       value: Character
       objectReference: {fileID: 0}
     - target: {fileID: 8036419428027230908, guid: d5d8d39761b6f4d319074c5ee29c9926, type: 3}
+      propertyPath: zPos
+      value: -37.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8036419428027230908, guid: d5d8d39761b6f4d319074c5ee29c9926, type: 3}
       propertyPath: PauseM
       value: 
       objectReference: {fileID: 1267678119}
@@ -4018,6 +4022,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1929645753}
     - target: {fileID: 8036419428027230908, guid: d5d8d39761b6f4d319074c5ee29c9926, type: 3}
+      propertyPath: weaponSound
+      value: 
+      objectReference: {fileID: 8036419427958523428}
+    - target: {fileID: 8036419428027230908, guid: d5d8d39761b6f4d319074c5ee29c9926, type: 3}
       propertyPath: coolDownTime
       value: 0.1
       objectReference: {fileID: 0}
@@ -4033,6 +4041,10 @@ PrefabInstance:
       propertyPath: PlayerHealthBar
       value: 
       objectReference: {fileID: 1656425493}
+    - target: {fileID: 8089547868321399491, guid: d5d8d39761b6f4d319074c5ee29c9926, type: 3}
+      propertyPath: selectedWeaponObject
+      value: 
+      objectReference: {fileID: 8036419427958523427}
     - target: {fileID: 8802109770637791342, guid: d5d8d39761b6f4d319074c5ee29c9926, type: 3}
       propertyPath: weaponDamage
       value: 15
@@ -4042,5 +4054,15 @@ PrefabInstance:
 --- !u!1 &8036419427958523426 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8089547868321399489, guid: d5d8d39761b6f4d319074c5ee29c9926, type: 3}
+  m_PrefabInstance: {fileID: 8036419427958523425}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8036419427958523427 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5012127622964451184, guid: d5d8d39761b6f4d319074c5ee29c9926, type: 3}
+  m_PrefabInstance: {fileID: 8036419427958523425}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &8036419427958523428 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8089547868918393643, guid: d5d8d39761b6f4d319074c5ee29c9926, type: 3}
   m_PrefabInstance: {fileID: 8036419427958523425}
   m_PrefabAsset: {fileID: 0}

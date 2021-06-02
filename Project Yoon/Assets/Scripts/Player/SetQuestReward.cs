@@ -11,6 +11,7 @@ public class SetQuestReward : MonoBehaviour
     public PauseManager PauseM;
     public Toggle QuestToggle;
     public GameObject questCompletedMenuUI;
+    public MainPlayerController player;
 
     public void SetReward(){
     // Start is called before the first frame update      PauseM.addXP(exp);
@@ -24,5 +25,7 @@ public class SetQuestReward : MonoBehaviour
             QuestToggle.isOn = true;
         // Display the Completed Text UI
             questCompletedMenuUI.SetActive(true);
+            player.currentQuest++;
+        
     }
 }
