@@ -32,6 +32,11 @@ public class PlayerRangedAttack : MonoBehaviour
         {
             Debug.Log("enemy");
             other.gameObject.GetComponent<EnemyController>().takeDamage(damage);
+            Destroy(gameObject);
+        }
+        else if (other.gameObject.tag != "Player")
+        {
+            Destroy(gameObject);
         }
     }
 }
