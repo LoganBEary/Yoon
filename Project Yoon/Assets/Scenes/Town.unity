@@ -3904,6 +3904,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 471448846}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &471587419 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6053807326804888580, guid: 4bc512b9575c5423d9da15437fd18ea6, type: 3}
+  m_PrefabInstance: {fileID: 3063132492216750445}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &473802217 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1232804100520810, guid: 5ec75742cd4d1bf468f7c5253311a91c, type: 3}
@@ -7478,6 +7483,7 @@ MonoBehaviour:
   currentQuest: 0
   itemList:
   - {fileID: 11400000, guid: df5fd643a8ef178459364a872954cdb9, type: 2}
+  - {fileID: 11400000, guid: 702d4d28d6be3cd42834d46124a1526e, type: 2}
   previousScene: 
   currentScene: 
   upgradePoints: 0
@@ -16018,7 +16024,7 @@ PrefabInstance:
     - target: {fileID: 7115360239846830892, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
       propertyPath: weaponHolder
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 471587419}
     - target: {fileID: 7115360239846830894, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -19489,38 +19495,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 805623764938760892, guid: 4bc512b9575c5423d9da15437fd18ea6, type: 3}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 809354290162773106, guid: 4bc512b9575c5423d9da15437fd18ea6, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2255261026159098653, guid: 4bc512b9575c5423d9da15437fd18ea6, type: 3}
-      propertyPath: numWeapons
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2255261026159098655, guid: 4bc512b9575c5423d9da15437fd18ea6, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3021064082712203906, guid: 4bc512b9575c5423d9da15437fd18ea6, type: 3}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3062787074136878766, guid: 4bc512b9575c5423d9da15437fd18ea6, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4227012769232105829, guid: 4bc512b9575c5423d9da15437fd18ea6, type: 3}
-      propertyPath: m_Name
-      value: EpicSword1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4227012769232105829, guid: 4bc512b9575c5423d9da15437fd18ea6, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5460528482973934661, guid: 4bc512b9575c5423d9da15437fd18ea6, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -19574,33 +19548,13 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8536532352575081747}
     - target: {fileID: 5460528482973934713, guid: 4bc512b9575c5423d9da15437fd18ea6, type: 3}
-      propertyPath: CoinCount
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5460528482973934713, guid: 4bc512b9575c5423d9da15437fd18ea6, type: 3}
-      propertyPath: coinSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 8ce540c0c33f1804db4708c998cb20f9, type: 3}
-    - target: {fileID: 5460528482973934713, guid: 4bc512b9575c5423d9da15437fd18ea6, type: 3}
       propertyPath: countText
       value: 
       objectReference: {fileID: 1350794922}
     - target: {fileID: 5460528482973934713, guid: 4bc512b9575c5423d9da15437fd18ea6, type: 3}
-      propertyPath: coolDownTime
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5460528482973934713, guid: 4bc512b9575c5423d9da15437fd18ea6, type: 3}
-      propertyPath: currentQuest
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5460528482973934713, guid: 4bc512b9575c5423d9da15437fd18ea6, type: 3}
       propertyPath: pauseManager
       value: 
       objectReference: {fileID: 539271184}
-    - target: {fileID: 5460528482973934713, guid: 4bc512b9575c5423d9da15437fd18ea6, type: 3}
-      propertyPath: quest.questNum
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5460528482973934713, guid: 4bc512b9575c5423d9da15437fd18ea6, type: 3}
       propertyPath: PlayerHealthBar
       value: 
@@ -19609,12 +19563,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character
       objectReference: {fileID: 0}
-    - target: {fileID: 6802627236732100267, guid: 4bc512b9575c5423d9da15437fd18ea6, type: 3}
-      propertyPath: weaponDamage
-      value: 15
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8728807859989757677, guid: 4bc512b9575c5423d9da15437fd18ea6, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4bc512b9575c5423d9da15437fd18ea6, type: 3}
 --- !u!1 &7009254121477322000 stripped
 GameObject:

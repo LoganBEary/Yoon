@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -523,7 +523,13 @@ MonoBehaviour:
   yoodles: 0
   playerIsInvincible: 0
   currentQuest: 0
-  itemList: []
+  itemList:
+  - {fileID: 11400000, guid: df5fd643a8ef178459364a872954cdb9, type: 2}
+  - {fileID: 11400000, guid: e23ad563fbe859240b1a4565ad2d93ac, type: 2}
+  - {fileID: 11400000, guid: 0281a7a305f6cf44e90b52ae5e9cf005, type: 2}
+  - {fileID: 11400000, guid: 702d4d28d6be3cd42834d46124a1526e, type: 2}
+  - {fileID: 11400000, guid: 23f37090dec2ad04f855efbe5529c679, type: 2}
+  - {fileID: 11400000, guid: 9abbbda16bcddf34886593f9ac319c31, type: 2}
   previousScene: MainMenu
   currentScene: Tutorial
   upgradePoints: 0
@@ -891,7 +897,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &754303442 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 4255024964172969434, guid: d5d8d39761b6f4d319074c5ee29c9926, type: 3}
+  m_CorrespondingSourceObject: {fileID: 8089547868321399489, guid: d5d8d39761b6f4d319074c5ee29c9926, type: 3}
   m_PrefabInstance: {fileID: 754303440}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &754303443 stripped

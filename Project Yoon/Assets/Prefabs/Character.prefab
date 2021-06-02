@@ -311,18 +311,20 @@ MonoBehaviour:
   xPos: 14.71
   yPos: 0.441
   zPos: 0
-  CoinCount: 0
+  CoinCount: 5
   weaponSound: {fileID: 0}
-  coinSound: {fileID: 0}
+  coinSound: {fileID: 8300000, guid: 8ce540c0c33f1804db4708c998cb20f9, type: 3}
   Health: 100
   Energy: 100
   damage: 20
   baseDamage: 20
   weaponDamage: 0
-  coolDownTime: 0
+  coolDownTime: 0.1
   AttackEnergyCost: 15
   defense: 0
   energy: {fileID: 0}
+  currentAttackType: 0
+  spellAttackPrefab: {fileID: 3766237210694360465, guid: c97e3d73013a22b44bf9cf666d84ebf0, type: 3}
   isInvincible: 0
   jumpSound: {fileID: 5460528482973934662}
   pauseManager: {fileID: 0}
@@ -330,14 +332,14 @@ MonoBehaviour:
   isSprinting: 0
   PauseM: {fileID: 0}
   quest:
-    questNum: 0
+    questNum: 1
     isActive: 0
     isComplete: 0
     title: 
     description: 
     yoodlesRewarded: 0
     expRewarded: 0
-  currentQuest: 0
+  currentQuest: 1
   numOfDefeated: 0
 --- !u!143 &5460528482973934712
 CharacterController:

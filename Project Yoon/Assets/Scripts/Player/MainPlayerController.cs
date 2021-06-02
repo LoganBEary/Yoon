@@ -62,6 +62,10 @@ public class MainPlayerController : MonoBehaviour
 
     public EnergyBar energy; // Energy bar displays how much energy the player currently has
 
+    public int currentAttackType;
+
+    public Transform spellAttackPrefab;
+
     public bool isInvincible;
 
     [SerializeField]
@@ -99,18 +103,20 @@ public class MainPlayerController : MonoBehaviour
         coolDownTime = (100 - GameManager.gameManager.statsList[3]) / 100;
         AttackEnergyCost = 15 - (GameManager.gameManager.statsList[3] / 10);
 
-        updateWeapon(); // Make a call to updateWeapon to assign the 'weapon' gameobject correctly
+        updateWeapon(0); // Make a call to updateWeapon to assign the 'weapon' gameobject correctly
 
         isInvincible = GameManager.gameManager.playerIsInvincible;
         pauseManager.playerInvincibleToggle(isInvincible);
     }
 
     // This function is called whenever the player switches their equipped weapon. 
-    public void updateWeapon()
+    public void updateWeapon(int type)
     {
         // Retrieve the equipped weapon gameobject from the weaponHolder script. This will allow the player
         // to be able to still attack with the new weapon
-        weapon = GameObject.Find("WeaponHolder").GetComponent<WeaponHolder>().selectedWeaponObject;
+        WeaponHolder w = GameObject.Find("WeaponHolder").GetComponent<WeaponHolder>();
+        weapon = w.selectedWeaponObject;
+        currentAttackType = w.currentAttackType;
 
         weaponAnimation = weapon.GetComponent<Animation>(); // Update the weaponAnimation
         weaponSound = weapon.GetComponent<AudioSource>(); // Update the audioSource
@@ -224,10 +230,19 @@ public class MainPlayerController : MonoBehaviour
             weaponAnimation.Play("Sword02");
             weaponSound.Play();
             Energy -= AttackEnergyCost;
-            if(enemyClose)
+            if (currentAttackType == 0)
             {
-                if(enemyClose.canAttackplayer)
-                    enemyClose.takeDamage(damage);
+                if (enemyClose)
+                {
+                    if (enemyClose.canAttackplayer)
+                        enemyClose.takeDamage(damage);
+                }
+            }
+            else
+            {
+                Transform cm = transform.Find("Main Camera");
+                Transform proj = Instantiate(spellAttackPrefab, transform.position, cm.rotation);
+                proj.gameObject.GetComponent<PlayerRangedAttack>().damage = damage;
             }
        // Separate takehit function for crates so that breaking them is independent of the player's damage. 
        // This can be modified later if needed

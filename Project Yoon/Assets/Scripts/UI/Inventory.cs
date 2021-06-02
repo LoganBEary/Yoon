@@ -141,7 +141,7 @@ public class Inventory : MonoBehaviour
             }
 
             // Update the weapon that the player is holding
-            weaponHolder.GetComponent<WeaponHolder>().selectWeapon(item.ID);
+            weaponHolder.GetComponent<WeaponHolder>().selectWeapon(item.ID, item.attackType);
             
             // Update each inventory slot to display the correct information
             updatePanelSlots();

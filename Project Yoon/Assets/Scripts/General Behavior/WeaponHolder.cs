@@ -10,6 +10,9 @@ public class WeaponHolder : MonoBehaviour
 
     public GameObject selectedWeaponObject;
 
+    // Specifies the current attack type: 0 for melee, 1 for ranged
+    public int currentAttackType;
+
     // Number of weapons available in the game
     public int numWeapons;
 
@@ -23,13 +26,14 @@ public class WeaponHolder : MonoBehaviour
         }
         selectedWeapon = GameManager.gameManager.selectedWeaponID;
         selectedWeaponObject = transform.GetChild(selectedWeapon).gameObject; // Update the selected weapon GameObject
-        selectWeapon(selectedWeapon); // Make this function call to 'equip' the weapon by setting the correct gameobject active in the scene
+        int wType = 0;
+        selectWeapon(selectedWeapon, wType); // Make this function call to 'equip' the weapon by setting the correct gameobject active in the scene
     }
 
     // This function will swap the weapon that the player is holding. It is called 
     // by the inventory script whenever the player equips a new weapon. It basically disables the currently
     // equipped weapon and enables a new weapon at the specified index
-    public void selectWeapon(int weaponIndex)
+    public void selectWeapon(int weaponIndex, int type)
     {
         // Make sure we are trying to access a valid index
         if (weaponIndex >= numWeapons)
@@ -49,11 +53,13 @@ public class WeaponHolder : MonoBehaviour
             {
                 weapon.gameObject.SetActive(true); // enable the gameobject
                 selectedWeaponObject = weapon.gameObject;
+                currentAttackType = type;
+
             }
             i++; // update the index
         }
         selectedWeapon = weaponIndex; // Update the selected weapon ID/index
-        GameObject.Find("Character").GetComponent<MainPlayerController>().updateWeapon(); // Update the player's weapon reference
+        GameObject.Find("Character").GetComponent<MainPlayerController>().updateWeapon(type); // Update the player's weapon reference
     }
 
     // This function is called right before a scene change
