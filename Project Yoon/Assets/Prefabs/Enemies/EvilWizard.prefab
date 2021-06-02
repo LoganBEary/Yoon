@@ -283,7 +283,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8114710449003336926}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.626, y: 0.34, z: 0}
+  m_LocalPosition: {x: 0, y: 0.34, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1498165166}
@@ -430,6 +430,8 @@ MonoBehaviour:
   enemyHealthBar: {fileID: 797982021}
   healthBarUI: {fileID: 1498165165}
   anim: {fileID: 8114710449003336927}
+  playerController: {fileID: 0}
+  enemyID: 0
   maxHealth: 30
   health: 30
   attackCooldown: 3
@@ -437,7 +439,7 @@ MonoBehaviour:
   coinDropChance: 70
   minCoinDrop: 2
   maxCoinDrop: 5
-  experience: 50
+  experience: 25
   sightRange: 3.5
   attackRange: 2
   canSeePlayer: 0
@@ -448,6 +450,7 @@ MonoBehaviour:
   rb: {fileID: 4150219284603042060}
   knockback: 0
   k_timer: 0
+  numDefeated: 0
 --- !u!114 &1785193514
 MonoBehaviour:
   m_ObjectHideFlags: 0
