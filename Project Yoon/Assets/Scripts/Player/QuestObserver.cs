@@ -19,13 +19,16 @@ public class QuestObserver : MonoBehaviour
     public GeneralQuest Q2;
     public GeneralQuest Q3;
     public GeneralQuest Q4;
-    private bool set = false;
+    public GameObject QuestOffer1;
+    public GameObject QuestOffer2;
+    private bool set;
 
     // Start is called before the first frame update
     // Update is called once per frame
     public void Start()
     {
-
+    
+        set = false;
     }
     void Update()
     {
@@ -56,8 +59,7 @@ public class QuestObserver : MonoBehaviour
                 numOfDefeated = 0;
                 set = true;
                 Quest2.transform.GetChild(1).GetComponent<Toggle>().isOn = true;
-                PauseM.OnPause();
-                QuestComplete(Q2.yoodlesRewarded, Q2.expRewarded);
+                //QuestComplete(Q2.yoodlesRewarded, Q2.expRewarded);
 
             }
         }
@@ -68,8 +70,15 @@ public class QuestObserver : MonoBehaviour
             Q3.isActive = true;
             Quest1.SetActive(true);
             Quest1.transform.GetChild(1).GetComponent<Toggle>().isOn = true;
+            Quest1.GetComponent<TextMeshProUGUI>().text = Q1.title;
+            Quest1.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = Q1.description;
             Quest2.SetActive(true);
+            Quest2.GetComponent<TextMeshProUGUI>().text = Q2.title;
+            Quest2.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = Q2.description;
             Quest2.transform.GetChild(1).GetComponent<Toggle>().isOn = true;
+            Quest3.SetActive(true);
+            Quest3.GetComponent<TextMeshProUGUI>().text = Q3.title;
+            Quest3.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = Q3.description;
 
         }
     }
@@ -77,6 +86,7 @@ public class QuestObserver : MonoBehaviour
 
     public void QuestComplete(int yoon, int exp)
     {
+        PauseM.OnPause();
         PauseM.addYoodles(yoon);
         PauseM.addXP(exp);
         TextMeshProUGUI yoodlesText = questCompletedMenuUI.transform.GetChild(2).GetComponent<TextMeshProUGUI>();
@@ -87,5 +97,37 @@ public class QuestObserver : MonoBehaviour
         // Display the Completed Text UI
         questCompletedMenuUI.SetActive(true);
         playerController.currentQuest++;
+    }
+
+    public void OpenQuestUI(int Q)
+    {
+        if (Q == 3)
+        {
+            QuestOffer1.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = Q3.title;
+            QuestOffer1.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = Q3.description;
+            QuestOffer1.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = Q3.yoodlesRewarded.ToString();
+            QuestOffer1.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = Q3.expRewarded.ToString();
+            QuestOffer1.SetActive(true);
+            Quest3.SetActive(true);
+        }
+        if(Q == 4)
+        {
+            QuestOffer2.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = Q4.title;
+            QuestOffer2.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = Q4.description;
+            QuestOffer2.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = Q4.yoodlesRewarded.ToString();
+            QuestOffer2.transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = Q4.expRewarded.ToString();
+            QuestOffer2.SetActive(true);
+            Quest4.SetActive(true);
+        }
+
+
+    }
+
+    public void AcceptQuest(int Q)
+    {
+        if (Q == 3)
+            QuestOffer1.SetActive(false);
+        if (Q == 4)
+            QuestOffer2.SetActive(false);
     }
 }

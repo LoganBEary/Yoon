@@ -4672,6 +4672,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -0.0000038146973
       objectReference: {fileID: 0}
+    - target: {fileID: 4294265416637148227, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5319938513340171745, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -4736,9 +4740,13 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6696418642195072776, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6981399442300576737, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7115360239846830892, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
       propertyPath: player
@@ -4876,13 +4884,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pause Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 7433965726676372372, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 7433965726886669832, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 993526703}
     - target: {fileID: 7433965726886669833, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7696859551738288564, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -4896,7 +4908,12 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: controlsBackButton
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8449528523401561399, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1657392844414858459, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
 --- !u!114 &556477585 stripped
 MonoBehaviour:
@@ -4959,6 +4976,16 @@ GameObject:
 --- !u!1 &556477593 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6696418642195072776, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+  m_PrefabInstance: {fileID: 556477584}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &556477594 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7433965726676372379, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+  m_PrefabInstance: {fileID: 556477584}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &556477595 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7433965727586628009, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
   m_PrefabInstance: {fileID: 556477584}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &560884586 stripped
@@ -18902,6 +18929,7 @@ GameObject:
   - component: {fileID: 1974350069}
   - component: {fileID: 1974350068}
   - component: {fileID: 1974350067}
+  - component: {fileID: 1974350071}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -18992,6 +19020,63 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1974350071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974350066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e08f7a8c2652f451da16515e49ec013e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 993526703}
+  questCompletedMenuUI: {fileID: 975570537252813685}
+  PauseM: {fileID: 556477585}
+  QuestMenuUI: {fileID: 556477593}
+  Quest1: {fileID: 556477592}
+  Quest2: {fileID: 556477590}
+  Quest3: {fileID: 556477591}
+  Quest4: {fileID: 0}
+  Q1:
+    questNum: 1
+    isActive: 0
+    isComplete: 0
+    title: Welcome to Yoon!
+    description: Hi There! You look to have traveled far! Collect coins around the
+      town and purchase yourself a new weapon!
+    yoodlesRewarded: 0
+    expRewarded: 0
+  Q2:
+    questNum: 2
+    isActive: 0
+    isComplete: 0
+    title: Defeat 5 of The Goblins!
+    description: Oh No! The Townspeople say there are Goblins heading for the town!
+      Stop them in the desert before its too late!
+    yoodlesRewarded: 20
+    expRewarded: 150
+  Q3:
+    questNum: 3
+    isActive: 0
+    isComplete: 0
+    title: Defeate the Troll King!
+    description: It looks like the trolls are being controlled by their king! He
+      sits atop the Mountain down the way! Slay Him!
+    yoodlesRewarded: 20
+    expRewarded: 650
+  Q4:
+    questNum: 4
+    isActive: 0
+    isComplete: 0
+    title: 
+    description: 
+    yoodlesRewarded: 0
+    expRewarded: 0
+  QuestOffer1: {fileID: 556477595}
+  QuestOffer2: {fileID: 556477594}
 --- !u!4 &1976938395 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4848072486756740, guid: f16d978b3d1fa984d82c01d30a1fb40a, type: 3}

@@ -19,11 +19,6 @@ public class MainPlayerController : MonoBehaviour
     [SerializeField]
     private float jumpingHeight = 3.0f;
 
-
-
-
-
-
     [SerializeField]
     private float gravityVal = -9.81f;
 
@@ -80,7 +75,12 @@ public class MainPlayerController : MonoBehaviour
     public GeneralQuest quest;
     public int currentQuest;
     private CrateBase crate;
+
+    // For Quest Checking
     public int numOfDefeated;
+    private bool set;
+    //public GameObject Quest_3;
+    //public GameObject Quest_4;
 
     public void SetCountText()
 	{
@@ -89,6 +89,8 @@ public class MainPlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
+        //GameObject quest = GameObject.FindGameObjectWithTag("Quest3");
         enemyClose = GetComponent<EnemyController>();
         controller = GetComponent<CharacterController>();
         inputManager = InputManager.Instance;
@@ -97,6 +99,7 @@ public class MainPlayerController : MonoBehaviour
         CoinCount = GameManager.gameManager.yoodles;
         currentQuest = GameManager.gameManager.currentQ;
         SetCountText();
+        set = false;
         //weapon = GameObject.FindGameObjectWithTag("WeaponEquiped");
 
         baseDamage = GameManager.gameManager.statsList[1];
@@ -140,7 +143,9 @@ public class MainPlayerController : MonoBehaviour
 
     void Update()
     {
-        if(attackTimer < coolDownTime)
+        //Quest_3 = GameObject.FindWithTag("Quest3");
+        //Quest_4 = GameObject.FindWithTag("Quest4");
+        if (attackTimer < coolDownTime)
             attackTimer += Time.deltaTime;
         if(Health <= 0)
         {
@@ -178,6 +183,25 @@ public class MainPlayerController : MonoBehaviour
 
         playerVelocity.y += gravityVal * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
+
+        GameObject obs = GameObject.FindGameObjectWithTag("Observer");
+        if (numOfDefeated == 5 && currentQuest == 2)
+        {
+            int yoons = obs.GetComponent<QuestObserver>().Q2.yoodlesRewarded;
+            int exp = obs.GetComponent<QuestObserver>().Q2.expRewarded;
+            obs.GetComponent<QuestObserver>().QuestComplete(yoons, exp);
+        }
+        if (currentQuest == 3 && !set)
+        {
+            if (!PauseM.paused)
+            {
+                set = true;
+                Debug.Log("Q comp");
+                StartCoroutine(QuestPopUpDelay());
+                PauseM.OnPause();
+                obs.GetComponent<QuestObserver>().OpenQuestUI(3);
+            }
+        }
     }
 
     public void OnFire()
@@ -293,5 +317,10 @@ public class MainPlayerController : MonoBehaviour
     public void AddCount()
     {
         numOfDefeated++;
+    }
+
+    private IEnumerator QuestPopUpDelay()
+    {
+        yield return new WaitForSeconds(3);
     }
 }
