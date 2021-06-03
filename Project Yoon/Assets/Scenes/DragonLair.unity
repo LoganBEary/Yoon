@@ -320,7 +320,7 @@ PrefabInstance:
     - target: {fileID: 7433965726779278901, guid: a2d846d5909064619804cd9e20d26b06, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1605230637}
     - target: {fileID: 7433965726779278901, guid: a2d846d5909064619804cd9e20d26b06, type: 3}
       propertyPath: expText
       value: 
@@ -2396,7 +2396,7 @@ MonoBehaviour:
   curHealth: 100
   yoodles: 0
   playerIsInvincible: 0
-  currentQuest: 0
+  currentQ: 0
   itemList:
   - {fileID: 11400000, guid: df5fd643a8ef178459364a872954cdb9, type: 2}
   - {fileID: 11400000, guid: e23ad563fbe859240b1a4565ad2d93ac, type: 2}
@@ -2555,7 +2555,6 @@ RectTransform:
   - {fileID: 1081214155}
   - {fileID: 370881129}
   - {fileID: 133832674}
-  - {fileID: 1432220864}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3040,6 +3039,84 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1657392844414858459, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: Quest1
+      value: 
+      objectReference: {fileID: 1081214161}
+    - target: {fileID: 1657392844414858459, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: Quest2
+      value: 
+      objectReference: {fileID: 1081214159}
+    - target: {fileID: 1657392844414858459, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: Quest3
+      value: 
+      objectReference: {fileID: 1081214160}
+    - target: {fileID: 1657392844414858459, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: Q1.title
+      value: Welcome to Yoon!
+      objectReference: {fileID: 0}
+    - target: {fileID: 1657392844414858459, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: Q2.title
+      value: Defeat The Goblins!
+      objectReference: {fileID: 0}
+    - target: {fileID: 1657392844414858459, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: Q3.title
+      value: Null
+      objectReference: {fileID: 0}
+    - target: {fileID: 1657392844414858459, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: Q4.title
+      value: NULL
+      objectReference: {fileID: 0}
+    - target: {fileID: 1657392844414858459, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: Q1.questNum
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1657392844414858459, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: Q2.questNum
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1657392844414858459, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: Q3.questNum
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1657392844414858459, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: Q4.questNum
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1657392844414858459, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: QuestMenuUI
+      value: 
+      objectReference: {fileID: 1081214162}
+    - target: {fileID: 1657392844414858459, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: Q1.description
+      value: Hi There! You look to have traveled far! Collect coins around the town
+        and purchase yourself a new weapon!
+      objectReference: {fileID: 0}
+    - target: {fileID: 1657392844414858459, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: Q1.expRewarded
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1657392844414858459, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: Q2.description
+      value: Oh No! The Townspeople say there are Goblins heading for the town! Stop
+        them in the desert before its too late!
+      objectReference: {fileID: 0}
+    - target: {fileID: 1657392844414858459, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: Q3.description
+      value: NULL
+      objectReference: {fileID: 0}
+    - target: {fileID: 1657392844414858459, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: Q4.description
+      value: NULL
+      objectReference: {fileID: 0}
+    - target: {fileID: 1657392844414858459, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: playerController
+      value: 
+      objectReference: {fileID: 1605230637}
+    - target: {fileID: 1657392844414858459, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: questCompletedMenuUI
+      value: 
+      objectReference: {fileID: 1081214158}
     - target: {fileID: 2582783777434439709, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -3075,6 +3152,10 @@ PrefabInstance:
     - target: {fileID: 3282691670868737905, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -1.7817
+      objectReference: {fileID: 0}
+    - target: {fileID: 5319938513340171745, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5465328489239704881, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
       propertyPath: m_IsActive
@@ -3146,7 +3227,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6981399442300576737, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7115360239846830892, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
       propertyPath: player
@@ -3255,7 +3336,7 @@ PrefabInstance:
     - target: {fileID: 7115360239846830895, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
       propertyPath: QuestMenuUI
       value: 
-      objectReference: {fileID: 1572334722}
+      objectReference: {fileID: 1081214162}
     - target: {fileID: 7115360239846830895, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
       propertyPath: ControlsMenuUI
       value: 
@@ -3272,6 +3353,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pause Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 7433965726886669832, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1605230637}
     - target: {fileID: 7433965726886669833, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -3324,6 +3409,26 @@ MonoBehaviour:
 --- !u!1 &1081214158 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 975570537252813685, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+  m_PrefabInstance: {fileID: 1081214154}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1081214159 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4294265416637148227, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+  m_PrefabInstance: {fileID: 1081214154}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1081214160 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8449528523401561399, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+  m_PrefabInstance: {fileID: 1081214154}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1081214161 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2814550038226292587, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+  m_PrefabInstance: {fileID: 1081214154}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1081214162 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6696418642195072776, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
   m_PrefabInstance: {fileID: 1081214154}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1089315086 stripped
@@ -3734,17 +3839,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300018, guid: 6d47a798ff5bab5488c68456937884d1, type: 3}
---- !u!114 &1221520971 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7298511982873334881, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
-  m_PrefabInstance: {fileID: 1728210993}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1227771843
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3847,6 +3941,10 @@ PrefabInstance:
     - target: {fileID: 5460528482973934713, guid: 4bc512b9575c5423d9da15437fd18ea6, type: 3}
       propertyPath: coolDownTime
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5460528482973934713, guid: 4bc512b9575c5423d9da15437fd18ea6, type: 3}
+      propertyPath: currentQuest
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5460528482973934713, guid: 4bc512b9575c5423d9da15437fd18ea6, type: 3}
       propertyPath: pauseManager
@@ -4200,68 +4298,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300034, guid: 6d47a798ff5bab5488c68456937884d1, type: 3}
---- !u!1001 &1432220863
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 958979596}
-    m_Modifications:
-    - target: {fileID: 8388553667677911020, guid: a33b58c189cfb404496429c6882960e7, type: 3}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8388553667677911020, guid: a33b58c189cfb404496429c6882960e7, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2.042553
-      objectReference: {fileID: 0}
-    - target: {fileID: 8388553667677911020, guid: a33b58c189cfb404496429c6882960e7, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2.042553
-      objectReference: {fileID: 0}
-    - target: {fileID: 8388553667677911020, guid: a33b58c189cfb404496429c6882960e7, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2.042553
-      objectReference: {fileID: 0}
-    - target: {fileID: 8388553667677911020, guid: a33b58c189cfb404496429c6882960e7, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -9
-      objectReference: {fileID: 0}
-    - target: {fileID: 8388553667677911020, guid: a33b58c189cfb404496429c6882960e7, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8388553667677911021, guid: a33b58c189cfb404496429c6882960e7, type: 3}
-      propertyPath: pauseM
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8388553667677911021, guid: a33b58c189cfb404496429c6882960e7, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8388553667677911021, guid: a33b58c189cfb404496429c6882960e7, type: 3}
-      propertyPath: QuestTitle
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8388553667677911021, guid: a33b58c189cfb404496429c6882960e7, type: 3}
-      propertyPath: QuestDescript
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8388553667677911021, guid: a33b58c189cfb404496429c6882960e7, type: 3}
-      propertyPath: quest.isActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8388553667677911021, guid: a33b58c189cfb404496429c6882960e7, type: 3}
-      propertyPath: quest.questNum
-      value: 2
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: a33b58c189cfb404496429c6882960e7, type: 3}
---- !u!224 &1432220864 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 8388553667677911020, guid: a33b58c189cfb404496429c6882960e7, type: 3}
-  m_PrefabInstance: {fileID: 1432220863}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1435145078
 GameObject:
   m_ObjectHideFlags: 0
@@ -4556,17 +4592,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300028, guid: 6d47a798ff5bab5488c68456937884d1, type: 3}
---- !u!114 &1520851617 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1950404699, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
-  m_PrefabInstance: {fileID: 1728210993}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1539367923 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 189512, guid: cea6416aa0ee8f944a9dfdf61b31d685, type: 3}
@@ -4586,45 +4611,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300034, guid: 6d47a798ff5bab5488c68456937884d1, type: 3}
---- !u!1 &1572334722 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6696418642419988363, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
-  m_PrefabInstance: {fileID: 1728210993}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1572334723
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1572334722}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2288fd87a98c42d9aa3ceb2ccf9edad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  quest1:
-    questNum: 1
-    isActive: 0
-    isComplete: 1
-    title: Welcome to Yoon!
-    description: Hi There! You look to have traveled far! Collect coins around the
-      town and purchase yourself a new weapon!
-    yoodlesRewarded: 0
-    expRewarded: 0
-  quest2:
-    questNum: 2
-    isActive: 0
-    isComplete: 1
-    title: Defeat The Goblins!
-    description: Oh No! The Townspeople say there are Goblins heading for the town!
-      Stop them in the desert before its too late!
-    yoodlesRewarded: 0
-    expRewarded: 0
-  Quest1Title: {fileID: 1221520971}
-  Quest1Desc: {fileID: 1828821169}
-  Quest2Title: {fileID: 2064838915}
-  Quest2Desc: {fileID: 1520851617}
 --- !u!1 &1582444489 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 132058, guid: cea6416aa0ee8f944a9dfdf61b31d685, type: 3}
@@ -4722,131 +4708,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300020, guid: 6d47a798ff5bab5488c68456937884d1, type: 3}
---- !u!1001 &1728210993
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1081214155}
-    m_Modifications:
-    - target: {fileID: 130853020, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
-      propertyPath: m_IsOn
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1582995509, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
-      propertyPath: m_IsOn
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1545012450077562737, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 430
-      objectReference: {fileID: 0}
-    - target: {fileID: 1657392844731008088, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
-      propertyPath: PauseM
-      value: 
-      objectReference: {fileID: 1081214156}
-    - target: {fileID: 1657392844731008088, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
-      propertyPath: QuestMenuUI
-      value: 
-      objectReference: {fileID: 1572334722}
-    - target: {fileID: 1657392844731008088, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
-      propertyPath: playerController
-      value: 
-      objectReference: {fileID: 1605230637}
-    - target: {fileID: 2974946844352371099, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2974946844352371099, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2974946844352371099, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1081214156}
-    - target: {fileID: 2974946844352371099, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2974946844352371099, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: questBackButton
-      objectReference: {fileID: 0}
-    - target: {fileID: 2974946844352371099, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PauseManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 2974946844352371099, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 4294265416371313856, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6696418642419988363, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6981399442587374434, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
-      propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 6981399442587374434, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6981399442587374434, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6981399442587374434, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6981399442587374434, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6981399442587374434, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 6981399442587374434, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 962.547
-      objectReference: {fileID: 0}
-    - target: {fileID: 6981399442587374434, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6981399442587374434, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6981399442587374434, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6981399442587374434, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 6.55
-      objectReference: {fileID: 0}
-    - target: {fileID: 6981399442587374434, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 8.194
-      objectReference: {fileID: 0}
-    - target: {fileID: 9113443171938044742, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -300
-      objectReference: {fileID: 0}
-    - target: {fileID: 9113443171938044742, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 430
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
 --- !u!1 &1746803278 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 170598, guid: cea6416aa0ee8f944a9dfdf61b31d685, type: 3}
@@ -5077,17 +4938,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300030, guid: 6d47a798ff5bab5488c68456937884d1, type: 3}
---- !u!114 &1828821169 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 641251836, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
-  m_PrefabInstance: {fileID: 1728210993}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1829616266 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100624, guid: cea6416aa0ee8f944a9dfdf61b31d685, type: 3}
@@ -5371,17 +5221,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 6d47a798ff5bab5488c68456937884d1, type: 3}
---- !u!114 &2064838915 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7711766847078613757, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
-  m_PrefabInstance: {fileID: 1728210993}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2081459181
 GameObject:
   m_ObjectHideFlags: 0

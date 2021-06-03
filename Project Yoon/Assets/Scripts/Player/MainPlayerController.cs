@@ -95,6 +95,7 @@ public class MainPlayerController : MonoBehaviour
         cameraTransform = Camera.main.transform;
         Health = GameManager.gameManager.curHealth;
         CoinCount = GameManager.gameManager.yoodles;
+        currentQuest = GameManager.gameManager.currentQ;
         SetCountText();
         //weapon = GameObject.FindGameObjectWithTag("WeaponEquiped");
 
@@ -285,6 +286,7 @@ public class MainPlayerController : MonoBehaviour
         GameManager.gameManager.curHealth = Health;
         GameManager.gameManager.yoodles = CoinCount;
         GameManager.gameManager.playerIsInvincible = isInvincible;
+        GameManager.gameManager.currentQ = currentQuest;
     }
 
 

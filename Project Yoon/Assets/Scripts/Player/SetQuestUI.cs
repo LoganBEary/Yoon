@@ -22,4 +22,6 @@ public class SetQuestUI : MonoBehaviour
         Quest2Title.text = quest2.title;
         Quest2Desc.text = quest2.description;
     }
+
+    
 }

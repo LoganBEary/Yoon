@@ -12,6 +12,7 @@ public class SetQuestReward : MonoBehaviour
     public Toggle QuestToggle;
     public GameObject questCompletedMenuUI;
     public MainPlayerController player;
+    
 
     public void SetReward(){
     // Start is called before the first frame update      PauseM.addXP(exp);

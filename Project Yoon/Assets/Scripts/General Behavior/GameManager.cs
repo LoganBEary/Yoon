@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     public float curHealth;
     public int yoodles;
     public bool playerIsInvincible;
-    public int currentQuest;
+    public int currentQ;
 
     // ++++++++++++++++++++++++++++ Info saved for PauseManager script ++++++++++++++++++++++++++++
     public List<Item> itemList = new List<Item>();
@@ -79,10 +79,11 @@ public class GameManager : MonoBehaviour
         upgradePoints = GameManager.gameManager.upgradePoints;
         playerIsInvincible = GameManager.gameManager.playerIsInvincible;
         statMaxedList = GameManager.gameManager.statMaxedList;
+        currentQ = GameManager.gameManager.currentQ;
     }
 
     // ============================================================================== UpdateInfo Funtion ==============================================================================
-    public void updateInfo(float h, int y, List<Item> i, List<float> s, string curScene, string newScene)
+    public void updateInfo(float h, int y, List<Item> i, List<float> s, string curScene, string newScene, int currQ)
     {
         curHealth = h;
         statsList = s;
@@ -90,6 +91,7 @@ public class GameManager : MonoBehaviour
         itemList = i;
         previousScene = curScene;
         currentScene = newScene;
+        currentQ = currQ;
     }
 
     // ============================================================================== SaveState Funtion ==============================================================================
@@ -104,6 +106,7 @@ public class GameManager : MonoBehaviour
         GameManager.gameManager.upgradePoints = upgradePoints;
         GameManager.gameManager.playerIsInvincible = playerIsInvincible;
         GameManager.gameManager.statMaxedList = statMaxedList;
+        GameManager.gameManager.currentQ = currentQ;
     }
 
     // ============================================================================== Notify Funtion ==============================================================================
@@ -167,5 +170,14 @@ public class GameManager : MonoBehaviour
                 player.AttackEnergyCost = 15 - (stat / 10);
                 break;
         }
+    }
+
+
+    // ============================================================================== UpdateQuestLine Funtion ==============================================================================
+    public void updateQuestLine(int currQuest)
+    {
+        MainPlayerController player = GameObject.Find("Character").GetComponent<MainPlayerController>();
+        player.currentQuest = currQuest;
+
     }
 }

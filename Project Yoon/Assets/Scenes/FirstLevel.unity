@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -346,23 +346,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8036419428027230848, guid: d5d8d39761b6f4d319074c5ee29c9926, type: 3}
   m_PrefabInstance: {fileID: 8036419427958523425}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &202927267
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 202927257}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e08f7a8c2652f451da16515e49ec013e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerController: {fileID: 202927261}
-  QuestMenuUI: {fileID: 244436515}
-  PauseM: {fileID: 1267678119}
-  Quest2Display: {fileID: 244436520}
-  numOfDefeated: 0
 --- !u!1001 &211113147
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -494,205 +477,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16c0b83c81585b046ac18cfe0c769a9c, type: 3}
---- !u!1001 &244436514
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1267678118}
-    m_Modifications:
-    - target: {fileID: 1582995509, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
-      propertyPath: m_IsOn
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1657392844731008088, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
-      propertyPath: PauseM
-      value: 
-      objectReference: {fileID: 1267678119}
-    - target: {fileID: 1657392844731008088, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1657392844731008088, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
-      propertyPath: QuestMenuUI
-      value: 
-      objectReference: {fileID: 244436515}
-    - target: {fileID: 1657392844731008088, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
-      propertyPath: playerController
-      value: 
-      objectReference: {fileID: 202927261}
-    - target: {fileID: 2974946844352371099, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1267678119}
-    - target: {fileID: 2974946844352371099, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: questBackButton
-      objectReference: {fileID: 0}
-    - target: {fileID: 4294265416371313856, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6696418642419988363, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6981399442587374434, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
-      propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 6981399442587374434, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6981399442587374434, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6981399442587374434, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6981399442587374434, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6981399442587374434, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 6981399442587374434, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 980.052
-      objectReference: {fileID: 0}
-    - target: {fileID: 6981399442587374434, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6981399442587374434, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6981399442587374434, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6981399442587374434, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 6.550995
-      objectReference: {fileID: 0}
-    - target: {fileID: 6981399442587374434, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 6.559967
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
---- !u!1 &244436515 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6696418642419988363, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
-  m_PrefabInstance: {fileID: 244436514}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &244436516 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 641251836, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
-  m_PrefabInstance: {fileID: 244436514}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &244436517 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7298511982873334881, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
-  m_PrefabInstance: {fileID: 244436514}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &244436518 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1950404699, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
-  m_PrefabInstance: {fileID: 244436514}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &244436519 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7711766847078613757, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
-  m_PrefabInstance: {fileID: 244436514}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 244436520}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &244436520 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4294265416371313856, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
-  m_PrefabInstance: {fileID: 244436514}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &244436527
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 244436515}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad17d212fb0ca471e9567fb8bf399be7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  exp: 150
-  yoon: 30
-  PauseM: {fileID: 1267678119}
-  QuestToggle: {fileID: 2086069354}
-  questCompletedMenuUI: {fileID: 2031657329}
-  player: {fileID: 0}
---- !u!114 &244436528
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 244436515}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2288fd87a98c42d9aa3ceb2ccf9edad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  quest1:
-    questNum: 1
-    isActive: 0
-    isComplete: 1
-    title: Welcome to Yoon!
-    description: Hi There! You look to have traveled far! Collect coins around the
-      town and purchase yourself a new weapon!
-    yoodlesRewarded: 0
-    expRewarded: 0
-  quest2:
-    questNum: 2
-    isActive: 1
-    isComplete: 0
-    title: Defeat The Goblins!
-    description: Oh No! The Townspeople say there are Goblins heading for the town!
-      Stop them in the desert before its too late!
-    yoodlesRewarded: 0
-    expRewarded: 0
-  Quest1Title: {fileID: 244436517}
-  Quest1Desc: {fileID: 244436516}
-  Quest2Title: {fileID: 244436519}
-  Quest2Desc: {fileID: 244436518}
 --- !u!1 &259381992
 GameObject:
   m_ObjectHideFlags: 0
@@ -1249,7 +1033,7 @@ MonoBehaviour:
   curHealth: 100
   yoodles: 0
   playerIsInvincible: 0
-  currentQuest: 0
+  currentQ: 0
   itemList:
   - {fileID: 11400000, guid: df5fd643a8ef178459364a872954cdb9, type: 2}
   - {fileID: 11400000, guid: e23ad563fbe859240b1a4565ad2d93ac, type: 2}
@@ -1536,52 +1320,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8037496544557104341, guid: 9eb1a25538ab346a4b03daee56dae11a, type: 3}
   m_PrefabInstance: {fileID: 1656425492}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &771386140
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1239177082}
-    m_Modifications:
-    - target: {fileID: 8388553667677911020, guid: a33b58c189cfb404496429c6882960e7, type: 3}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8388553667677911020, guid: a33b58c189cfb404496429c6882960e7, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8388553667677911021, guid: a33b58c189cfb404496429c6882960e7, type: 3}
-      propertyPath: pauseM
-      value: 
-      objectReference: {fileID: 1267678119}
-    - target: {fileID: 8388553667677911021, guid: a33b58c189cfb404496429c6882960e7, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 202927261}
-    - target: {fileID: 8388553667677911021, guid: a33b58c189cfb404496429c6882960e7, type: 3}
-      propertyPath: QuestTitle
-      value: 
-      objectReference: {fileID: 244436519}
-    - target: {fileID: 8388553667677911021, guid: a33b58c189cfb404496429c6882960e7, type: 3}
-      propertyPath: QuestDescript
-      value: 
-      objectReference: {fileID: 244436518}
-    - target: {fileID: 8388553667677911021, guid: a33b58c189cfb404496429c6882960e7, type: 3}
-      propertyPath: quest.isActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8388553667677911021, guid: a33b58c189cfb404496429c6882960e7, type: 3}
-      propertyPath: quest.questNum
-      value: 2
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: a33b58c189cfb404496429c6882960e7, type: 3}
---- !u!224 &771386141 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 8388553667677911020, guid: a33b58c189cfb404496429c6882960e7, type: 3}
-  m_PrefabInstance: {fileID: 771386140}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &839518542
 GameObject:
   m_ObjectHideFlags: 0
@@ -1845,7 +1583,7 @@ PrefabInstance:
     - target: {fileID: 7433965726779278901, guid: a2d846d5909064619804cd9e20d26b06, type: 3}
       propertyPath: QuestTitle
       value: 
-      objectReference: {fileID: 244436517}
+      objectReference: {fileID: 0}
     - target: {fileID: 7433965726779278901, guid: a2d846d5909064619804cd9e20d26b06, type: 3}
       propertyPath: quest.title
       value: Welcome to Yoon!
@@ -1853,7 +1591,7 @@ PrefabInstance:
     - target: {fileID: 7433965726779278901, guid: a2d846d5909064619804cd9e20d26b06, type: 3}
       propertyPath: QuestDescript
       value: 
-      objectReference: {fileID: 244436516}
+      objectReference: {fileID: 0}
     - target: {fileID: 7433965726779278901, guid: a2d846d5909064619804cd9e20d26b06, type: 3}
       propertyPath: descriptionTxt
       value: 
@@ -1886,6 +1624,10 @@ PrefabInstance:
     - target: {fileID: 7433965726779278907, guid: a2d846d5909064619804cd9e20d26b06, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7433965726779278907, guid: a2d846d5909064619804cd9e20d26b06, type: 3}
+      propertyPath: m_TagString
+      value: Quest
       objectReference: {fileID: 0}
     - target: {fileID: 7433965727281272785, guid: a2d846d5909064619804cd9e20d26b06, type: 3}
       propertyPath: m_Name
@@ -2688,7 +2430,6 @@ RectTransform:
   - {fileID: 1267678118}
   - {fileID: 744892068}
   - {fileID: 946179138}
-  - {fileID: 771386141}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2713,6 +2454,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f084e2b96453a2d4595f30ac249e695f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1294952980 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2814550038226292587, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+  m_PrefabInstance: {fileID: 2031657328}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1338388961
 GameObject:
   m_ObjectHideFlags: 0
@@ -2857,6 +2603,16 @@ Terrain:
   m_GroupingID: 0
   m_RenderingLayerMask: 1
   m_AllowAutoConnect: 0
+--- !u!1 &1345325538 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4294265416637148227, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+  m_PrefabInstance: {fileID: 2031657328}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1396260749 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8449528523401561399, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+  m_PrefabInstance: {fileID: 2031657328}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1472286004
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3054,6 +2810,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1516426017 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6696418642195072776, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+  m_PrefabInstance: {fileID: 2031657328}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1573075991
 GameObject:
   m_ObjectHideFlags: 0
@@ -4304,6 +4065,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1239177082}
     m_Modifications:
+    - target: {fileID: 1419789002, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 885935986891411850, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -4376,6 +4141,88 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1657392844414858459, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: Quest1
+      value: 
+      objectReference: {fileID: 1294952980}
+    - target: {fileID: 1657392844414858459, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: Quest2
+      value: 
+      objectReference: {fileID: 1345325538}
+    - target: {fileID: 1657392844414858459, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: Quest3
+      value: 
+      objectReference: {fileID: 1396260749}
+    - target: {fileID: 1657392844414858459, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: Q1.title
+      value: Welcome to Yoon!
+      objectReference: {fileID: 0}
+    - target: {fileID: 1657392844414858459, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: Q2.title
+      value: Defeat 5 of The Goblins!
+      objectReference: {fileID: 0}
+    - target: {fileID: 1657392844414858459, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: Q3.title
+      value: Null
+      objectReference: {fileID: 0}
+    - target: {fileID: 1657392844414858459, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: Q1.questNum
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1657392844414858459, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: Q2.questNum
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1657392844414858459, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: Q3.questNum
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1657392844414858459, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: QuestMenuUI
+      value: 
+      objectReference: {fileID: 1516426017}
+    - target: {fileID: 1657392844414858459, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: Q1.description
+      value: Hi There! You look to have traveled far! Collect coins around the town
+        and purchase yourself a new weapon!
+      objectReference: {fileID: 0}
+    - target: {fileID: 1657392844414858459, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: Q1.expRewarded
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1657392844414858459, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: Q2.description
+      value: Oh No! The Townspeople say there are Goblins heading for the town! Stop
+        them in the desert before its too late!
+      objectReference: {fileID: 0}
+    - target: {fileID: 1657392844414858459, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: Q2.expRewarded
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 1657392844414858459, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: Q3.description
+      value: Null
+      objectReference: {fileID: 0}
+    - target: {fileID: 1657392844414858459, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: Q3.expRewarded
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 1657392844414858459, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: playerController
+      value: 
+      objectReference: {fileID: 202927261}
+    - target: {fileID: 1657392844414858459, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: Q2.yoodlesRewarded
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1657392844414858459, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: Q3.yoodlesRewarded
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1657392844414858459, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: questCompletedMenuUI
+      value: 
+      objectReference: {fileID: 2031657329}
     - target: {fileID: 2901440613159942047, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
       propertyPath: m_Color.b
       value: 0
@@ -4551,7 +4398,7 @@ PrefabInstance:
     - target: {fileID: 7115360239846830895, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
       propertyPath: QuestMenuUI
       value: 
-      objectReference: {fileID: 244436515}
+      objectReference: {fileID: 1516426017}
     - target: {fileID: 7115360239846830895, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
       propertyPath: crosshairOn
       value: 1
@@ -4575,6 +4422,14 @@ PrefabInstance:
     - target: {fileID: 7115360239846830897, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
       propertyPath: m_Name
       value: Pause Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7433965726886669832, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 202927261}
+    - target: {fileID: 7433965726886669832, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: quest.isActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7696859551738288564, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -4600,17 +4455,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 975570537252813688, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
   m_PrefabInstance: {fileID: 2031657328}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2086069354 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 130853020, guid: 84321cebe830d4800b25ccc0da58f0ef, type: 3}
-  m_PrefabInstance: {fileID: 244436514}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2092152115
 GameObject:
   m_ObjectHideFlags: 0
@@ -4926,7 +4770,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8036419428027230908, guid: d5d8d39761b6f4d319074c5ee29c9926, type: 3}
       propertyPath: currentQuest
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8036419428027230908, guid: d5d8d39761b6f4d319074c5ee29c9926, type: 3}
       propertyPath: pauseManager
