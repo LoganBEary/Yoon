@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
 
     // ++++++++++++++++++++++++++++ Info saved for WeaponHolder script ++++++++++++++++++++++++++++
     public int selectedWeaponID;
+    public int currentAttackType;
 
 
     // ++++++++++++++++++++++++++++ Subjects and observers used for observer pattern ++++++++++++++++++++++++++++
@@ -80,6 +81,7 @@ public class GameManager : MonoBehaviour
         playerIsInvincible = GameManager.gameManager.playerIsInvincible;
         statMaxedList = GameManager.gameManager.statMaxedList;
         currentQ = GameManager.gameManager.currentQ;
+        currentAttackType = GameManager.gameManager.currentAttackType;
     }
 
     // ============================================================================== UpdateInfo Funtion ==============================================================================
@@ -107,6 +109,7 @@ public class GameManager : MonoBehaviour
         GameManager.gameManager.playerIsInvincible = playerIsInvincible;
         GameManager.gameManager.statMaxedList = statMaxedList;
         GameManager.gameManager.currentQ = currentQ;
+        GameManager.gameManager.currentAttackType = currentAttackType;
     }
 
     // ============================================================================== Notify Funtion ==============================================================================

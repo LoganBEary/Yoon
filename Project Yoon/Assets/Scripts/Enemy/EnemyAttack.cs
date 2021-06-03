@@ -48,6 +48,18 @@ public class EnemyAttack : MonoBehaviour
         }
     }
 
+    private void dragonAttack()
+    {
+        Vector3 d = player.position - transform.position;
+        Debug.Log(d.sqrMagnitude);
+        if (d.sqrMagnitude <= 6.6)
+        {
+            player.GetComponent<MainPlayerController>().takeDamage(damage);
+        }
+        
+        return;
+    }
+
     public void attack()
     {
         // call the correct attack function based on the enemy type
@@ -55,6 +67,7 @@ public class EnemyAttack : MonoBehaviour
         {
             case 0: longRangeAttack(); break;
             case 1: closeAttack(); break;
+            case 2: dragonAttack(); break;
         }
     }
 }

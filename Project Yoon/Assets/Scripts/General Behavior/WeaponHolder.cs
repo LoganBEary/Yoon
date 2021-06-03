@@ -26,8 +26,8 @@ public class WeaponHolder : MonoBehaviour
         }
         selectedWeapon = GameManager.gameManager.selectedWeaponID;
         selectedWeaponObject = transform.GetChild(selectedWeapon).gameObject; // Update the selected weapon GameObject
-        int wType = 0;
-        selectWeapon(selectedWeapon, wType); // Make this function call to 'equip' the weapon by setting the correct gameobject active in the scene
+        currentAttackType = GameManager.gameManager.currentAttackType;
+        selectWeapon(selectedWeapon, currentAttackType); // Make this function call to 'equip' the weapon by setting the correct gameobject active in the scene
     }
 
     // This function will swap the weapon that the player is holding. It is called 
@@ -67,5 +67,6 @@ public class WeaponHolder : MonoBehaviour
     {
         // Save the currently selected weapon ID/index
         GameManager.gameManager.selectedWeaponID = selectedWeapon;
+        GameManager.gameManager.currentAttackType = currentAttackType;
     }
 }
