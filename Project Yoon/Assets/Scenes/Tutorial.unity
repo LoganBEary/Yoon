@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -523,7 +523,7 @@ MonoBehaviour:
   curHealth: 100
   yoodles: 0
   playerIsInvincible: 0
-  currentQuest: 0
+  currentQ: 0
   itemList:
   - {fileID: 11400000, guid: df5fd643a8ef178459364a872954cdb9, type: 2}
   - {fileID: 11400000, guid: e23ad563fbe859240b1a4565ad2d93ac, type: 2}
@@ -537,12 +537,14 @@ MonoBehaviour:
   playerLevel: 1
   experiencePoints: 0
   statsList:
+  - 100
   - 0
   - 0
   - 0
-  - 0
-  statMaxedList: 
+  statMaxedList: 01010101
   selectedWeaponID: 0
+  currentAttackType: 0
+  firstLoadTown: 1
 --- !u!4 &338502138
 Transform:
   m_ObjectHideFlags: 0
@@ -1071,10 +1073,47 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 754303443}
-  QuestMenuUI: {fileID: 868688946}
+  questCompletedMenuUI: {fileID: 0}
   PauseM: {fileID: 1035045110}
-  Quest2Display: {fileID: 1093119789}
-  numOfDefeated: 0
+  QuestMenuUI: {fileID: 868688946}
+  Quest1: {fileID: 0}
+  Quest2: {fileID: 0}
+  Quest3: {fileID: 0}
+  Quest4: {fileID: 0}
+  Q1:
+    questNum: 0
+    isActive: 0
+    isComplete: 0
+    title: 
+    description: 
+    yoodlesRewarded: 0
+    expRewarded: 0
+  Q2:
+    questNum: 0
+    isActive: 0
+    isComplete: 0
+    title: 
+    description: 
+    yoodlesRewarded: 0
+    expRewarded: 0
+  Q3:
+    questNum: 0
+    isActive: 0
+    isComplete: 0
+    title: 
+    description: 
+    yoodlesRewarded: 0
+    expRewarded: 0
+  Q4:
+    questNum: 0
+    isActive: 0
+    isComplete: 0
+    title: 
+    description: 
+    yoodlesRewarded: 0
+    expRewarded: 0
+  QuestOffer1: {fileID: 0}
+  QuestOffer2: {fileID: 0}
 --- !u!1 &772163853
 GameObject:
   m_ObjectHideFlags: 0
@@ -1663,17 +1702,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3250885045470570652, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
   m_PrefabInstance: {fileID: 1035045105}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1093119789 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4294265416637148227, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
-  m_PrefabInstance: {fileID: 1035045105}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1093119792 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7711766846783435390, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
   m_PrefabInstance: {fileID: 1035045105}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1093119789}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}

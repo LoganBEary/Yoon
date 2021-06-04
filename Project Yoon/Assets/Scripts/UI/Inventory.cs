@@ -47,7 +47,7 @@ public class Inventory : MonoBehaviour
     }
 
     // This function goes through the inventory and updates each slot to display the correct item
-    void updatePanelSlots()
+    public void updatePanelSlots()
     {
         // Used for assigning indices to the items
         int i = 0;

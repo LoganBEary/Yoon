@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1113,6 +1113,7 @@ MonoBehaviour:
   statMaxedList: 00000000
   selectedWeaponID: 0
   currentAttackType: 0
+  firstLoadTown: 0
 --- !u!4 &523394248
 Transform:
   m_ObjectHideFlags: 0
@@ -1279,7 +1280,7 @@ MonoBehaviour:
   thePlayer: {fileID: 202927257}
   thePlayerController: {fileID: 202927261}
   spawner: {fileID: 696317391}
-  spawnTimer: 2
+  spawnTimer: 3
   randomSpawnTime: 5
   maxNumOfEnemies: 3
 --- !u!4 &696317393
@@ -4902,6 +4903,56 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7433965727586628009, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
   m_PrefabInstance: {fileID: 2031657328}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2088023325
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2088023327}
+  - component: {fileID: 2088023326}
+  m_Layer: 0
+  m_Name: EnemySpawner (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2088023326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2088023325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8c9a4cac9ef844aaaf61a69d7c0f5a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 768724254793352865, guid: 7e352ec1de04ff44295ef6c81c72d346, type: 3}
+  thePlayer: {fileID: 202927257}
+  thePlayerController: {fileID: 202927261}
+  spawner: {fileID: 2088023325}
+  spawnTimer: 4
+  randomSpawnTime: 5
+  maxNumOfEnemies: 8
+--- !u!4 &2088023327
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2088023325}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 51.57, y: -1.1038017, z: -17.97}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 20
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2092152115
 GameObject:
   m_ObjectHideFlags: 0
@@ -5017,6 +5068,56 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!1 &2133472671
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2133472673}
+  - component: {fileID: 2133472672}
+  m_Layer: 0
+  m_Name: EnemySpawner (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2133472672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2133472671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8c9a4cac9ef844aaaf61a69d7c0f5a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 6443466915731362602, guid: 4ca13c1412fec3e48b31c8428b91eabd, type: 3}
+  thePlayer: {fileID: 202927257}
+  thePlayerController: {fileID: 202927261}
+  spawner: {fileID: 2133472671}
+  spawnTimer: 3
+  randomSpawnTime: 5
+  maxNumOfEnemies: 5
+--- !u!4 &2133472673
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2133472671}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -9.73, y: -1.1038017, z: 26.63}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2137291050
 GameObject:
   m_ObjectHideFlags: 0

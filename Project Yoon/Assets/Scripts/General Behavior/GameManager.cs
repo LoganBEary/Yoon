@@ -32,6 +32,9 @@ public class GameManager : MonoBehaviour
     public int selectedWeaponID;
     public int currentAttackType;
 
+    // ++++++++++++++++++++++++++++++ Info saved for ClearGMonLoad Script +++++++++++++++++++++++++
+    public bool firstLoadTown;
+
 
     // ++++++++++++++++++++++++++++ Subjects and observers used for observer pattern ++++++++++++++++++++++++++++
     Subject firstQuestSubject = new Subject();
@@ -82,6 +85,7 @@ public class GameManager : MonoBehaviour
         statMaxedList = GameManager.gameManager.statMaxedList;
         currentQ = GameManager.gameManager.currentQ;
         currentAttackType = GameManager.gameManager.currentAttackType;
+        firstLoadTown = GameManager.gameManager.firstLoadTown;
     }
 
     // ============================================================================== UpdateInfo Funtion ==============================================================================
@@ -110,6 +114,7 @@ public class GameManager : MonoBehaviour
         GameManager.gameManager.statMaxedList = statMaxedList;
         GameManager.gameManager.currentQ = currentQ;
         GameManager.gameManager.currentAttackType = currentAttackType;
+        GameManager.gameManager.firstLoadTown = firstLoadTown;
     }
 
     // ============================================================================== Notify Funtion ==============================================================================

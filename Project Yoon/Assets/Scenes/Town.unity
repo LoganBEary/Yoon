@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9993,6 +9993,7 @@ MonoBehaviour:
   statMaxedList: 01010101
   selectedWeaponID: 0
   currentAttackType: 0
+  firstLoadTown: 0
 --- !u!4 &893983776
 Transform:
   m_ObjectHideFlags: 0
@@ -12748,6 +12749,68 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1197399554}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1209346026
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1209346028}
+  - component: {fileID: 1209346027}
+  m_Layer: 0
+  m_Name: ClearGameManagerOnFirstLoad
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1209346027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1209346026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 193388d615fd1444c83a2fefd3374355, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curHealth: 100
+  yoodles: 0
+  playerIsInvincible: 0
+  currentQ: 0
+  itemList:
+  - {fileID: 11400000, guid: df5fd643a8ef178459364a872954cdb9, type: 2}
+  previousScene: 
+  currentScene: 
+  upgradePoints: 0
+  playerLevel: 0
+  experiencePoints: 0
+  statsList:
+  - 100
+  - 0
+  - 0
+  - 0
+  statMaxedList: 01010101
+  selectedWeaponID: 0
+  currentAttackType: 0
+--- !u!4 &1209346028
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1209346026}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 25.793108, y: 6.326453, z: -10.043447}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 30
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1212320416
 GameObject:
   m_ObjectHideFlags: 0
