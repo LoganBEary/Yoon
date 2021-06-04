@@ -38,14 +38,14 @@ public class Shop : MonoBehaviour
     IEnumerator displaysuccessPrompt()
     {
         successPrompt.SetActive(true);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSecondsRealtime(2f);
         successPrompt.SetActive(false);
     }
 
     IEnumerator displaynotEnoughPrompt()
     {
         notEnoughPrompt.SetActive(true);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSecondsRealtime(2f);
         notEnoughPrompt.SetActive(false);
     }
 
