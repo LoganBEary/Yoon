@@ -14,7 +14,7 @@ public class FinalBoss : MonoBehaviour
         {
             if (player.currentQuest == 5)
             {
-                    pauseM.GetComponent<PauseManager>().OnPause();
+                pauseM.GetComponent<PauseManager>().OnPause();
                 quest.GetComponent<QuestGiver>().OpenQuestUI();
                 player.currentQuest++;
             }

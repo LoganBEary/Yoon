@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1067,6 +1067,66 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3879074502141594364, guid: 62160d5cfd1cc09488f002dda4046145, type: 3}
   m_PrefabInstance: {fileID: 92596923}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &92996731
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 92996732}
+  - component: {fileID: 92996734}
+  - component: {fileID: 92996733}
+  m_Layer: 0
+  m_Name: SecondQuestTrigger (7)
+  m_TagString: QuestCollider
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &92996732
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 92996731}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4.4, y: -1.92, z: -4.55}
+  m_LocalScale: {x: 1.44, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 561894157}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &92996733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 92996731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a9867e7bdc17426694829d6acf4fff3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quest: {fileID: 556477594}
+  pauseM: {fileID: 556477585}
+  player: {fileID: 993526703}
+--- !u!135 &92996734
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 92996731}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.21
+  m_Center: {x: -0.13, y: 0, z: 0}
 --- !u!4 &93279893 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4991001240701050, guid: b3d0e1c692a75b34d96fb84c9b431b64, type: 3}
@@ -5242,9 +5302,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 993526703}
     - target: {fileID: 7433965726676372373, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: QuestTitle
+      value: 
+      objectReference: {fileID: 556477599}
+    - target: {fileID: 7433965726676372373, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
       propertyPath: quest.title
       value: Prepare Yourself!
       objectReference: {fileID: 0}
+    - target: {fileID: 7433965726676372373, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+      propertyPath: QuestDescript
+      value: 
+      objectReference: {fileID: 556477598}
     - target: {fileID: 7433965726676372373, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
       propertyPath: quest.description
       value: Uh Oh it sounds like the Goblins have awoken the Dragon! Level up and
@@ -5396,6 +5464,28 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1444026336381953517, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
   m_PrefabInstance: {fileID: 556477584}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &556477598 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7433965728172037724, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+  m_PrefabInstance: {fileID: 556477584}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &556477599 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7433965727379724915, guid: 044d8d01d373eb74a87b54d89c11fbe4, type: 3}
+  m_PrefabInstance: {fileID: 556477584}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &560884586 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6443466915731362596, guid: 4ca13c1412fec3e48b31c8428b91eabd, type: 3}
@@ -5434,6 +5524,8 @@ Transform:
   - {fileID: 832740213}
   - {fileID: 1127590390}
   - {fileID: 1414838335}
+  - {fileID: 1186529145}
+  - {fileID: 92996732}
   m_Father: {fileID: 0}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7034,7 +7126,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 741089676}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.32, y: -1.919, z: -0.33}
+  m_LocalPosition: {x: -1.94, y: -1.919, z: -0.33}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 561894157}
@@ -7066,7 +7158,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.46
+  m_Radius: 1.76
   m_Center: {x: -0.13, y: 0, z: 0}
 --- !u!1001 &746135175
 PrefabInstance:
@@ -8016,7 +8108,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 832740212}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.66, y: -1.69, z: -4.24}
+  m_LocalPosition: {x: 8.06, y: -1.69, z: -4.24}
   m_LocalScale: {x: 1.44, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 561894157}
@@ -8048,7 +8140,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.21
+  m_Radius: 1.52
   m_Center: {x: -0.13, y: 0, z: 0}
 --- !u!1 &838382582 stripped
 GameObject:
@@ -9169,7 +9261,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 921745362}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.87, y: -1.69, z: 4.35}
+  m_LocalPosition: {x: 1.82, y: -1.69, z: 5.4}
   m_LocalScale: {x: 1.44, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 561894157}
@@ -9201,7 +9293,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.79
+  m_Radius: 1.19
   m_Center: {x: -0.13, y: 0, z: 0}
 --- !u!1 &923984760
 GameObject:
@@ -11432,7 +11524,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1127590389}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.98, y: -1.92, z: -3.69}
+  m_LocalPosition: {x: 0.05, y: -1.92, z: -3.65}
   m_LocalScale: {x: 1.44, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 561894157}
@@ -12226,6 +12318,66 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af1a4709df73f6d498a977acf44278cb, type: 3}
+--- !u!1 &1186529144
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1186529145}
+  - component: {fileID: 1186529147}
+  - component: {fileID: 1186529146}
+  m_Layer: 0
+  m_Name: SecondQuestTrigger (6)
+  m_TagString: QuestCollider
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1186529145
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1186529144}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4.69, y: -1.69, z: 6.41}
+  m_LocalScale: {x: 1.44, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 561894157}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1186529146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1186529144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a9867e7bdc17426694829d6acf4fff3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quest: {fileID: 556477594}
+  pauseM: {fileID: 556477585}
+  player: {fileID: 993526703}
+--- !u!135 &1186529147
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1186529144}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.03
+  m_Center: {x: -0.13, y: 0, z: 0}
 --- !u!4 &1198534336 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4912536897705504, guid: b9eb627f7bb4c1748829f3f01ce72b68, type: 3}
@@ -14850,7 +15002,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1414838334}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.57, y: -1.69, z: 5.52}
+  m_LocalPosition: {x: 7.94, y: -1.69, z: 7.13}
   m_LocalScale: {x: 1.44, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 561894157}
@@ -14882,7 +15034,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.79
+  m_Radius: 1.12
   m_Center: {x: -0.13, y: 0, z: 0}
 --- !u!4 &1417051549 stripped
 Transform:
@@ -20742,7 +20894,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2067023135}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.283, y: -1.593, z: 2.55}
+  m_LocalPosition: {x: -0.74, y: -1.593, z: 3.06}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 561894157}
@@ -20774,7 +20926,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.1
+  m_Radius: 1.37
   m_Center: {x: -0.13, y: 0, z: 0}
 --- !u!1001 &2067191699
 PrefabInstance:

@@ -98,7 +98,6 @@ public class QuestObserver : MonoBehaviour
             Quest4.SetActive(true);
             Quest4.GetComponent<TextMeshProUGUI>().text = Q4.title;
             Quest4.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = Q4.description;
-            Q4.isActive = true;
         }
 
         if(playerController.currentQuest >= 5)
