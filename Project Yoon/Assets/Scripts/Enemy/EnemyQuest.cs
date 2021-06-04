@@ -5,13 +5,16 @@ using TMPro;
 
 public class EnemyQuest : MonoBehaviour
 {
-    public string questName;
-    public TextMeshProUGUI questText;
+    public GeneralQuest Q3;
+    public GameObject Quest4Offer;
+    public MainPlayerController player;
+    public PauseManager pauseM;
+    public IEnumerator popUp;
 
     public void onDeath()
     {
-        GameManager.gameManager.notifyEvent(questName);
-        questText.enabled = false;
-        return;
+        
+            player.KingDefeated = true;
+    
     }
 }

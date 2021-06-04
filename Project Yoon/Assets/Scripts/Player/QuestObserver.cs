@@ -22,12 +22,11 @@ public class QuestObserver : MonoBehaviour
     public GameObject QuestOffer1;
     public GameObject QuestOffer2;
     private bool set;
-
+    //private GameObject GoblinKing;
     // Start is called before the first frame update
     // Update is called once per frame
     public void Start()
     {
-    
         set = false;
     }
     void Update()
@@ -41,10 +40,10 @@ public class QuestObserver : MonoBehaviour
             Quest1.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = Q1.description;
 
         }
-        if(playerController.currentQuest == 2)
-        { 
+        if (playerController.currentQuest == 2)
+        {
             var obj = GameObject.FindGameObjectWithTag("OnStart");
-            if(obj != null)
+            if (obj != null)
                 obj.GetComponent<startFirstQuest>().enabled = false;
             Q1.isComplete = true;
             Quest1.GetComponent<TextMeshProUGUI>().text = Q1.title;
@@ -63,7 +62,7 @@ public class QuestObserver : MonoBehaviour
 
             }
         }
-        if(playerController.currentQuest == 3)
+        if (playerController.currentQuest == 3)
         {
             Q1.isComplete = true;
             Q2.isComplete = true;
@@ -81,6 +80,46 @@ public class QuestObserver : MonoBehaviour
             Quest3.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = Q3.description;
 
         }
+
+        if (playerController.currentQuest == 4)
+        {
+            Quest1.SetActive(true);
+            Quest1.transform.GetChild(1).GetComponent<Toggle>().isOn = true;
+            Quest1.GetComponent<TextMeshProUGUI>().text = Q1.title;
+            Quest1.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = Q1.description;
+            Quest2.SetActive(true);
+            Quest2.GetComponent<TextMeshProUGUI>().text = Q2.title;
+            Quest2.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = Q2.description;
+            Quest2.transform.GetChild(1).GetComponent<Toggle>().isOn = true;
+            Quest3.SetActive(true);
+            Quest3.GetComponent<TextMeshProUGUI>().text = Q3.title;
+            Quest3.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = Q3.description;
+            Quest3.transform.GetChild(1).GetComponent<Toggle>().isOn = true;
+            Quest4.SetActive(true);
+            Quest4.GetComponent<TextMeshProUGUI>().text = Q4.title;
+            Quest4.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = Q4.description;
+            Q4.isActive = true;
+        }
+
+        if(playerController.currentQuest >= 5)
+        {
+            Quest1.SetActive(true);
+            Quest1.transform.GetChild(1).GetComponent<Toggle>().isOn = true;
+            Quest1.GetComponent<TextMeshProUGUI>().text = Q1.title;
+            Quest1.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = Q1.description;
+            Quest2.SetActive(true);
+            Quest2.GetComponent<TextMeshProUGUI>().text = Q2.title;
+            Quest2.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = Q2.description;
+            Quest2.transform.GetChild(1).GetComponent<Toggle>().isOn = true;
+            Quest3.SetActive(true);
+            Quest3.GetComponent<TextMeshProUGUI>().text = Q3.title;
+            Quest3.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = Q3.description;
+            Quest3.transform.GetChild(1).GetComponent<Toggle>().isOn = true;
+            Quest4.SetActive(true);
+            Quest4.GetComponent<TextMeshProUGUI>().text = Q4.title;
+            Quest4.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = Q4.description;
+            Quest4.transform.GetChild(1).GetComponent<Toggle>().isOn = true;
+        }
     }
 
 
@@ -97,6 +136,10 @@ public class QuestObserver : MonoBehaviour
         // Display the Completed Text UI
         questCompletedMenuUI.SetActive(true);
         playerController.currentQuest++;
+        if (playerController.currentQuest == 3)
+            Q3.isActive = true;
+        if (playerController.currentQuest == 4)
+            Q4.isActive = true;
     }
 
     public void OpenQuestUI(int Q)
@@ -110,7 +153,7 @@ public class QuestObserver : MonoBehaviour
             QuestOffer1.SetActive(true);
             Quest3.SetActive(true);
         }
-        if(Q == 4)
+        if (Q == 4)
         {
             QuestOffer2.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = Q4.title;
             QuestOffer2.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = Q4.description;

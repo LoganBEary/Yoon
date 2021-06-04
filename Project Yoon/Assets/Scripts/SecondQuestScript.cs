@@ -26,6 +26,14 @@ public class SecondQuestScript : MonoBehaviour
                 for(int x = 0; x < colliders.Length; x++)
                     colliders[x].SetActive(false);
             }
+            else if (player.currentQuest == 4)
+            {
+                player.KingDefeated = false;
+                pauseM.GetComponent<PauseManager>().OnPause();
+                quest.GetComponent<QuestGiver>().OpenQuestUI();
+                for (int x = 0; x < colliders.Length; x++)
+                    colliders[x].SetActive(false);
+            }
         }
     }
 }

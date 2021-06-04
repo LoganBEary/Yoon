@@ -24,6 +24,7 @@ public class SetQuestReward : MonoBehaviour
             yoodlesText.text = "+ " + yoon.ToString() + " Yoodles";
             xpText.text = "+ " + exp.ToString() + " XP";
             QuestToggle.isOn = true;
+            
         // Display the Completed Text UI
             questCompletedMenuUI.SetActive(true);
             player.currentQuest++;

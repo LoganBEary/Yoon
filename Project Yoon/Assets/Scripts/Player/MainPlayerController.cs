@@ -32,7 +32,7 @@ public class MainPlayerController : MonoBehaviour
     private InputManager inputManager;
     private Transform cameraTransform;
     private EnemyController enemyClose;
-   
+
 
     // ++++++++++++++++++++ Combat Variables +++++++++++++++++++++++
     private GameObject weapon; // Reference to currently equipped weapon
@@ -78,19 +78,28 @@ public class MainPlayerController : MonoBehaviour
 
     // For Quest Checking
     public int numOfDefeated;
+    public bool KingDefeated;
+    public bool DragonKilled;
     private bool set;
-    //public GameObject Quest_3;
-    //public GameObject Quest_4;
+    private bool set2;
+    private GameObject quest1;
+    private GameObject quest2;
 
     public void SetCountText()
-	{
-            countText.text = "Yoodles: " + CoinCount.ToString();
+    {
+        countText.text = "Yoodles: " + CoinCount.ToString();
     }
     // Start is called before the first frame update
     void Start()
     {
-        
-        //GameObject quest = GameObject.FindGameObjectWithTag("Quest3");
+        KingDefeated = false;
+        DragonKilled = false;
+        if (GameManager.gameManager.currentScene == "SecondLevel")
+        {
+            GameObject quest1 = GameObject.FindGameObjectWithTag("Quest3");
+            GameObject quest2 = GameObject.FindGameObjectWithTag("Quest4");
+          //  GameObject KingG = GameObject.FindGameObjectWithTag("KingGoblin");
+        }
         enemyClose = GetComponent<EnemyController>();
         controller = GetComponent<CharacterController>();
         inputManager = InputManager.Instance;
@@ -100,6 +109,11 @@ public class MainPlayerController : MonoBehaviour
         currentQuest = GameManager.gameManager.currentQ;
         SetCountText();
         set = false;
+        set2 = false;
+        if(currentQuest == 5)
+            set2 = true;
+        if (currentQuest == 3)
+            set = true;
         //weapon = GameObject.FindGameObjectWithTag("WeaponEquiped");
 
         baseDamage = GameManager.gameManager.statsList[1];
@@ -143,11 +157,19 @@ public class MainPlayerController : MonoBehaviour
 
     void Update()
     {
-        //Quest_3 = GameObject.FindWithTag("Quest3");
-        //Quest_4 = GameObject.FindWithTag("Quest4");
+        if (currentQuest == 2 || (currentQuest == 3 && numOfDefeated == 5))
+            set = false;
+        else
+            //Quest 2 is done - and QuestUI has popped up
+            set = true;
+        if (currentQuest == 3 && quest1 != null)
+            quest1.GetComponent<GeneralQuest>().isActive = true;
+        if (currentQuest == 4 && quest2 != null)
+            quest2.GetComponent<GeneralQuest>().isActive = true;
+
         if (attackTimer < coolDownTime)
             attackTimer += Time.deltaTime;
-        if(Health <= 0)
+        if (Health <= 0)
         {
             pauseManager.gameOver();
         }
@@ -184,29 +206,43 @@ public class MainPlayerController : MonoBehaviour
         playerVelocity.y += gravityVal * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
 
-        GameObject obs = GameObject.FindGameObjectWithTag("Observer");
+        //GameObject obs = GameObject.FindGameObjectWithTag("Observer");
         if (numOfDefeated == 5 && currentQuest == 2)
         {
-            int yoons = obs.GetComponent<QuestObserver>().Q2.yoodlesRewarded;
-            int exp = obs.GetComponent<QuestObserver>().Q2.expRewarded;
-            obs.GetComponent<QuestObserver>().QuestComplete(yoons, exp);
+            int yoons = GetComponent<QuestObserver>().Q2.yoodlesRewarded;
+            int exp = GetComponent<QuestObserver>().Q2.expRewarded;
+            GetComponent<QuestObserver>().QuestComplete(yoons, exp);
         }
         if (currentQuest == 3 && !set)
         {
-            if (!PauseM.paused)
+            if (!PauseM.paused && (!GetComponent<QuestObserver>().Q3.isActive
+                || !GetComponent<QuestObserver>().Q3.isComplete))
             {
                 set = true;
+                numOfDefeated++;
                 Debug.Log("Q comp");
                 StartCoroutine(QuestPopUpDelay());
                 PauseM.OnPause();
-                obs.GetComponent<QuestObserver>().OpenQuestUI(3);
+                GetComponent<QuestObserver>().OpenQuestUI(3);
             }
+
         }
+
+        if (KingDefeated == true && set2 == false)
+        { 
+            GetComponent<QuestObserver>().QuestComplete(20, 650);
+            
+            KingDefeated = false;
+            
+        }
+        if (set2 == true)
+            GetComponent<QuestObserver>().QuestOffer2.SetActive(true);
+
     }
 
     public void OnFire()
     {
-        if (!pauseManager.paused && !pauseManager.inInventory &&!pauseManager.inShop && !pauseManager.inCheatMenu)
+        if (!pauseManager.paused && !pauseManager.inInventory && !pauseManager.inShop && !pauseManager.inCheatMenu)
         {
             //Debug.Log("Attack!");
             Attack();
@@ -238,15 +274,15 @@ public class MainPlayerController : MonoBehaviour
         }
         if (other.gameObject.tag == "OutOfBounds")
         {
-            transform.position = new Vector3(xPos,yPos,zPos);
+            transform.position = new Vector3(xPos, yPos, zPos);
         }
     }
 
     public void Attack()
     {
-        if(Energy > 19.5f && attackTimer >= coolDownTime)
+        if (Energy > 19.5f && attackTimer >= coolDownTime)
         {
-            if(energy.Regenerating)
+            if (energy.Regenerating)
             {
                 energy.StopCoroutine(energy.energyCoroutine);
                 energy.Regenerating = !energy.Regenerating;
@@ -269,25 +305,25 @@ public class MainPlayerController : MonoBehaviour
                 Transform proj = Instantiate(spellAttackPrefab, transform.position, cm.rotation);
                 proj.gameObject.GetComponent<PlayerRangedAttack>().damage = damage;
             }
-       // Separate takehit function for crates so that breaking them is independent of the player's damage. 
-       // This can be modified later if needed
-        if (crate)
-        {
-            crate.takeHit();
-        }
-        // Maybe have an attack cooldown so the player can only attack <X> times per second?
-        // If canAttack:
+            // Separate takehit function for crates so that breaking them is independent of the player's damage. 
+            // This can be modified later if needed
+            if (crate)
+            {
+                crate.takeHit();
+            }
+            // Maybe have an attack cooldown so the player can only attack <X> times per second?
+            // If canAttack:
 
-        // Figure out if looking at enemey:
-        // Probably use physics raycast directly foward from player to find enemy. Similar to one of the scripts in haunted jaunt game
+            // Figure out if looking at enemey:
+            // Probably use physics raycast directly foward from player to find enemy. Similar to one of the scripts in haunted jaunt game
 
-        // If raycast found an enemy, damage the enemy:
-        // Something along these lines:
-        // enemy.getComponent<EnemyController>().takeDamage(20f);
+            // If raycast found an enemy, damage the enemy:
+            // Something along these lines:
+            // enemy.getComponent<EnemyController>().takeDamage(20f);
 
-        // Reset attack cooldown
-        // canAttack = false;
-        // StartCoroutine(resetAttack());
+            // Reset attack cooldown
+            // canAttack = false;
+            // StartCoroutine(resetAttack());
         }
     }
 

@@ -105,6 +105,7 @@ public class DragonAI : EnemyController
         // Give the player experience
         if (dead)
         {
+            GetComponent<GameOverScript>().GameOver();
             GameManager.gameManager.addXP(experience);
             if (gameObject.layer == 11)
             {
